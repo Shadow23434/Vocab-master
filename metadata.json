@@ -1,0 +1,5 @@
+{
+  "name": "VocabMaster",
+  "description": "A gamified vocabulary learning application featuring Flashcards and Quizzes, powered by Gemini for content generation.",
+  "requestFramePermissions": []
+}
