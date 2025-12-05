@@ -82,7 +82,7 @@ const App: React.FC = () => {
   }, [progress, isLoading]);
 
   const handleAddGenerated = (newItems: VocabItem[]) => {
-    setVocabList(prev => [...newItems, ...prev]);
+    setVocabList(prev => [...prev, ...newItems]);
   };
 
   const handleStartSession = (selectedItems: VocabItem[], targetMode: AppMode, setId: string | null, shuffle: boolean = false) => {

@@ -59,8 +59,6 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
     window.speechSynthesis.speak(utterance);
   };
 
-  const getSetId = (startIndex: number, size: number) => `set-${startIndex}-${size}`;
-
   const toggleShuffle = (setId: string, e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent click from bubbling to set card
     setShuffledSets(prev => {
@@ -83,7 +81,10 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
 
     for (let i = 0; i < totalItems; i += size) {
       const end = Math.min(i + size, totalItems);
-      const setId = getSetId(i, size);
+      // Use first vocab ID in the set to create stable setId
+      // This ensures progress is not lost when new data is imported
+      const firstVocabId = data[i]?.id || String(i);
+      const setId = `set-${firstVocabId}-${size}`;
       
       let progressVal = 0;
 
@@ -115,7 +116,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
             </div>
             <button 
               onClick={() => setSelectionMode(null)}
-              className="p-2 hover:bg-gray-200 rounded-full transition"
+              className="flex items-center text-gray-600 hover:text-quizizz-purple font-semibold transition"
             >
               Close
             </button>

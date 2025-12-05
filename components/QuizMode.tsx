@@ -192,7 +192,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
     <div className="max-w-4xl mx-auto w-full px-4 py-6 flex flex-col h-screen max-h-[900px]">
       {/* Top Bar */}
       <div className="flex justify-between items-center mb-4 bg-white p-4 rounded-xl shadow-sm">
-        <button onClick={handleExit} className="text-gray-400 hover:text-gray-600 font-bold text-sm">EXIT</button>
+        <button onClick={handleExit} className="flex items-center text-gray-600 hover:text-quizizz-purple font-semibold transition">EXIT</button>
         
         <div className="flex-1 mx-4 md:mx-6 flex items-center">
             <div className="text-sm font-bold text-gray-500 mr-3 w-12 text-right">
