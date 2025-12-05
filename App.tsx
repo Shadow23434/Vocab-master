@@ -15,6 +15,8 @@ const App: React.FC = () => {
   // Game Session State
   const [activeData, setActiveData] = useState<VocabItem[]>([]);
   const [activeSetId, setActiveSetId] = useState<string | null>(null);
+  const [activeShuffle, setActiveShuffle] = useState<boolean>(false);
+  const [returnToMode, setReturnToMode] = useState<AppMode | null>(null);
   
   // Progress State
   const [progress, setProgress] = useState<ProgressState>({ quiz: {}, flashcard: {} });
@@ -83,9 +85,11 @@ const App: React.FC = () => {
     setVocabList(prev => [...newItems, ...prev]);
   };
 
-  const handleStartSession = (selectedItems: VocabItem[], targetMode: AppMode, setId: string | null) => {
+  const handleStartSession = (selectedItems: VocabItem[], targetMode: AppMode, setId: string | null, shuffle: boolean = false) => {
     setActiveData(selectedItems);
     setActiveSetId(setId);
+    setActiveShuffle(shuffle);
+    setReturnToMode(null); // Clear return mode when starting new session
     setMode(targetMode);
   };
 
@@ -121,7 +125,10 @@ const App: React.FC = () => {
         return (
           <FlashcardMode 
             data={activeData} 
-            onBack={() => setMode(AppMode.HOME)} 
+            onBack={() => {
+              setReturnToMode(AppMode.FLASHCARD);
+              setMode(AppMode.HOME);
+            }} 
             onComplete={handleFlashcardComplete}
           />
         );
@@ -129,8 +136,12 @@ const App: React.FC = () => {
         return (
           <QuizMode 
             data={activeData} 
-            onBack={() => setMode(AppMode.HOME)}
+            onBack={() => {
+              setReturnToMode(AppMode.QUIZ);
+              setMode(AppMode.HOME);
+            }}
             onComplete={handleQuizComplete}
+            initialShuffle={activeShuffle}
           />
         );
       case AppMode.HOME:
@@ -141,6 +152,7 @@ const App: React.FC = () => {
             progress={progress}
             onStartSession={handleStartSession}
             onAddGenerated={handleAddGenerated}
+            returnToMode={returnToMode}
           />
         );
     }

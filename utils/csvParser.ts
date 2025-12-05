@@ -41,3 +41,35 @@ export const shuffleArray = <T,>(array: T[]): T[] => {
   }
   return newArray;
 };
+
+// Seeded random number generator (mulberry32)
+const seededRandom = (seed: number): (() => number) => {
+  return () => {
+    let t = seed += 0x6D2B79F5;
+    t = Math.imul(t ^ t >>> 15, t | 1);
+    t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+};
+
+// Convert string to numeric seed
+const stringToSeed = (str: string): number => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash; // Convert to 32bit integer
+  }
+  return Math.abs(hash);
+};
+
+// Shuffle array with a seed (deterministic)
+export const seededShuffleArray = <T,>(array: T[], seed: string): T[] => {
+  const newArray = [...array];
+  const random = seededRandom(stringToSeed(seed));
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};

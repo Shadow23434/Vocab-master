@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { VocabItem } from '../types';
-import { shuffleArray } from '../utils/csvParser';
+import { shuffleArray, seededShuffleArray } from '../utils/csvParser';
 import confetti from 'canvas-confetti';
 import { Check, X, Trophy, RefreshCw, Home, Volume2 } from 'lucide-react';
 
@@ -8,6 +8,7 @@ interface QuizModeProps {
   data: VocabItem[];
   onBack: () => void;
   onComplete?: (score: number) => void;
+  initialShuffle?: boolean;
 }
 
 const COLORS = [
@@ -17,7 +18,7 @@ const COLORS = [
   'bg-quizizz-green border-b-[6px] border-b-[#009476]'
 ];
 
-const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete }) => {
+const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialShuffle = false }) => {
   const [questions, setQuestions] = useState<{ target: VocabItem, options: VocabItem[] }[]>([]);
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -28,20 +29,23 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete }) => {
   const [showResult, setShowResult] = useState(false);
 
   useEffect(() => {
-    initializeQuiz();
-  }, [data]);
+    initializeQuiz(initialShuffle);
+  }, [data, initialShuffle]);
 
-  const initializeQuiz = () => {
-    const shuffledData = shuffleArray(data);
-    const quizQuestions = shuffledData.map(target => {
-      // Find distractors from the *entire* dataset if possible, 
-      // but here we only have the slice passed in 'data'. 
-      // Ideally, distractors should come from the full pool, but using the slice is fair for specific set study.
-      const others = data.filter(d => d.id !== target.id);
+  const initializeQuiz = (shuffle: boolean = false) => {
+    // Only shuffle question order when user requests
+    const orderedData = shuffle ? shuffleArray(data) : [...data];
+    
+    const quizQuestions = orderedData.map((target: VocabItem) => {
+      // Get other words as distractors
+      const others = data.filter((d: VocabItem) => d.id !== target.id);
       
-      // If subset is too small (<4 items), we might have issues with unique distractors, 
-      // but we assume set size >= 4.
-      const distractors = shuffleArray(others).slice(0, 3);
+      // Use seeded shuffle with vocab id as seed
+      // Ensures each word always has the same 3 fixed distractors
+      const seededOthers = seededShuffleArray(others, target.id);
+      const distractors = seededOthers.slice(0, 3);
+      
+      // The order of 4 options is still random each time
       const options = shuffleArray([target, ...distractors]);
       return { target, options };
     });
@@ -207,7 +211,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete }) => {
                 <span className="text-xs text-gray-500 font-bold uppercase">Streak</span>
                 <span className="font-bold text-quizizz-red">🔥 {streak}</span>
             </div>
-            <div className="bg-black text-white px-4 py-2 rounded-lg font-mono font-bold">
+            <div className="bg-purple-600 text-white px-4 py-2 rounded-lg font-mono font-bold">
             {score}
             </div>
         </div>

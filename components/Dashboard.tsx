@@ -1,24 +1,33 @@
 
 import React, { useState } from 'react';
 import { VocabItem, AppMode, ProgressState } from '../types';
-import { Play, Layers, Database, FileText, Upload, CheckCircle, Search, BookOpen, Volume2, Star } from 'lucide-react';
+import { Play, Layers, Database, FileText, Upload, CheckCircle, Search, BookOpen, Volume2, Star, Shuffle } from 'lucide-react';
 import { parseCSV } from '../utils/csvParser';
 
 interface DashboardProps {
   data: VocabItem[];
   progress: ProgressState;
-  onStartSession: (items: VocabItem[], mode: AppMode, setId: string | null) => void;
+  onStartSession: (items: VocabItem[], mode: AppMode, setId: string | null, shuffle?: boolean) => void;
   onAddGenerated: (items: VocabItem[]) => void;
+  returnToMode?: AppMode | null;
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, onAddGenerated }) => {
+const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, onAddGenerated, returnToMode }) => {
   const [importText, setImportText] = useState('');
   const [activeTab, setActiveTab] = useState<'play' | 'library' | 'import'>('play');
   const [searchTerm, setSearchTerm] = useState('');
   
   // Selection State
-  const [selectionMode, setSelectionMode] = useState<AppMode | null>(null);
+  const [selectionMode, setSelectionMode] = useState<AppMode | null>(returnToMode || null);
   const [chunkSize, setChunkSize] = useState<number>(10);
+  const [shuffledSets, setShuffledSets] = useState<Set<string>>(new Set());
+
+  // Auto-open set selector when returning from quiz/flashcard
+  React.useEffect(() => {
+    if (returnToMode) {
+      setSelectionMode(returnToMode);
+    }
+  }, [returnToMode]);
 
   const handleImport = () => {
     if (!importText.trim()) return;
@@ -51,6 +60,19 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
   };
 
   const getSetId = (startIndex: number, size: number) => `set-${startIndex}-${size}`;
+
+  const toggleShuffle = (setId: string, e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent click from bubbling to set card
+    setShuffledSets(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(setId)) {
+        newSet.delete(setId);
+      } else {
+        newSet.add(setId);
+      }
+      return newSet;
+    });
+  };
 
   const renderSetSelector = () => {
     if (!selectionMode) return null;
@@ -125,14 +147,11 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
               {sets.map((set, idx) => {
                 const isCompleted = set.progressVal === 100;
                 const isInProgress = set.progressVal > 0 && set.progressVal < 100;
+                const isShuffled = shuffledSets.has(set.id);
                 
                 return (
-                  <button
+                  <div
                     key={set.id}
-                    onClick={() => {
-                      const subset = data.slice(set.startIndex, set.endIndex);
-                      onStartSession(subset, selectionMode, set.id);
-                    }}
                     className={`relative group bg-white p-6 rounded-2xl border-2 text-left transition-all hover:-translate-y-1 hover:shadow-lg ${
                       isCompleted ? 'border-quizizz-green' : (isInProgress ? 'border-quizizz-yellow' : 'border-gray-200 hover:border-quizizz-blue')
                     }`}
@@ -144,27 +163,43 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
                         {idx + 1}
                       </div>
                       
-                      {set.progressVal > 0 && (
-                        <div className={`flex items-center gap-1 font-bold ${isCompleted ? 'text-quizizz-green' : 'text-yellow-600'}`}>
-                           {selectionMode === AppMode.QUIZ ? (
-                              <>
-                                  <Star fill={isCompleted ? "#00b894" : "#fdcb6e"} className={isCompleted ? "text-quizizz-green" : "text-yellow-500"} size={16} />
-                                  <span>{set.progressVal}%</span>
-                              </>
-                           ) : (
-                              <>
-                                  {isCompleted ? <CheckCircle size={16} /> : <BookOpen size={16} />}
-                                  <span>{isCompleted ? 'Done' : `${set.progressVal}%`}</span>
-                              </>
-                           )}
-                        </div>
-                      )}
+                      <div className="flex items-center gap-2">
+                        {/* Shuffle Button */}
+                        <button
+                          onClick={(e) => toggleShuffle(set.id, e)}
+                          className={`p-2 rounded-lg transition-all ${isShuffled ? 'bg-quizizz-purple text-white' : 'bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600'}`}
+                          title={isShuffled ? 'Shuffle enabled' : 'Shuffle question order'}
+                        >
+                          <Shuffle size={16} />
+                        </button>
+                        
+                        {set.progressVal > 0 && (
+                          <div className={`flex items-center gap-1 font-bold ${isCompleted ? 'text-quizizz-green' : 'text-yellow-600'}`}>
+                            {selectionMode === AppMode.QUIZ ? (
+                                <>
+                                    <Star fill={isCompleted ? "#00b894" : "#fdcb6e"} className={isCompleted ? "text-quizizz-green" : "text-yellow-500"} size={16} />
+                                    <span>{set.progressVal}%</span>
+                                </>
+                            ) : (
+                                <>
+                                    {isCompleted ? <CheckCircle size={16} /> : <BookOpen size={16} />}
+                                    <span>{isCompleted ? 'Done' : `${set.progressVal}%`}</span>
+                                </>
+                            )}
+                          </div>
+                        )}
+                      </div>
                     </div>
                     
                     <h3 className="font-bold text-gray-800 text-lg">Set {idx + 1}</h3>
                     <p className="text-gray-400 text-sm font-medium">
                       Words {set.startIndex + 1} - {set.endIndex}
                     </p>
+                    {isShuffled && (
+                      <p className="text-quizizz-purple text-xs font-bold mt-1 flex items-center gap-1">
+                        <Shuffle size={12} /> Shuffled
+                      </p>
+                    )}
 
                     <div className="mt-4 w-full h-2 bg-gray-100 rounded-full overflow-hidden">
                       <div 
@@ -172,7 +207,18 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
                         style={{ width: `${set.progressVal}%` }}
                       ></div>
                     </div>
-                  </button>
+                    
+                    {/* Play Button */}
+                    <button
+                      onClick={() => {
+                        const subset = data.slice(set.startIndex, set.endIndex);
+                        onStartSession(subset, selectionMode!, set.id, isShuffled);
+                      }}
+                      className="mt-4 w-full py-2 bg-quizizz-purple text-white rounded-lg font-bold hover:bg-purple-700 transition flex items-center justify-center gap-2"
+                    >
+                      <Play size={16} /> Start
+                    </button>
+                  </div>
                 );
               })}
             </div>
