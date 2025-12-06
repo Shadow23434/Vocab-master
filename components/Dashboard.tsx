@@ -1,7 +1,7 @@
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { VocabItem, AppMode, ProgressState } from '../types';
-import { Play, Layers, Database, FileText, Upload, CheckCircle, Search, BookOpen, Volume2, Star, Shuffle } from 'lucide-react';
+import { Play, Layers, Database, FileText, Upload, CheckCircle, Search, BookOpen, Volume2, Star, Shuffle, Moon, Sun } from 'lucide-react';
 import { parseCSV } from '../utils/csvParser';
 
 interface DashboardProps {
@@ -10,9 +10,11 @@ interface DashboardProps {
   onStartSession: (items: VocabItem[], mode: AppMode, setId: string | null, shuffle?: boolean) => void;
   onAddGenerated: (items: VocabItem[]) => void;
   returnToMode?: AppMode | null;
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, onAddGenerated, returnToMode }) => {
+const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, onAddGenerated, returnToMode, isDarkMode, toggleDarkMode }) => {
   const [importText, setImportText] = useState('');
   const [activeTab, setActiveTab] = useState<'play' | 'library' | 'import'>('play');
   const [searchTerm, setSearchTerm] = useState('');
@@ -104,27 +106,27 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
 
     return (
       <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 animate-in fade-in duration-200">
-        <div className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
+        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
           
           {/* Header */}
-          <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+          <div className="p-6 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center bg-gray-50 dark:bg-gray-900">
             <div>
-              <h2 className="text-2xl font-black text-gray-800">
+              <h2 className="text-2xl font-black text-gray-800 dark:text-white">
                 {selectionMode === AppMode.QUIZ ? 'Quiz Setup' : 'Flashcard Setup'}
               </h2>
-              <p className="text-gray-500 text-sm font-bold mt-1">Select a question set to begin</p>
+              <p className="text-gray-500 dark:text-gray-400 text-sm font-bold mt-1">Select a question set to begin</p>
             </div>
             <button 
               onClick={() => setSelectionMode(null)}
-              className="flex items-center text-gray-600 hover:text-quizizz-purple font-semibold transition"
+              className="flex items-center text-gray-600 dark:text-gray-300 hover:text-quizizz-purple font-semibold transition"
             >
               Close
             </button>
           </div>
 
           {/* Controls */}
-          <div className="p-6 bg-white">
-            <label className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 block">Questions per Set</label>
+          <div className="p-6 bg-white dark:bg-gray-800">
+            <label className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 block">Questions per Set</label>
             <div className="flex gap-3 flex-wrap">
               {[10, 20, -1].map((size) => (
                 <button
@@ -133,7 +135,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
                   className={`px-6 py-2 rounded-lg font-bold border-2 transition ${
                     chunkSize === size 
                       ? 'bg-quizizz-purple text-white border-quizizz-purple shadow-md' 
-                      : 'bg-white text-gray-500 border-gray-200 hover:border-quizizz-purple'
+                      : 'bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-quizizz-purple'
                   }`}
                 >
                   {size === -1 ? 'All Words' : size}
@@ -143,7 +145,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
           </div>
 
           {/* Grid */}
-          <div className="flex-1 overflow-y-auto p-6 bg-gray-50">
+          <div className="flex-1 overflow-y-auto p-6 bg-gray-50 dark:bg-gray-900">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {sets.map((set, idx) => {
                 const isCompleted = set.progressVal === 100;
@@ -153,8 +155,8 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
                 return (
                   <div
                     key={set.id}
-                    className={`relative group bg-white p-6 rounded-2xl border-2 text-left transition-all hover:-translate-y-1 hover:shadow-lg ${
-                      isCompleted ? 'border-quizizz-green' : (isInProgress ? 'border-quizizz-yellow' : 'border-gray-200 hover:border-quizizz-blue')
+                    className={`relative group bg-white dark:bg-gray-800 p-6 rounded-2xl border-2 text-left transition-all hover:-translate-y-1 hover:shadow-lg ${
+                      isCompleted ? 'border-quizizz-green' : (isInProgress ? 'border-quizizz-yellow' : 'border-gray-200 dark:border-gray-700 hover:border-quizizz-blue')
                     }`}
                   >
                     <div className="flex justify-between items-start mb-4">
@@ -168,7 +170,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
                         {/* Shuffle Button */}
                         <button
                           onClick={(e) => toggleShuffle(set.id, e)}
-                          className={`p-2 rounded-lg transition-all ${isShuffled ? 'bg-quizizz-purple text-white' : 'bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600'}`}
+                          className={`p-2 rounded-lg transition-all ${isShuffled ? 'bg-quizizz-purple text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-gray-600 dark:hover:text-gray-300'}`}
                           title={isShuffled ? 'Shuffle enabled' : 'Shuffle question order'}
                         >
                           <Shuffle size={16} />
@@ -192,8 +194,8 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
                       </div>
                     </div>
                     
-                    <h3 className="font-bold text-gray-800 text-lg">Set {idx + 1}</h3>
-                    <p className="text-gray-400 text-sm font-medium">
+                    <h3 className="font-bold text-gray-800 dark:text-white text-lg">Set {idx + 1}</h3>
+                    <p className="text-gray-400 dark:text-gray-500 text-sm font-medium">
                       Words {set.startIndex + 1} - {set.endIndex}
                     </p>
                     {isShuffled && (
@@ -202,7 +204,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
                       </p>
                     )}
 
-                    <div className="mt-4 w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="mt-4 w-full h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
                       <div 
                         className={`h-full ${isCompleted ? 'bg-quizizz-green' : 'bg-quizizz-yellow'}`} 
                         style={{ width: `${set.progressVal}%` }}
@@ -230,10 +232,10 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
     );
   };
 
-  const filteredData = data.filter(item => 
+  const filteredData = useMemo(() => data.filter(item => 
     item.word.toLowerCase().includes(searchTerm.toLowerCase()) || 
     item.meaning.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  ), [data, searchTerm]);
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-10 relative">
@@ -241,14 +243,23 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
 
       <header className="flex flex-col md:flex-row justify-between items-center mb-12">
         <div className="mb-4 md:mb-0">
-            <h1 className="text-4xl font-black text-gray-800 tracking-tight">
+            <h1 className="text-4xl font-black text-gray-800 dark:text-white tracking-tight">
               Vocab<span className="text-quizizz-purple">Master</span>
             </h1>
-            <p className="text-gray-500 mt-2 font-medium">Gamified learning for English Vocabulary</p>
+            <p className="text-gray-500 dark:text-gray-400 mt-2 font-medium">Gamified learning for English Vocabulary</p>
         </div>
-        <div className="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 flex items-center gap-3">
-          <Database size={18} className="text-quizizz-blue" />
-          <span className="font-bold text-gray-700">{data.length} Words Loaded</span>
+        <div className="flex items-center gap-3">
+            <button
+                onClick={toggleDarkMode}
+                className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-quizizz-purple dark:hover:text-quizizz-purple transition"
+                aria-label="Toggle Dark Mode"
+            >
+                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <div className="bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-sm border border-gray-200 dark:border-gray-700 flex items-center gap-3">
+              <Database size={18} className="text-quizizz-blue" />
+              <span className="font-bold text-gray-700 dark:text-gray-200">{data.length} Words Loaded</span>
+            </div>
         </div>
       </header>
 
@@ -275,12 +286,12 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
         </div>
       </div>
 
-      {activeTab === 'play' && (
+      <div className={activeTab === 'play' ? 'block' : 'hidden'}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Flashcard Card */}
           <div 
             onClick={() => setSelectionMode(AppMode.FLASHCARD)}
-            className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all cursor-pointer border-b-[8px] border-b-quizizz-blue overflow-hidden"
+            className="group relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all cursor-pointer border-b-[8px] border-b-quizizz-blue overflow-hidden"
           >
             <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition duration-500">
               <Layers size={140} />
@@ -289,8 +300,8 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
               <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-quizizz-blue mb-6">
                 <Layers size={32} />
               </div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-3">Flashcards</h2>
-              <p className="text-gray-500 mb-8">Study efficiently with flip cards. Review meanings, phonetics, and examples.</p>
+              <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-3">Flashcards</h2>
+              <p className="text-gray-500 dark:text-gray-400 mb-8">Study efficiently with flip cards. Review meanings, phonetics, and examples.</p>
               <span className="inline-block px-6 py-3 bg-quizizz-blue text-white rounded-full font-bold">Choose Set</span>
             </div>
           </div>
@@ -298,7 +309,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
           {/* Quiz Card */}
           <div 
             onClick={() => setSelectionMode(AppMode.QUIZ)}
-            className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all cursor-pointer border-b-[8px] border-b-quizizz-green overflow-hidden"
+            className="group relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all cursor-pointer border-b-[8px] border-b-quizizz-green overflow-hidden"
           >
             <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition duration-500">
               <Play size={140} />
@@ -307,17 +318,17 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
                <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-quizizz-green mb-6">
                 <Play size={32} />
               </div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-3">Take Quiz</h2>
-              <p className="text-gray-500 mb-8">Test your knowledge with gamified multiple choice questions and earn points.</p>
+              <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-3">Take Quiz</h2>
+              <p className="text-gray-500 dark:text-gray-400 mb-8">Test your knowledge with gamified multiple choice questions and earn points.</p>
               <span className="inline-block px-6 py-3 bg-quizizz-green text-white rounded-full font-bold">Choose Set</span>
             </div>
           </div>
         </div>
-      )}
+      </div>
 
-      {activeTab === 'library' && (
+      <div className={activeTab === 'library' ? 'block' : 'hidden'}>
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-6 sticky top-4 z-20">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 mb-6 sticky top-4 z-20">
             <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
               <input 
@@ -325,7 +336,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
                 placeholder="Search by word or meaning..." 
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 bg-gray-50 border-transparent focus:bg-white focus:border-quizizz-purple border-2 rounded-xl outline-none transition font-medium"
+                className="w-full pl-12 pr-4 py-3 bg-gray-50 dark:bg-gray-700 dark:text-white border-transparent focus:bg-white dark:focus:bg-gray-600 focus:border-quizizz-purple border-2 rounded-xl outline-none transition font-medium"
               />
             </div>
           </div>
@@ -333,38 +344,38 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
           <div className="grid grid-cols-1 gap-4">
             {filteredData.length > 0 ? (
               filteredData.map((item) => (
-                <div key={item.id} className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div key={item.id} className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-1">
-                      <h3 className="text-xl font-bold text-gray-800">{item.word}</h3>
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-white">{item.word}</h3>
                       <button 
                          onClick={() => speak(item.word)}
-                         className="p-1.5 rounded-full hover:bg-gray-100 text-quizizz-purple transition"
+                         className="p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-quizizz-purple transition"
                       >
                         <Volume2 size={18} />
                       </button>
                       {item.type && (
-                        <span className="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded font-mono font-bold uppercase">{item.type}</span>
+                        <span className="px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-300 text-xs rounded font-mono font-bold uppercase">{item.type}</span>
                       )}
                     </div>
-                    <p className="text-gray-600 font-medium">{item.meaning}</p>
+                    <p className="text-gray-600 dark:text-gray-300 font-medium">{item.meaning}</p>
                     {item.phonetic && <p className="text-gray-400 text-sm italic serif mt-1">/{item.phonetic.replace(/\//g, '')}/</p>}
                   </div>
                   
                   {item.example && (
-                    <div className="bg-gray-50 p-3 rounded-lg text-sm text-gray-600 border-l-4 border-quizizz-purple max-w-md flex flex-col gap-1">
+                    <div className="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg text-sm text-gray-600 dark:text-gray-300 border-l-4 border-quizizz-purple max-w-md flex flex-col gap-1">
                       <div className="flex items-center gap-2 italic">
                          <span className="flex-1">"{item.example}"</span>
                          <button 
                             onClick={() => speak(item.example)}
-                            className="p-1.5 rounded-full hover:bg-gray-200 text-quizizz-purple transition flex-shrink-0"
+                            className="p-1.5 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 text-quizizz-purple transition flex-shrink-0"
                             title="Listen to example"
                          >
                            <Volume2 size={16} />
                          </button>
                       </div>
                       {item.exampleMeaning && (
-                        <p className="text-gray-500 text-xs not-italic">{item.exampleMeaning}</p>
+                        <p className="text-gray-500 dark:text-gray-400 text-xs not-italic">{item.exampleMeaning}</p>
                       )}
                     </div>
                   )}
@@ -378,25 +389,25 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
             )}
           </div>
         </div>
-      )}
+      </div>
 
-      {activeTab === 'import' && (
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl p-10 shadow-xl border border-gray-100">
+      <div className={activeTab === 'import' ? 'block' : 'hidden'}>
+        <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-xl border border-gray-100 dark:border-gray-700">
            <div className="text-center mb-8">
              <div className="inline-flex justify-center items-center w-16 h-16 bg-purple-100 rounded-full text-quizizz-purple mb-4">
                 <FileText size={32} />
              </div>
-             <h2 className="text-2xl font-bold text-gray-800">Import Vocabulary</h2>
-             <p className="text-gray-500 mt-2">Paste your CSV data below to add custom words to your library.</p>
+             <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Import Vocabulary</h2>
+             <p className="text-gray-500 dark:text-gray-400 mt-2">Paste your CSV data below to add custom words to your library.</p>
            </div>
 
            <div className="space-y-4">
              <div>
-               <label className="block text-sm font-bold text-gray-700 mb-2">CSV Data (Paste here)</label>
+               <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">CSV Data (Paste here)</label>
                <textarea 
                  value={importText}
                  onChange={(e) => setImportText(e.target.value)}
-                 className="w-full h-64 px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-quizizz-purple focus:outline-none transition font-mono text-sm"
+                 className="w-full h-64 px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:border-quizizz-purple focus:outline-none transition font-mono text-sm"
                  placeholder={`id,word,type,phonetic,meaning,example,exampleMeaning
 1,wait in line,,,xếp hàng,Please wait in line.,Vui lòng xếp hàng.
 2,wipe something off something,,,loại bỏ cái gì khỏi cái gì,The janitor had to wipe the dust off the counter.,Người gác cổng phải lau sạch bụi trên quầy.`}
@@ -415,7 +426,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
              </button>
            </div>
         </div>
-      )}
+      </div>
 
     </div>
   );

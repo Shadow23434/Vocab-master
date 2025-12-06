@@ -82,7 +82,7 @@ const FlashcardMode: React.FC<FlashcardModeProps> = ({ data, onBack, onComplete 
       <div className="w-full flex justify-between items-center mb-6">
         <button 
           onClick={handleExit}
-          className="flex items-center text-gray-600 hover:text-quizizz-purple font-semibold transition"
+          className="flex items-center text-gray-600 dark:text-gray-300 hover:text-quizizz-purple font-semibold transition"
         >
           <ArrowLeft className="mr-2" size={20} /> Back to Dashboard
         </button>
@@ -92,14 +92,14 @@ const FlashcardMode: React.FC<FlashcardModeProps> = ({ data, onBack, onComplete 
                     <CheckCircle size={14} className="mr-1"/> Set Completed
                 </span>
             )}
-            <div className="text-gray-500 font-bold text-lg">
+            <div className="text-gray-500 dark:text-gray-400 font-bold text-lg">
             {currentIndex + 1} / {data.length}
             </div>
         </div>
       </div>
 
       {/* Progress Bar for Flashcards */}
-      <div className="w-full max-w-2xl h-2 bg-gray-200 rounded-full mb-8 overflow-hidden">
+      <div className="w-full max-w-2xl h-2 bg-gray-200 dark:bg-gray-700 rounded-full mb-8 overflow-hidden">
         <div 
             className="h-full bg-quizizz-blue transition-all duration-300"
             style={{ width: `${(visitedCount / data.length) * 100}%` }}
@@ -111,31 +111,31 @@ const FlashcardMode: React.FC<FlashcardModeProps> = ({ data, onBack, onComplete 
         <div className={`card-inner ${isFlipped ? 'card-flipped' : ''}`}>
           
           {/* Front */}
-          <div className="card-front bg-white border-2 border-gray-200">
+          <div className="card-front bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700">
             <div className="flex flex-col items-center gap-4 p-8">
-              <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Term</span>
-              <h2 className="text-5xl font-bold text-quizizz-dark text-center">{currentItem.word}</h2>
+              <span className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">Term</span>
+              <h2 className="text-5xl font-bold text-quizizz-dark dark:text-white text-center">{currentItem.word}</h2>
               
               <div className="flex items-center gap-2 mt-2">
                 {currentItem.type && (
-                  <span className="px-3 py-1 bg-quizizz-bg rounded-full text-gray-600 text-sm font-mono border">
+                  <span className="px-3 py-1 bg-quizizz-bg dark:bg-gray-700 rounded-full text-gray-600 dark:text-gray-300 text-sm font-mono border dark:border-gray-600">
                     {currentItem.type}
                   </span>
                 )}
                 {currentItem.phonetic && (
-                  <span className="text-gray-500 font-serif italic text-xl">
+                  <span className="text-gray-500 dark:text-gray-400 font-serif italic text-xl">
                     /{currentItem.phonetic.replace(/\//g, '')}/
                   </span>
                 )}
                  <button 
                   onClick={(e) => { e.stopPropagation(); speak(currentItem.word); }}
-                  className="p-2 rounded-full hover:bg-gray-100 text-quizizz-purple transition ml-2"
+                  className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-quizizz-purple transition ml-2"
                 >
                   <Volume2 size={24} />
                 </button>
               </div>
               
-              <p className="mt-8 text-gray-400 text-sm animate-pulse">Click to flip</p>
+              <p className="mt-8 text-gray-400 dark:text-gray-500 text-sm animate-pulse">Click to flip</p>
             </div>
           </div>
 
@@ -174,7 +174,7 @@ const FlashcardMode: React.FC<FlashcardModeProps> = ({ data, onBack, onComplete 
       <div className="flex items-center gap-6 mt-8">
         <button 
           onClick={handlePrev}
-          className="p-4 bg-white rounded-full shadow-lg hover:bg-gray-50 border-2 border-transparent hover:border-gray-200 transition text-gray-600"
+          className="p-4 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 border-2 border-transparent hover:border-gray-200 dark:hover:border-gray-600 transition text-gray-600 dark:text-gray-300"
         >
           <ArrowLeft size={24} />
         </button>
@@ -188,7 +188,7 @@ const FlashcardMode: React.FC<FlashcardModeProps> = ({ data, onBack, onComplete 
 
         <button 
           onClick={handleNext}
-          className="p-4 bg-white rounded-full shadow-lg hover:bg-gray-50 border-2 border-transparent hover:border-gray-200 transition text-gray-600"
+          className="p-4 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 border-2 border-transparent hover:border-gray-200 dark:hover:border-gray-600 transition text-gray-600 dark:text-gray-300"
         >
           <ArrowRight size={24} />
         </button>

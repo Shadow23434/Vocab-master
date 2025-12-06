@@ -6,11 +6,13 @@ import { VocabItem, AppMode, ProgressState } from './types';
 import Dashboard from './components/Dashboard';
 import FlashcardMode from './components/FlashcardMode';
 import QuizMode from './components/QuizMode';
+import { useDarkMode } from './hooks/useDarkMode';
 
 const App: React.FC = () => {
   const [vocabList, setVocabList] = useState<VocabItem[]>([]);
   const [mode, setMode] = useState<AppMode>(AppMode.HOME);
   const [isLoading, setIsLoading] = useState(true);
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   
   // Game Session State
   const [activeData, setActiveData] = useState<VocabItem[]>([]);
@@ -118,7 +120,26 @@ const App: React.FC = () => {
   };
 
   const renderContent = () => {
-    if (isLoading) return <div className="flex h-screen items-center justify-center">Loading...</div>;
+    if (isLoading) {
+      return (
+        <div className="flex flex-col h-screen items-center justify-center bg-[#f2f2f2] dark:bg-gray-900 transition-colors duration-500">
+          <div className="mb-8 relative">
+             <div className="absolute inset-0 bg-quizizz-purple blur-2xl opacity-20 rounded-full animate-pulse"></div>
+             <h1 className="relative text-5xl font-black text-gray-800 dark:text-white tracking-tight">
+              Vocab<span className="text-quizizz-purple">Master</span>
+            </h1>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            <div className="w-4 h-4 bg-quizizz-red rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+            <div className="w-4 h-4 bg-quizizz-blue rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+            <div className="w-4 h-4 bg-quizizz-green rounded-full animate-bounce"></div>
+          </div>
+          
+          <p className="mt-6 text-gray-500 dark:text-gray-400 font-medium animate-pulse">Preparing your learning space...</p>
+        </div>
+      );
+    }
 
     switch (mode) {
       case AppMode.FLASHCARD:
@@ -153,13 +174,15 @@ const App: React.FC = () => {
             onStartSession={handleStartSession}
             onAddGenerated={handleAddGenerated}
             returnToMode={returnToMode}
+            isDarkMode={isDarkMode}
+            toggleDarkMode={toggleDarkMode}
           />
         );
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#f2f2f2] text-gray-800 font-sans selection:bg-quizizz-purple selection:text-white">
+    <div className="min-h-screen bg-[#f2f2f2] dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-sans selection:bg-quizizz-purple selection:text-white">
       {renderContent()}
     </div>
   );

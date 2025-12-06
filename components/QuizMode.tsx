@@ -149,20 +149,20 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
     
     return (
       <div className="flex flex-col items-center justify-center min-h-[80vh] w-full animate-in fade-in zoom-in duration-500">
-        <div className="bg-white rounded-3xl p-10 shadow-2xl text-center max-w-md w-full border-4 border-quizizz-purple">
+        <div className="bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-2xl text-center max-w-md w-full border-4 border-quizizz-purple">
           <div className="mb-6 inline-flex p-6 bg-yellow-100 rounded-full text-yellow-500">
             <Trophy size={64} />
           </div>
-          <h2 className="text-4xl font-bold text-gray-800 mb-2">Quiz Completed!</h2>
-          <p className="text-gray-500 mb-8">Great job practicing your vocabulary.</p>
+          <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-2">Quiz Completed!</h2>
+          <p className="text-gray-500 dark:text-gray-400 mb-8">Great job practicing your vocabulary.</p>
           
           <div className="grid grid-cols-2 gap-4 mb-8">
-            <div className="bg-gray-50 p-4 rounded-xl border border-gray-200">
-              <p className="text-sm text-gray-500 uppercase font-bold">Accuracy</p>
+            <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-xl border border-gray-200 dark:border-gray-600">
+              <p className="text-sm text-gray-500 dark:text-gray-400 uppercase font-bold">Accuracy</p>
               <p className="text-3xl font-black text-quizizz-green">{accuracy}%</p>
             </div>
-            <div className="bg-gray-50 p-4 rounded-xl border border-gray-200">
-              <p className="text-sm text-gray-500 uppercase font-bold">Score</p>
+            <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-xl border border-gray-200 dark:border-gray-600">
+              <p className="text-sm text-gray-500 dark:text-gray-400 uppercase font-bold">Score</p>
               <p className="text-3xl font-black text-quizizz-purple">{score}</p>
             </div>
           </div>
@@ -176,7 +176,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
             </button>
             <button 
               onClick={onBack}
-              className="w-full py-4 bg-white text-gray-600 border-2 border-gray-200 rounded-xl font-bold hover:bg-gray-50 transition flex justify-center items-center gap-2"
+              className="w-full py-4 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-2 border-gray-200 dark:border-gray-600 rounded-xl font-bold hover:bg-gray-50 dark:hover:bg-gray-700 transition flex justify-center items-center gap-2"
             >
               <Home size={20} /> Back to Dashboard
             </button>
@@ -191,14 +191,14 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
   return (
     <div className="max-w-4xl mx-auto w-full px-4 py-6 flex flex-col h-screen max-h-[900px]">
       {/* Top Bar */}
-      <div className="flex justify-between items-center mb-4 bg-white p-4 rounded-xl shadow-sm">
-        <button onClick={handleExit} className="flex items-center text-gray-600 hover:text-quizizz-purple font-semibold transition">EXIT</button>
+      <div className="flex justify-between items-center mb-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm">
+        <button onClick={handleExit} className="flex items-center text-gray-600 dark:text-gray-300 hover:text-quizizz-purple font-semibold transition">EXIT</button>
         
         <div className="flex-1 mx-4 md:mx-6 flex items-center">
-            <div className="text-sm font-bold text-gray-500 mr-3 w-12 text-right">
+            <div className="text-sm font-bold text-gray-500 dark:text-gray-400 mr-3 w-12 text-right">
                 {currentQIndex + 1} / {questions.length}
             </div>
-            <div className="flex-1 h-4 bg-gray-200 rounded-full overflow-hidden">
+            <div className="flex-1 h-4 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                 <div 
                     className="h-full bg-quizizz-purple transition-all duration-500"
                     style={{ width: `${((currentQIndex) / questions.length) * 100}%` }}
@@ -208,7 +208,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
 
         <div className="flex items-center gap-4">
             <div className="flex flex-col items-end hidden sm:flex">
-                <span className="text-xs text-gray-500 font-bold uppercase">Streak</span>
+                <span className="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase">Streak</span>
                 <span className="font-bold text-quizizz-red">🔥 {streak}</span>
             </div>
             <div className="bg-purple-600 text-white px-4 py-2 rounded-lg font-mono font-bold">
@@ -219,22 +219,22 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
 
       {/* Question Area */}
       <div className="flex-1 flex flex-col justify-center items-center mb-8">
-        <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 w-full text-center relative overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 w-full text-center relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-quizizz-purple to-quizizz-blue"></div>
-            <p className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-4">Select the correct meaning</p>
+            <p className="text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest text-sm mb-4">Select the correct meaning</p>
             
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-2">
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-800">{currentQ.target.word}</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white">{currentQ.target.word}</h1>
                 <button 
                   onClick={() => speak(currentQ.target.word)}
-                  className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-quizizz-purple transition hover:scale-110 active:scale-90"
+                  className="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-quizizz-purple transition hover:scale-110 active:scale-90"
                   title="Listen"
                 >
                   <Volume2 size={28} />
                 </button>
             </div>
             
-            <p className="text-gray-400 italic font-serif">/{currentQ.target.phonetic?.replace(/\//g, '')}/</p>
+            <p className="text-gray-400 dark:text-gray-500 italic font-serif">/{currentQ.target.phonetic?.replace(/\//g, '')}/</p>
         </div>
       </div>
 
@@ -255,7 +255,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
                  icon = <X className="absolute right-4 top-1/2 -translate-y-1/2" size={24} />;
              } else {
                  // Unselected options fade out
-                 stateStyles = "bg-gray-300 border-b-[6px] border-b-gray-400 text-gray-500 opacity-50";
+                 stateStyles = "bg-gray-300 dark:bg-gray-700 border-b-[6px] border-b-gray-400 dark:border-b-gray-600 text-gray-500 dark:text-gray-400 opacity-50";
              }
           } else {
               // Default text color
