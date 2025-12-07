@@ -1,8 +1,10 @@
 
 import React, { useState, useMemo } from 'react';
 import { VocabItem, AppMode, ProgressState } from '../types';
-import { Play, Layers, Database, FileText, Upload, CheckCircle, Search, BookOpen, Volume2, Star, Shuffle, Moon, Sun } from 'lucide-react';
+import { Play, Layers, Database, FileText, Upload, CheckCircle, Search, BookOpen, Volume2, Star, Shuffle, Moon, Sun, Download } from 'lucide-react';
 import { parseCSV } from '../utils/csvParser';
+import { generateCSV, generateJSON, generateTXT, downloadFile } from '../utils/exportUtils';
+import { getTypeStyle } from '../utils/styleUtils';
 
 interface DashboardProps {
   data: VocabItem[];
@@ -53,6 +55,33 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
     } catch (e) {
       alert("Failed to parse CSV data. Please check the format.");
     }
+  };
+
+  const handleExport = (format: 'csv' | 'json' | 'txt') => {
+    const timestamp = new Date().toISOString().split('T')[0];
+    let content = '';
+    let filename = `vocab-export-${timestamp}`;
+    let type = '';
+
+    switch (format) {
+      case 'csv':
+        content = generateCSV(data);
+        filename += '.csv';
+        type = 'text/csv';
+        break;
+      case 'json':
+        content = generateJSON(data);
+        filename += '.json';
+        type = 'application/json';
+        break;
+      case 'txt':
+        content = generateTXT(data);
+        filename += '.txt';
+        type = 'text/plain';
+        break;
+    }
+    
+    downloadFile(content, filename, type);
   };
 
   const speak = (text: string) => {
@@ -281,7 +310,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
              onClick={() => setActiveTab('import')}
              className={`px-6 py-2 rounded-lg font-bold transition flex items-center gap-2 ${activeTab === 'import' ? 'bg-quizizz-purple text-white shadow-md' : 'text-gray-500 hover:bg-gray-50'}`}
            >
-             <Upload size={16} /> Import
+             <Database size={16} /> Data
            </button>
         </div>
       </div>
@@ -355,11 +384,12 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
                         <Volume2 size={18} />
                       </button>
                       {item.type && (
-                        <span className="px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-300 text-xs rounded font-mono font-bold uppercase">{item.type}</span>
+                        <span className={`px-2 py-0.5 text-xs rounded font-mono font-bold uppercase border ${getTypeStyle(item.type)}`}>{item.type}</span>
                       )}
                     </div>
                     <p className="text-gray-600 dark:text-gray-300 font-medium">{item.meaning}</p>
                     {item.phonetic && <p className="text-gray-400 text-sm italic serif mt-1">/{item.phonetic.replace(/\//g, '')}/</p>}
+                    {item.description && <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">{item.description}</p>}
                   </div>
                   
                   {item.example && (
@@ -392,39 +422,79 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
       </div>
 
       <div className={activeTab === 'import' ? 'block' : 'hidden'}>
-        <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-xl border border-gray-100 dark:border-gray-700">
-           <div className="text-center mb-8">
-             <div className="inline-flex justify-center items-center w-16 h-16 bg-purple-100 rounded-full text-quizizz-purple mb-4">
-                <FileText size={32} />
+        <div className="max-w-4xl mx-auto space-y-8">
+          
+          {/* Export Section */}
+          <div className="bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-xl border border-gray-100 dark:border-gray-700">
+             <div className="flex items-center gap-4 mb-6">
+               <div className="inline-flex justify-center items-center w-12 h-12 bg-green-100 rounded-full text-green-600">
+                  <Download size={24} />
+               </div>
+               <div>
+                 <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Export Data</h2>
+                 <p className="text-gray-500 dark:text-gray-400 text-sm">Download your vocabulary list to backup or use elsewhere.</p>
+               </div>
              </div>
-             <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Import Vocabulary</h2>
-             <p className="text-gray-500 dark:text-gray-400 mt-2">Paste your CSV data below to add custom words to your library.</p>
-           </div>
 
-           <div className="space-y-4">
-             <div>
-               <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">CSV Data (Paste here)</label>
-               <textarea 
-                 value={importText}
-                 onChange={(e) => setImportText(e.target.value)}
-                 className="w-full h-64 px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:border-quizizz-purple focus:outline-none transition font-mono text-sm"
-                 placeholder={`id,word,type,phonetic,meaning,example,exampleMeaning
-1,wait in line,,,xếp hàng,Please wait in line.,Vui lòng xếp hàng.
-2,wipe something off something,,,loại bỏ cái gì khỏi cái gì,The janitor had to wipe the dust off the counter.,Người gác cổng phải lau sạch bụi trên quầy.`}
-               />
-               <p className="text-xs text-gray-400 mt-2">
-                 * Ensure the first line is the header row: id,word,type,phonetic,meaning,example,exampleMeaning
-               </p>
+             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+               <button 
+                 onClick={() => handleExport('csv')}
+                 className="py-3 px-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600 rounded-xl font-bold text-gray-700 dark:text-gray-200 transition flex items-center justify-center gap-2"
+               >
+                 <FileText size={18} /> Export CSV
+               </button>
+               <button 
+                 onClick={() => handleExport('json')}
+                 className="py-3 px-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600 rounded-xl font-bold text-gray-700 dark:text-gray-200 transition flex items-center justify-center gap-2"
+               >
+                 <Database size={18} /> Export JSON
+               </button>
+               <button 
+                 onClick={() => handleExport('txt')}
+                 className="py-3 px-4 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600 rounded-xl font-bold text-gray-700 dark:text-gray-200 transition flex items-center justify-center gap-2"
+               >
+                 <FileText size={18} /> Export TXT
+               </button>
              </div>
-             <button 
-               onClick={handleImport}
-               disabled={!importText}
-               className="w-full py-4 bg-quizizz-purple text-white rounded-xl font-bold shadow-[0_4px_0_#6c5ce7] active:shadow-none active:translate-y-[4px] disabled:opacity-50 disabled:shadow-none disabled:translate-y-0 transition flex justify-center items-center gap-2"
-             >
-               <Upload size={20} />
-               Import Data
-             </button>
-           </div>
+          </div>
+
+          {/* Import Section */}
+          <div className="bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-xl border border-gray-100 dark:border-gray-700">
+             <div className="flex items-center gap-4 mb-6">
+               <div className="inline-flex justify-center items-center w-12 h-12 bg-purple-100 rounded-full text-quizizz-purple">
+                  <Upload size={24} />
+               </div>
+               <div>
+                 <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Import Data</h2>
+                 <p className="text-gray-500 dark:text-gray-400 text-sm">Paste CSV data to add custom words.</p>
+               </div>
+             </div>
+
+             <div className="space-y-4">
+               <div>
+                 <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">CSV Data (Paste here)</label>
+                 <textarea 
+                   value={importText}
+                   onChange={(e) => setImportText(e.target.value)}
+                   className="w-full h-48 px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:border-quizizz-purple focus:outline-none transition font-mono text-sm"
+                   placeholder={`id,word,type,phonetic,description,meaning,example,exampleMeaning
+1,wait in line,,,Wait for your turn,xếp hàng,Please wait in line.,Vui lòng xếp hàng.
+2,wipe something off something,,,Clean surface,loại bỏ cái gì khỏi cái gì,The janitor had to wipe the dust off the counter.,Người gác cổng phải lau sạch bụi trên quầy.`}
+                 />
+                 <p className="text-xs text-gray-400 mt-2">
+                   * Ensure the first line is the header row: id,word,type,phonetic,description,meaning,example,exampleMeaning
+                 </p>
+               </div>
+               <button 
+                 onClick={handleImport}
+                 disabled={!importText}
+                 className="w-full py-4 bg-quizizz-purple text-white rounded-xl font-bold shadow-[0_4px_0_#6c5ce7] active:shadow-none active:translate-y-[4px] disabled:opacity-50 disabled:shadow-none disabled:translate-y-0 transition flex justify-center items-center gap-2"
+               >
+                 <Upload size={20} />
+                 Import Data
+               </button>
+             </div>
+          </div>
         </div>
       </div>
 

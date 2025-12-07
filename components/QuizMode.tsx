@@ -3,6 +3,7 @@ import { VocabItem } from '../types';
 import { shuffleArray, seededShuffleArray } from '../utils/csvParser';
 import confetti from 'canvas-confetti';
 import { Check, X, Trophy, RefreshCw, Home, Volume2 } from 'lucide-react';
+import { getTypeStyle } from '../utils/styleUtils';
 
 interface QuizModeProps {
   data: VocabItem[];
@@ -234,7 +235,14 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
                 </button>
             </div>
             
-            <p className="text-gray-400 dark:text-gray-500 italic font-serif">/{currentQ.target.phonetic?.replace(/\//g, '')}/</p>
+            <div className="flex items-center justify-center gap-2">
+              {currentQ.target.type && (
+                <span className={`px-2 py-0.5 text-xs rounded font-mono font-bold uppercase border ${getTypeStyle(currentQ.target.type)}`}>
+                  {currentQ.target.type}
+                </span>
+              )}
+              <p className="text-gray-400 dark:text-gray-500 italic font-serif">/{currentQ.target.phonetic?.replace(/\//g, '')}/</p>
+            </div>
         </div>
       </div>
 

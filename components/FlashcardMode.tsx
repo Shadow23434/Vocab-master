@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { VocabItem } from '../types';
 import { ArrowLeft, ArrowRight, RotateCcw, Volume2, CheckCircle } from 'lucide-react';
+import { getTypeStyle } from '../utils/styleUtils';
 
 interface FlashcardModeProps {
   data: VocabItem[];
@@ -118,7 +119,7 @@ const FlashcardMode: React.FC<FlashcardModeProps> = ({ data, onBack, onComplete 
               
               <div className="flex items-center gap-2 mt-2">
                 {currentItem.type && (
-                  <span className="px-3 py-1 bg-quizizz-bg dark:bg-gray-700 rounded-full text-gray-600 dark:text-gray-300 text-sm font-mono border dark:border-gray-600">
+                  <span className={`px-3 py-1 rounded-full text-sm font-mono border ${getTypeStyle(currentItem.type)}`}>
                     {currentItem.type}
                   </span>
                 )}

@@ -4,6 +4,7 @@ export interface VocabItem {
   word: string;
   type: string;
   phonetic: string;
+  description: string;
   meaning: string;
   example: string;
   exampleMeaning: string;
@@ -25,6 +26,7 @@ export interface GeneratedContent {
   word: string;
   type: string;
   phonetic: string;
+  description: string;
   meaning: string;
   example: string;
   exampleMeaning: string;

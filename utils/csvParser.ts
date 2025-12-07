@@ -23,9 +23,10 @@ export const parseCSV = (csvText: string): VocabItem[] => {
         word: parts[1] || '',
         type: parts[2] || '',
         phonetic: parts[3] || '',
-        meaning: parts[4] || '',
-        example: parts[5] || '',
-        exampleMeaning: parts[6] || ''
+        description: parts[4] || '',
+        meaning: parts[5] || '',
+        example: parts[6] || '',
+        exampleMeaning: parts[7] || ''
       });
     }
   }
