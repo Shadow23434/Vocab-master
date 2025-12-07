@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { VocabItem } from '../types';
 import { shuffleArray, seededShuffleArray } from '../utils/csvParser';
 import confetti from 'canvas-confetti';
-import { Check, X, Trophy, RefreshCw, Home, Volume2 } from 'lucide-react';
+import { Check, X, Trophy, RefreshCw, Home, Volume2, Search } from 'lucide-react';
 import { getTypeStyle } from '../utils/styleUtils';
 
 interface QuizModeProps {
@@ -226,18 +226,27 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
             
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-2">
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white">{currentQ.target.word}</h1>
-                <button 
-                  onClick={() => speak(currentQ.target.word)}
-                  className="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-quizizz-purple transition hover:scale-110 active:scale-90"
-                  title="Listen"
-                >
-                  <Volume2 size={28} />
-                </button>
+                <div className="flex gap-2">
+                  <button 
+                    onClick={() => speak(currentQ.target.word)}
+                    className="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-quizizz-purple transition hover:scale-110 active:scale-90"
+                    title="Listen"
+                  >
+                    <Volume2 size={28} />
+                  </button>
+                  <button 
+                    onClick={() => window.open(`/?search=${encodeURIComponent(currentQ.target.word)}`, '_blank')}
+                    className="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-blue-500 transition hover:scale-110 active:scale-90"
+                    title="Find in Library (New Tab)"
+                  >
+                    <Search size={28} />
+                  </button>
+                </div>
             </div>
             
             <div className="flex items-center justify-center gap-2">
               {currentQ.target.type && currentQ.target.type.split(',').map((t, i) => (
-                <span key={i} className={`px-2 py-0.5 text-xs rounded font-mono font-bold uppercase border ${getTypeStyle(t.trim())}`}>
+                <span key={i} className={`px-2 py-0.5 text-xs rounded font-mono font-bold lowercase border ${getTypeStyle(t.trim())}`}>
                   {t.trim()}
                 </span>
               ))}

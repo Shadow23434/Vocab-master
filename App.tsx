@@ -18,9 +18,19 @@ const App: React.FC = () => {
   const [activeSetId, setActiveSetId] = useState<string | null>(null);
   const [activeShuffle, setActiveShuffle] = useState<boolean>(false);
   const [returnToMode, setReturnToMode] = useState<AppMode | null>(null);
+  const [initialSearchTerm, setInitialSearchTerm] = useState<string>('');
   
   // Progress State
   const [progress, setProgress] = useState<ProgressState>({ quiz: {}, flashcard: {} });
+
+  // Check for URL params on mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const search = params.get('search');
+    if (search) {
+        setInitialSearchTerm(search);
+    }
+  }, []);
 
   // Initialize Data and Progress
   useEffect(() => {
@@ -277,6 +287,7 @@ const App: React.FC = () => {
             returnToMode={returnToMode}
             isDarkMode={isDarkMode}
             toggleDarkMode={toggleDarkMode}
+            initialSearchTerm={initialSearchTerm}
           />
         );
     }

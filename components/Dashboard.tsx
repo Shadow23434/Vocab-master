@@ -17,12 +17,13 @@ interface DashboardProps {
   returnToMode?: AppMode | null;
   isDarkMode: boolean;
   toggleDarkMode: () => void;
+  initialSearchTerm?: string;
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onStartSession, onImport, onClearData, onRenameSource, returnToMode, isDarkMode, toggleDarkMode }) => {
+const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onStartSession, onImport, onClearData, onRenameSource, returnToMode, isDarkMode, toggleDarkMode, initialSearchTerm }) => {
   const [importText, setImportText] = useState('');
-  const [activeTab, setActiveTab] = useState<'play' | 'library' | 'import'>('play');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [activeTab, setActiveTab] = useState<'play' | 'library' | 'import'>(initialSearchTerm ? 'library' : 'play');
+  const [searchTerm, setSearchTerm] = useState(initialSearchTerm || '');
   
   // Import State
   const [selectedSourceId, setSelectedSourceId] = useState<string>(dataSources[0]?.id || 'new');
