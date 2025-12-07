@@ -118,11 +118,11 @@ const FlashcardMode: React.FC<FlashcardModeProps> = ({ data, onBack, onComplete 
               <h2 className="text-5xl font-bold text-quizizz-dark dark:text-white text-center">{currentItem.word}</h2>
               
               <div className="flex items-center gap-2 mt-2">
-                {currentItem.type && (
-                  <span className={`px-3 py-1 rounded-full text-sm font-mono border ${getTypeStyle(currentItem.type)}`}>
-                    {currentItem.type}
+                {currentItem.type && currentItem.type.split(',').map((t, i) => (
+                  <span key={i} className={`px-3 py-1 rounded-full text-sm font-mono border ${getTypeStyle(t.trim())}`}>
+                    {t.trim()}
                   </span>
-                )}
+                ))}
                 {currentItem.phonetic && (
                   <span className="text-gray-500 dark:text-gray-400 font-serif italic text-xl">
                     /{currentItem.phonetic.replace(/\//g, '')}/

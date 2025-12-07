@@ -11,7 +11,7 @@
   {
     "id": "2",
     "word": "wipe off",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/waɪp ɒf/",
     "meaning": "Lau sạch, loại bỏ (bụi bẩn)",
     "example": "The janitor had to wipe the dust off the counter.",
@@ -20,7 +20,7 @@
   {
     "id": "3",
     "word": "throw away",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/θrəʊ əˈweɪ/",
     "meaning": "Vứt bỏ",
     "example": "You must throw away expired food immediately.",
@@ -164,7 +164,7 @@
   {
     "id": "19",
     "word": "turn out",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/tɜːn aʊt/",
     "meaning": "Hóa ra là, trở nên",
     "example": "The event turned out to be a huge success.",
@@ -803,7 +803,7 @@
   {
     "id": "90",
     "word": "stop by",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/stɒp baɪ/",
     "meaning": "Ghé qua",
     "example": "I'll stop by the store on my way home.",
@@ -1028,7 +1028,7 @@
   {
     "id": "115",
     "word": "apply for",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/əˈplaɪ fɔː(r)/",
     "meaning": "Ứng tuyển, nộp đơn cho",
     "example": "She decided to apply for the managerial position.",
@@ -1190,7 +1190,7 @@
   {
     "id": "133",
     "word": "fill out",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/fɪl aʊt/",
     "meaning": "Điền vào (đơn, phiếu)",
     "example": "Please fill out this form completely before submission.",
@@ -1712,7 +1712,7 @@
   {
     "id": "191",
     "word": "head over",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/hed ˈəʊvə(r)/",
     "meaning": "Đi đến, di chuyển tới",
     "example": "Let's head over to the main auditorium for the keynote speech.",
@@ -1721,7 +1721,7 @@
   {
     "id": "192",
     "word": "take care of",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/teɪk keə(r) əv/",
     "meaning": "Chăm sóc, lo liệu, xử lý",
     "example": "Who will take care of the paperwork while you are away?",
@@ -1847,7 +1847,7 @@
   {
     "id": "206",
     "word": "go over",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/ɡəʊ ˈəʊvə(r)/",
     "meaning": "Xem kỹ lại, kiểm tra lại",
     "example": "Let's go over the presentation slides one more time.",
@@ -2072,7 +2072,7 @@
   {
     "id": "231",
     "word": "look over",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/lʊk ˈəʊvə(r)/",
     "meaning": "Xem qua, kiểm tra sơ bộ",
     "example": "I need to look over the contract before signing.",
@@ -2207,7 +2207,7 @@
   {
     "id": "246",
     "word": "figure out",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/ˈfɪɡə(r) aʊt/",
     "meaning": "Tìm ra, hiểu ra",
     "example": "We need to figure out a better way to manage inventory.",
@@ -2225,7 +2225,7 @@
   {
     "id": "248",
     "word": "drop off",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/drɒp ɒf/",
     "meaning": "Thả xuống (khách/hàng); giảm dần",
     "example": "Sales usually drop off during the slow season.",
@@ -2234,7 +2234,7 @@
   {
     "id": "249",
     "word": "respond to",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/rɪˈspɒnd tu/",
     "meaning": "Phản hồi, trả lời",
     "example": "Please respond to the email invitation by the end of the week.",
@@ -2279,7 +2279,7 @@
   {
     "id": "254",
     "word": "sort out",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/sɔːt aʊt/",
     "meaning": "Sắp xếp, giải quyết",
     "example": "I need to sort out all the files before the auditor arrives.",
@@ -2558,7 +2558,7 @@
   {
     "id": "285",
     "word": "kneel down",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/niːl daʊn/",
     "meaning": "Quỳ xuống",
     "example": "The workers had to kneel down to fix the floor tiles.",
@@ -2702,7 +2702,7 @@
   {
     "id": "301",
     "word": "shut off",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/ʃʌt ɒf/",
     "meaning": "Tắt, ngắt (điện, máy móc)",
     "example": "Please remember to shut off the air conditioning when you leave.",
@@ -2846,7 +2846,7 @@
   {
     "id": "317",
     "word": "come along",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/kʌm əˈlɒŋ/",
     "meaning": "Tiến triển, đi cùng",
     "example": "The construction work is coming along faster than anticipated.",
@@ -2909,7 +2909,7 @@
   {
     "id": "324",
     "word": "set aside",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/set əˈsaɪd/",
     "meaning": "Dành ra, để dành",
     "example": "We need to set aside funds for unexpected repairs.",
@@ -3008,7 +3008,7 @@
   {
     "id": "335",
     "word": "end up in",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/end ʌp ɪn/",
     "meaning": "Kết cục ở, cuối cùng lại ở",
     "example": "Many old electronics end up in landfills.",
@@ -3062,7 +3062,7 @@
   {
     "id": "341",
     "word": "settle into",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/ˈsetl ˈɪntə/",
     "meaning": "Hòa nhập, quen dần với",
     "example": "The new hires should settle into their roles quickly.",
@@ -3071,7 +3071,7 @@
   {
     "id": "342",
     "word": "point out",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/pɔɪnt aʊt/",
     "meaning": "Chỉ ra, lưu ý",
     "example": "The auditor pointed out discrepancies in the records.",
@@ -3197,7 +3197,7 @@
   {
     "id": "356",
     "word": "sign up for",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/saɪn ʌp fɔː(r)/",
     "meaning": "Đăng ký tham gia",
     "example": "Did you sign up for the yoga class yet?",
@@ -4430,7 +4430,7 @@
   {
     "id": "493",
     "word": "wrap up",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/ræp ʌp/",
     "meaning": "Kết thúc, hoàn thành",
     "example": "Let's wrap up the meeting.",
@@ -4475,7 +4475,7 @@
   {
     "id": "498",
     "word": "take over",
-    "type": "phr v",
+    "type": "phr, v",
     "phonetic": "/teɪk ˈəʊvə(r)/",
     "meaning": "Tiếp quản, đảm nhận",
     "example": "She will take over as manager next month.",

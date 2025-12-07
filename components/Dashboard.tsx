@@ -540,9 +540,9 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
                       >
                         <Volume2 size={18} />
                       </button>
-                      {item.type && (
-                        <span className={`px-2 py-0.5 text-xs rounded font-mono font-bold lowercase border ${getTypeStyle(item.type)}`}>{item.type}</span>
-                      )}
+                      {item.type && item.type.split(',').map((t, i) => (
+                        <span key={i} className={`px-2 py-0.5 text-xs rounded font-mono font-bold lowercase border ${getTypeStyle(t.trim())}`}>{t.trim()}</span>
+                      ))}
                     </div>
                     <p className="text-gray-600 dark:text-gray-300 font-medium">{item.meaning}</p>
                     {item.phonetic && <p className="text-gray-400 text-sm italic serif mt-1">/{item.phonetic.replace(/\//g, '')}/</p>}

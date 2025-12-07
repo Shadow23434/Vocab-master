@@ -236,11 +236,11 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
             </div>
             
             <div className="flex items-center justify-center gap-2">
-              {currentQ.target.type && (
-                <span className={`px-2 py-0.5 text-xs rounded font-mono font-bold uppercase border ${getTypeStyle(currentQ.target.type)}`}>
-                  {currentQ.target.type}
+              {currentQ.target.type && currentQ.target.type.split(',').map((t, i) => (
+                <span key={i} className={`px-2 py-0.5 text-xs rounded font-mono font-bold uppercase border ${getTypeStyle(t.trim())}`}>
+                  {t.trim()}
                 </span>
-              )}
+              ))}
               <p className="text-gray-400 dark:text-gray-500 italic font-serif">/{currentQ.target.phonetic?.replace(/\//g, '')}/</p>
             </div>
         </div>
