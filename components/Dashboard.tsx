@@ -1,7 +1,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { VocabItem, AppMode, ProgressState, DataSource } from '../types';
-import { Play, Layers, Database, FileText, Upload, CheckCircle, Search, BookOpen, Volume2, Star, Shuffle, Moon, Sun, Download, Trash2, Plus, X, Edit2, RefreshCw } from 'lucide-react';
+import { Play, Layers, Database, FileText, Upload, CheckCircle, Search, BookOpen, Volume2, Star, Shuffle, Moon, Sun, Download, Trash2, Plus, X, Edit2, RefreshCw, ArrowLeft } from 'lucide-react';
 import { parseCSV } from '../utils/csvParser';
 import { generateCSV, generateJSON, generateTXT, downloadFile } from '../utils/exportUtils';
 import { getTypeStyle } from '../utils/styleUtils';
@@ -39,6 +39,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
   const [selectionMode, setSelectionMode] = useState<AppMode | null>(returnToMode || null);
   const [chunkSize, setChunkSize] = useState<number>(10);
   const [shuffledSets, setShuffledSets] = useState<Set<string>>(new Set());
+  const [filterSourceId, setFilterSourceId] = useState<string>('all');
 
   // Auto-open set selector when returning from quiz/flashcard
   React.useEffect(() => {
@@ -235,7 +236,11 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
   const renderSetSelector = () => {
     if (!selectionMode) return null;
 
-    const totalItems = data.length;
+    const filteredDataForSets = filterSourceId === 'all' 
+        ? data 
+        : dataSources.find(s => s.id === filterSourceId)?.items || [];
+
+    const totalItems = filteredDataForSets.length;
     const sets = [];
     const size = chunkSize === -1 ? totalItems : chunkSize;
 
@@ -243,7 +248,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
       const end = Math.min(i + size, totalItems);
       // Use first vocab ID in the set to create stable setId
       // This ensures progress is not lost when new data is imported
-      const firstVocabId = data[i]?.id || String(i);
+      const firstVocabId = filteredDataForSets[i]?.id || String(i);
       const setId = `set-${firstVocabId}-${size}`;
       
       let progressVal = 0;
@@ -263,11 +268,10 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
     }
 
     return (
-      <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 animate-in fade-in duration-200">
-        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
-          
-          {/* Header */}
-          <div className="p-6 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 animate-in fade-in duration-200">
+        {/* Header */}
+        <div className="sticky top-0 z-20 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 px-6 py-4">
+          <div className="max-w-7xl mx-auto flex justify-between items-center">
             <div>
               <h2 className="text-2xl font-black text-gray-800 dark:text-white">
                 {selectionMode === AppMode.QUIZ ? 'Quiz Setup' : 'Flashcard Setup'}
@@ -276,115 +280,152 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
             </div>
             <button 
               onClick={() => setSelectionMode(null)}
-              className="flex items-center text-gray-600 dark:text-gray-300 hover:text-quizizz-purple font-semibold transition"
+              className="px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 font-bold transition flex items-center gap-2"
             >
-              Close
+              <ArrowLeft size={18} /> Back to Dashboard
             </button>
           </div>
+        </div>
 
+        <div className="max-w-7xl mx-auto px-6 py-8">
           {/* Controls */}
-          <div className="p-6 bg-white dark:bg-gray-800">
-            <label className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 block">Questions per Set</label>
-            <div className="flex gap-3 flex-wrap">
-              {[10, 20, -1].map((size) => (
-                <button
-                  key={size}
-                  onClick={() => setChunkSize(size)}
-                  className={`px-6 py-2 rounded-lg font-bold border-2 transition ${
-                    chunkSize === size 
-                      ? 'bg-quizizz-purple text-white border-quizizz-purple shadow-md' 
-                      : 'bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-quizizz-purple'
-                  }`}
-                >
-                  {size === -1 ? 'All Words' : size}
-                </button>
-              ))}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 mb-8">
+            <div className="flex flex-col md:flex-row gap-8">
+              {/* Source Filter */}
+              <div className="flex-1">
+                  <label className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 block">Source</label>
+                  <div className="flex gap-2 flex-wrap">
+                      <button
+                          onClick={() => setFilterSourceId('all')}
+                          className={`px-4 py-2 rounded-lg font-bold text-sm border-2 transition ${
+                              filterSourceId === 'all'
+                              ? 'bg-quizizz-purple text-white border-quizizz-purple'
+                              : 'bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
+                          }`}
+                      >
+                          All Sources
+                      </button>
+                      {dataSources.map(source => (
+                          <button
+                              key={source.id}
+                              onClick={() => setFilterSourceId(source.id)}
+                              className={`px-4 py-2 rounded-lg font-bold text-sm border-2 transition ${
+                                  filterSourceId === source.id
+                                  ? 'bg-quizizz-purple text-white border-quizizz-purple'
+                                  : 'bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
+                              }`}
+                          >
+                              {source.name}
+                          </button>
+                      ))}
+                  </div>
+              </div>
+
+              {/* Chunk Size */}
+              <div>
+                  <label className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 block">Questions per Set</label>
+                  <div className="flex gap-3 flex-wrap">
+                    {[10, 20, -1].map((size) => (
+                      <button
+                        key={size}
+                        onClick={() => setChunkSize(size)}
+                        className={`px-6 py-2 rounded-lg font-bold border-2 transition ${
+                          chunkSize === size 
+                            ? 'bg-quizizz-purple text-white border-quizizz-purple shadow-md' 
+                            : 'bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-quizizz-purple'
+                        }`}
+                      >
+                        {size === -1 ? 'All Words' : size}
+                      </button>
+                    ))}
+                  </div>
+              </div>
             </div>
           </div>
 
           {/* Grid */}
-          <div className="flex-1 overflow-y-auto p-6 bg-gray-50 dark:bg-gray-900">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {sets.map((set, idx) => {
-                const isCompleted = set.progressVal === 100;
-                const isInProgress = set.progressVal > 0 && set.progressVal < 100;
-                const isShuffled = shuffledSets.has(set.id);
-                
-                return (
-                  <div
-                    key={set.id}
-                    className={`relative group bg-white dark:bg-gray-800 p-6 rounded-2xl border-2 text-left transition-all hover:-translate-y-1 hover:shadow-lg ${
-                      isCompleted ? 'border-quizizz-green' : (isInProgress ? 'border-quizizz-yellow' : 'border-gray-200 dark:border-gray-700 hover:border-quizizz-blue')
-                    }`}
-                  >
-                    <div className="flex justify-between items-start mb-4">
-                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg ${
-                        isCompleted ? 'bg-green-100 text-quizizz-green' : (isInProgress ? 'bg-yellow-100 text-yellow-600' : 'bg-blue-100 text-quizizz-blue')
-                      }`}>
-                        {idx + 1}
-                      </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {sets.map((set, idx) => {
+              const isCompleted = set.progressVal === 100;
+              const isInProgress = set.progressVal > 0 && set.progressVal < 100;
+              const isShuffled = shuffledSets.has(set.id);
+              
+              return (
+                <div
+                  key={set.id}
+                  className={`relative group bg-white dark:bg-gray-800 p-6 rounded-2xl border-2 text-left transition-all hover:-translate-y-1 hover:shadow-xl ${
+                    isCompleted ? 'border-quizizz-green' : (isInProgress ? 'border-quizizz-yellow' : 'border-gray-200 dark:border-gray-700 hover:border-quizizz-blue')
+                  }`}
+                >
+                  <div className="flex justify-between items-start mb-4">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl ${
+                      isCompleted ? 'bg-green-100 text-quizizz-green' : (isInProgress ? 'bg-yellow-100 text-yellow-600' : 'bg-blue-100 text-quizizz-blue')
+                    }`}>
+                      {idx + 1}
+                    </div>
+                    
+                    <div className="flex items-center gap-2">
+                      {/* Shuffle Button */}
+                      <button
+                        onClick={(e) => toggleShuffle(set.id, e)}
+                        className={`p-2 rounded-lg transition-all ${isShuffled ? 'bg-quizizz-purple text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-gray-600 dark:hover:text-gray-300'}`}
+                        title={isShuffled ? 'Shuffle enabled' : 'Shuffle question order'}
+                      >
+                        <Shuffle size={18} />
+                      </button>
                       
-                      <div className="flex items-center gap-2">
-                        {/* Shuffle Button */}
-                        <button
-                          onClick={(e) => toggleShuffle(set.id, e)}
-                          className={`p-2 rounded-lg transition-all ${isShuffled ? 'bg-quizizz-purple text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-gray-600 dark:hover:text-gray-300'}`}
-                          title={isShuffled ? 'Shuffle enabled' : 'Shuffle question order'}
-                        >
-                          <Shuffle size={16} />
-                        </button>
-                        
-                        {set.progressVal > 0 && (
-                          <div className={`flex items-center gap-1 font-bold ${isCompleted ? 'text-quizizz-green' : 'text-yellow-600'}`}>
-                            {selectionMode === AppMode.QUIZ ? (
-                                <>
-                                    <Star fill={isCompleted ? "#00b894" : "#fdcb6e"} className={isCompleted ? "text-quizizz-green" : "text-yellow-500"} size={16} />
-                                    <span>{set.progressVal}%</span>
-                                </>
-                            ) : (
-                                <>
-                                    {isCompleted ? <CheckCircle size={16} /> : <BookOpen size={16} />}
-                                    <span>{isCompleted ? 'Done' : `${set.progressVal}%`}</span>
-                                </>
-                            )}
-                          </div>
-                        )}
-                      </div>
+                      {set.progressVal > 0 && (
+                        <div className={`flex items-center gap-1 font-bold ${isCompleted ? 'text-quizizz-green' : 'text-yellow-600'}`}>
+                          {selectionMode === AppMode.QUIZ ? (
+                              <>
+                                  <Star fill={isCompleted ? "#00b894" : "#fdcb6e"} className={isCompleted ? "text-quizizz-green" : "text-yellow-500"} size={16} />
+                                  <span>{set.progressVal}%</span>
+                              </>
+                          ) : (
+                              <>
+                                  {isCompleted ? <CheckCircle size={16} /> : <BookOpen size={16} />}
+                                  <span>{isCompleted ? 'Done' : `${set.progressVal}%`}</span>
+                              </>
+                          )}
+                        </div>
+                      )}
                     </div>
-                    
-                    <h3 className="font-bold text-gray-800 dark:text-white text-lg">Set {idx + 1}</h3>
-                    <p className="text-gray-400 dark:text-gray-500 text-sm font-medium">
-                      Words {set.startIndex + 1} - {set.endIndex}
-                    </p>
-                    {isShuffled && (
-                      <p className="text-quizizz-purple text-xs font-bold mt-1 flex items-center gap-1">
-                        <Shuffle size={12} /> Shuffled
-                      </p>
-                    )}
-
-                    <div className="mt-4 w-full h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
-                      <div 
-                        className={`h-full ${isCompleted ? 'bg-quizizz-green' : 'bg-quizizz-yellow'}`} 
-                        style={{ width: `${set.progressVal}%` }}
-                      ></div>
-                    </div>
-                    
-                    {/* Play Button */}
-                    <button
-                      onClick={() => {
-                        const subset = data.slice(set.startIndex, set.endIndex);
-                        onStartSession(subset, selectionMode!, set.id, isShuffled);
-                      }}
-                      className="mt-4 w-full py-2 bg-quizizz-purple text-white rounded-lg font-bold hover:bg-purple-700 transition flex items-center justify-center gap-2"
-                    >
-                      <Play size={16} /> Start
-                    </button>
                   </div>
-                );
-              })}
-            </div>
-          </div>
+                  
+                  <h3 className="font-bold text-gray-800 dark:text-white text-xl mb-1">Set {idx + 1}</h3>
+                  <p className="text-gray-400 dark:text-gray-500 text-sm font-medium mb-4">
+                    Words {set.startIndex + 1} - {set.endIndex}
+                  </p>
+                  {isShuffled && (
+                    <p className="text-quizizz-purple text-xs font-bold mb-3 flex items-center gap-1">
+                      <Shuffle size={12} /> Shuffled
+                    </p>
+                  )}
 
+                  <div className="w-full h-2.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden mb-5">
+                    <div 
+                      className={`h-full ${isCompleted ? 'bg-quizizz-green' : 'bg-quizizz-yellow'}`} 
+                      style={{ width: `${set.progressVal}%` }}
+                    ></div>
+                  </div>
+                  
+                  {/* Play Button */}
+                  <button
+                    onClick={() => {
+                      const filteredDataForSets = filterSourceId === 'all' 
+                          ? data 
+                          : dataSources.find(s => s.id === filterSourceId)?.items || [];
+                      const subset = filteredDataForSets.slice(set.startIndex, set.endIndex);
+                      onStartSession(subset, selectionMode!, set.id, isShuffled);
+                    }}
+                    className="w-full py-3 bg-quizizz-purple text-white rounded-xl font-bold hover:bg-purple-700 transition flex items-center justify-center gap-2 shadow-lg shadow-purple-200 dark:shadow-none"
+                  >
+                    <Play size={18} /> Start
+                  </button>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
@@ -421,10 +462,12 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
     item.meaning.toLowerCase().includes(searchTerm.toLowerCase())
   ), [data, searchTerm]);
 
+  if (selectionMode) {
+    return renderSetSelector();
+  }
+
   return (
     <div className="max-w-5xl mx-auto px-6 py-10 relative">
-      {renderSetSelector()}
-
       <header className="flex flex-col md:flex-row justify-between items-center mb-12">
         <div className="mb-4 md:mb-0">
             <h1 className="text-4xl font-black text-gray-800 dark:text-white tracking-tight">

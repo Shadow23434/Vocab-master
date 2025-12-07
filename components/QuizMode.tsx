@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { VocabItem } from '../types';
 import { shuffleArray, seededShuffleArray } from '../utils/csvParser';
 import confetti from 'canvas-confetti';
-import { Check, X, Trophy, RefreshCw, Home, Volume2, Search } from 'lucide-react';
+import { Check, X, Trophy, RefreshCw, Home, Volume2, Search, ArrowLeft } from 'lucide-react';
 import { getTypeStyle } from '../utils/styleUtils';
 
 interface QuizModeProps {
@@ -193,7 +193,9 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
     <div className="max-w-4xl mx-auto w-full px-4 py-6 flex flex-col h-screen max-h-[900px]">
       {/* Top Bar */}
       <div className="flex justify-between items-center mb-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm">
-        <button onClick={handleExit} className="flex items-center text-gray-600 dark:text-gray-300 hover:text-quizizz-purple font-semibold transition">EXIT</button>
+        <button onClick={handleExit} className="flex items-center text-gray-600 dark:text-gray-300 hover:text-quizizz-purple font-semibold transition">
+          <ArrowLeft className="mr-2" size={20} /> Exit
+        </button>
         
         <div className="flex-1 mx-4 md:mx-6 flex items-center">
             <div className="text-sm font-bold text-gray-500 dark:text-gray-400 mr-3 w-12 text-right">

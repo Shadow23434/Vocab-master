@@ -80,12 +80,12 @@ const FlashcardMode: React.FC<FlashcardModeProps> = ({ data, onBack, onComplete 
     <div className="flex flex-col items-center justify-center min-h-[80vh] w-full max-w-4xl mx-auto px-4">
       
       {/* Header Controls */}
-      <div className="w-full flex justify-between items-center mb-6">
+      <div className="w-full flex justify-between items-center py-4">
         <button 
           onClick={handleExit}
           className="flex items-center text-gray-600 dark:text-gray-300 hover:text-quizizz-purple font-semibold transition"
         >
-          <ArrowLeft className="mr-2" size={20} /> Back to Dashboard
+          <ArrowLeft className="mr-2" size={20} /> Exit
         </button>
         <div className="flex items-center gap-4">
             {isCompleted && (
