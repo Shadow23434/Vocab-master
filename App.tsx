@@ -1,15 +1,14 @@
 
-import React, { useState, useEffect } from 'react';
-import { RAW_CSV_DATA } from './constants';
-import { parseCSV } from './utils/csvParser';
-import { VocabItem, AppMode, ProgressState } from './types';
+import React, { useState, useEffect, useMemo } from 'react';
+import defaultData from './normalize.json';
+import { VocabItem, AppMode, ProgressState, DataSource } from './types';
 import Dashboard from './components/Dashboard';
 import FlashcardMode from './components/FlashcardMode';
 import QuizMode from './components/QuizMode';
 import { useDarkMode } from './hooks/useDarkMode';
 
 const App: React.FC = () => {
-  const [vocabList, setVocabList] = useState<VocabItem[]>([]);
+  const [dataSources, setDataSources] = useState<DataSource[]>([]);
   const [mode, setMode] = useState<AppMode>(AppMode.HOME);
   const [isLoading, setIsLoading] = useState(true);
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -26,16 +25,51 @@ const App: React.FC = () => {
   // Initialize Data and Progress
   useEffect(() => {
     // 1. Load Vocab Data
-    const savedData = localStorage.getItem('vocabMasterData');
-    if (savedData) {
+    const savedSources = localStorage.getItem('vocabMasterSources');
+    const savedLegacyData = localStorage.getItem('vocabMasterData');
+
+    if (savedSources) {
       try {
-        setVocabList(JSON.parse(savedData));
+        setDataSources(JSON.parse(savedSources));
       } catch (e) {
-        console.error("Failed to parse saved vocab data, falling back to default.", e);
-        setVocabList(parseCSV(RAW_CSV_DATA));
+        console.error("Failed to parse saved sources", e);
+        // Fallback to default
+        setDataSources([{
+          id: 'default',
+          name: 'Default Vocabulary',
+          items: defaultData as VocabItem[],
+          createdAt: Date.now()
+        }]);
+      }
+    } else if (savedLegacyData) {
+      // Migrate legacy data
+      try {
+        const legacyItems = JSON.parse(savedLegacyData);
+        setDataSources([{
+          id: 'migrated-legacy',
+          name: 'Imported Data',
+          items: legacyItems,
+          createdAt: Date.now()
+        }]);
+        // Clear legacy key
+        localStorage.removeItem('vocabMasterData');
+      } catch (e) {
+        console.error("Failed to migrate legacy data", e);
+        setDataSources([{
+          id: 'default',
+          name: 'Default Vocabulary',
+          items: defaultData as VocabItem[],
+          createdAt: Date.now()
+        }]);
       }
     } else {
-      setVocabList(parseCSV(RAW_CSV_DATA));
+      // First time load
+      setDataSources([{
+        id: 'default',
+        name: 'Default Vocabulary',
+        items: defaultData as VocabItem[],
+        createdAt: Date.now()
+      }]);
     }
 
     // 2. Load Progress
@@ -69,12 +103,12 @@ const App: React.FC = () => {
     setIsLoading(false);
   }, []);
 
-  // Save Vocab Data whenever it changes (e.g. after import)
+  // Save Sources whenever they change
   useEffect(() => {
-    if (!isLoading && vocabList.length > 0) {
-        localStorage.setItem('vocabMasterData', JSON.stringify(vocabList));
+    if (!isLoading && dataSources.length > 0) {
+        localStorage.setItem('vocabMasterSources', JSON.stringify(dataSources));
     }
-  }, [vocabList, isLoading]);
+  }, [dataSources, isLoading]);
 
   // Save Progress whenever it changes
   useEffect(() => {
@@ -83,9 +117,73 @@ const App: React.FC = () => {
     }
   }, [progress, isLoading]);
 
-  const handleAddGenerated = (newItems: VocabItem[]) => {
-    setVocabList(prev => [...prev, ...newItems]);
+  const handleImport = (sourceId: string, newItems: VocabItem[], newSourceName?: string) => {
+    setDataSources(prev => {
+      if (sourceId === 'new' && newSourceName) {
+        // Create new source
+        const newSource: DataSource = {
+          id: `source-${Date.now()}`,
+          name: newSourceName,
+          items: newItems,
+          createdAt: Date.now()
+        };
+        return [...prev, newSource];
+      } else {
+        // Append to existing source
+        return prev.map(source => {
+          if (source.id === sourceId) {
+            return {
+              ...source,
+              items: [...source.items, ...newItems]
+            };
+          }
+          return source;
+        });
+      }
+    });
   };
+
+  const handleRenameSource = (sourceId: string, newName: string) => {
+    setDataSources(prev => prev.map(source => {
+      if (source.id === sourceId) {
+        return { ...source, name: newName };
+      }
+      return source;
+    }));
+  };
+
+  const handleClearData = (sourceId?: string) => {
+    if (sourceId) {
+      if (sourceId === 'default') {
+        // Don't delete default source, just empty it
+        if (window.confirm("Clear all items from Default Vocabulary?")) {
+            setDataSources(prev => prev.map(s => s.id === 'default' ? { ...s, items: [] } : s));
+        }
+      } else {
+        // Delete custom source
+        if (window.confirm("Are you sure you want to delete this source?")) {
+            setDataSources(prev => prev.filter(s => s.id !== sourceId));
+        }
+      }
+    } else {
+      // Clear all custom data, reset to default
+      if (window.confirm("Are you sure you want to clear all data? This cannot be undone.")) {
+         setDataSources([{
+            id: 'default',
+            name: 'Default Vocabulary',
+            items: defaultData as VocabItem[],
+            createdAt: Date.now()
+         }]);
+         setProgress({ quiz: {}, flashcard: {} });
+      }
+    }
+  };
+
+  // Flatten all items for display in Dashboard (Play/Library)
+  // We could also pass sources to Dashboard if we want to filter there
+  const allVocab = useMemo(() => {
+    return dataSources.flatMap(s => s.items);
+  }, [dataSources]);
 
   const handleStartSession = (selectedItems: VocabItem[], targetMode: AppMode, setId: string | null, shuffle: boolean = false) => {
     setActiveData(selectedItems);
@@ -169,10 +267,13 @@ const App: React.FC = () => {
       default:
         return (
           <Dashboard 
-            data={vocabList}
+            data={allVocab}
+            dataSources={dataSources}
             progress={progress}
             onStartSession={handleStartSession}
-            onAddGenerated={handleAddGenerated}
+            onImport={handleImport}
+            onClearData={handleClearData}
+            onRenameSource={handleRenameSource}
             returnToMode={returnToMode}
             isDarkMode={isDarkMode}
             toggleDarkMode={toggleDarkMode}

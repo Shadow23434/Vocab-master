@@ -1,26 +1,39 @@
 
 import React, { useState, useMemo } from 'react';
-import { VocabItem, AppMode, ProgressState } from '../types';
-import { Play, Layers, Database, FileText, Upload, CheckCircle, Search, BookOpen, Volume2, Star, Shuffle, Moon, Sun, Download } from 'lucide-react';
+import { VocabItem, AppMode, ProgressState, DataSource } from '../types';
+import { Play, Layers, Database, FileText, Upload, CheckCircle, Search, BookOpen, Volume2, Star, Shuffle, Moon, Sun, Download, Trash2, Plus, X, Edit2, RefreshCw } from 'lucide-react';
 import { parseCSV } from '../utils/csvParser';
 import { generateCSV, generateJSON, generateTXT, downloadFile } from '../utils/exportUtils';
 import { getTypeStyle } from '../utils/styleUtils';
 
 interface DashboardProps {
   data: VocabItem[];
+  dataSources: DataSource[];
   progress: ProgressState;
   onStartSession: (items: VocabItem[], mode: AppMode, setId: string | null, shuffle?: boolean) => void;
-  onAddGenerated: (items: VocabItem[]) => void;
+  onImport: (sourceId: string, items: VocabItem[], newSourceName?: string) => void;
+  onClearData: (sourceId?: string) => void;
+  onRenameSource: (sourceId: string, newName: string) => void;
   returnToMode?: AppMode | null;
   isDarkMode: boolean;
   toggleDarkMode: () => void;
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, onAddGenerated, returnToMode, isDarkMode, toggleDarkMode }) => {
+const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onStartSession, onImport, onClearData, onRenameSource, returnToMode, isDarkMode, toggleDarkMode }) => {
   const [importText, setImportText] = useState('');
   const [activeTab, setActiveTab] = useState<'play' | 'library' | 'import'>('play');
   const [searchTerm, setSearchTerm] = useState('');
   
+  // Import State
+  const [selectedSourceId, setSelectedSourceId] = useState<string>(dataSources[0]?.id || 'new');
+  const [newSourceName, setNewSourceName] = useState('');
+  const [importFormat, setImportFormat] = useState<'csv' | 'json' | 'txt'>('csv');
+  const [isDragging, setIsDragging] = useState(false);
+
+  // Rename State
+  const [editingSourceId, setEditingSourceId] = useState<string | null>(null);
+  const [editingName, setEditingName] = useState('');
+
   // Selection State
   const [selectionMode, setSelectionMode] = useState<AppMode | null>(returnToMode || null);
   const [chunkSize, setChunkSize] = useState<number>(10);
@@ -33,28 +46,143 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
     }
   }, [returnToMode]);
 
-  const handleImport = () => {
+  // Update selected source if dataSources changes
+  React.useEffect(() => {
+    if (dataSources.length > 0 && !dataSources.find(s => s.id === selectedSourceId) && selectedSourceId !== 'new') {
+        setSelectedSourceId(dataSources[0].id);
+    }
+  }, [dataSources, selectedSourceId]);
+
+  const processFile = (file: File) => {
+    const extension = file.name.split('.').pop()?.toLowerCase();
+    if (extension === 'csv') setImportFormat('csv');
+    else if (extension === 'json') setImportFormat('json');
+    else if (extension === 'txt') setImportFormat('txt');
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      if (event.target?.result) {
+        setImportText(event.target.result as string);
+      }
+    };
+    reader.readAsText(file);
+  };
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) processFile(file);
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file) processFile(file);
+  };
+
+  const handleImportClick = () => {
     if (!importText.trim()) return;
+    
+    if (selectedSourceId === 'new' && !newSourceName.trim()) {
+        alert("Please enter a name for the new data source.");
+        return;
+    }
+
     try {
-      const parsed = parseCSV(importText);
+      let parsed: VocabItem[] = [];
+
+      if (importFormat === 'csv') {
+        parsed = parseCSV(importText);
+      } else if (importFormat === 'json') {
+        parsed = JSON.parse(importText);
+        // Basic validation
+        if (!Array.isArray(parsed)) throw new Error("JSON must be an array");
+      } else if (importFormat === 'txt') {
+        // Simple TXT parser: assumes blocks separated by empty lines
+        // Format: Word: ... \n Phonetic: ... etc.
+        // This is a basic implementation, might need refinement based on exact TXT format
+        const blocks = importText.split('-------------------').map(b => b.trim()).filter(b => b);
+        parsed = blocks.map((block, idx) => {
+            const lines = block.split('\n');
+            const getVal = (key: string) => {
+                const line = lines.find(l => l.startsWith(key));
+                return line ? line.substring(key.length).trim() : '';
+            };
+            
+            // Extract word and type from "Word: word (type)"
+            const wordLine = getVal('Word:');
+            let word = wordLine;
+            let type = '';
+            const typeMatch = wordLine.match(/(.*)\s\((.*)\)$/);
+            if (typeMatch) {
+                word = typeMatch[1];
+                type = typeMatch[2];
+            }
+
+            return {
+                id: `txt-${Date.now()}-${idx}`,
+                word: word,
+                type: type,
+                phonetic: getVal('Phonetic:'),
+                description: getVal('Description:'),
+                meaning: getVal('Meaning:'),
+                example: getVal('Example:'),
+                exampleMeaning: getVal('Example Meaning:')
+            };
+        });
+      }
+
       if (parsed.length === 0) {
-        alert("No valid vocabulary items found. Please ensure you include the header row and valid data.");
+        alert("No valid vocabulary items found. Please ensure valid data format.");
         return;
       }
       
-      // Assign unique IDs to avoid collision with static data
+      // Assign unique IDs if missing or collision avoidance
       const newItems: VocabItem[] = parsed.map((item, idx) => ({
         ...item,
-        id: `imported-${Date.now()}-${idx}`
+        id: item.id || `imported-${Date.now()}-${idx}`
       }));
       
-      onAddGenerated(newItems);
+      onImport(selectedSourceId, newItems, newSourceName);
       setImportText('');
+      setNewSourceName('');
       alert(`Success! Imported ${newItems.length} new words.`);
       setActiveTab('play'); // Switch back to play mode to see new data
     } catch (e) {
-      alert("Failed to parse CSV data. Please check the format.");
+      console.error(e);
+      alert("Failed to parse data. Please check the format.");
     }
+  };
+
+  const startRenaming = (source: DataSource, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setEditingSourceId(source.id);
+    setEditingName(source.name);
+  };
+
+  const saveRename = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (editingSourceId && editingName.trim()) {
+        onRenameSource(editingSourceId, editingName.trim());
+        setEditingSourceId(null);
+        setEditingName('');
+    }
+  };
+
+  const cancelRename = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setEditingSourceId(null);
+    setEditingName('');
   };
 
   const handleExport = (format: 'csv' | 'json' | 'txt') => {
@@ -261,6 +389,32 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
     );
   };
 
+  const renderEmptyState = () => (
+    <div className="flex flex-col items-center justify-center py-20 text-center animate-fade-in">
+      <div className="w-24 h-24 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 text-gray-300 dark:text-gray-600">
+        <Database size={48} />
+      </div>
+      <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">No Vocabulary Data</h3>
+      <p className="text-gray-500 dark:text-gray-400 max-w-md mb-8">
+        Your library is empty. Import data from the Data tab to start learning.
+      </p>
+      <div className="flex gap-3">
+        <button 
+            onClick={() => setActiveTab('import')}
+            className="px-6 py-3 bg-quizizz-purple text-white rounded-xl font-bold shadow-lg hover:bg-purple-700 transition flex items-center gap-2"
+        >
+            <Upload size={20} /> Go to Import
+        </button>
+        <button 
+            onClick={() => onClearData()}
+            className="px-6 py-3 bg-white dark:bg-gray-800 text-quizizz-purple border-2 border-quizizz-purple rounded-xl font-bold shadow-sm hover:bg-purple-50 dark:hover:bg-gray-700 transition flex items-center gap-2"
+        >
+            <RefreshCw size={20} /> Load Default Data
+        </button>
+      </div>
+    </div>
+  );
+
   const filteredData = useMemo(() => data.filter(item => 
     item.word.toLowerCase().includes(searchTerm.toLowerCase()) || 
     item.meaning.toLowerCase().includes(searchTerm.toLowerCase())
@@ -316,6 +470,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
       </div>
 
       <div className={activeTab === 'play' ? 'block' : 'hidden'}>
+        {data.length === 0 ? renderEmptyState() : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Flashcard Card */}
           <div 
@@ -353,9 +508,11 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
             </div>
           </div>
         </div>
+        )}
       </div>
 
       <div className={activeTab === 'library' ? 'block' : 'hidden'}>
+        {data.length === 0 ? renderEmptyState() : (
         <div className="max-w-4xl mx-auto">
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 mb-6 sticky top-4 z-20">
             <div className="relative">
@@ -384,7 +541,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
                         <Volume2 size={18} />
                       </button>
                       {item.type && (
-                        <span className={`px-2 py-0.5 text-xs rounded font-mono font-bold uppercase border ${getTypeStyle(item.type)}`}>{item.type}</span>
+                        <span className={`px-2 py-0.5 text-xs rounded font-mono font-bold lowercase border ${getTypeStyle(item.type)}`}>{item.type}</span>
                       )}
                     </div>
                     <p className="text-gray-600 dark:text-gray-300 font-medium">{item.meaning}</p>
@@ -419,6 +576,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
             )}
           </div>
         </div>
+        )}
       </div>
 
       <div className={activeTab === 'import' ? 'block' : 'hidden'}>
@@ -460,34 +618,181 @@ const Dashboard: React.FC<DashboardProps> = ({ data, progress, onStartSession, o
 
           {/* Import Section */}
           <div className="bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-xl border border-gray-100 dark:border-gray-700">
-             <div className="flex items-center gap-4 mb-6">
-               <div className="inline-flex justify-center items-center w-12 h-12 bg-purple-100 rounded-full text-quizizz-purple">
-                  <Upload size={24} />
-               </div>
-               <div>
-                 <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Import Data</h2>
-                 <p className="text-gray-500 dark:text-gray-400 text-sm">Paste CSV data to add custom words.</p>
-               </div>
+             <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-4">
+                    <div className="inline-flex justify-center items-center w-12 h-12 bg-purple-100 rounded-full text-quizizz-purple">
+                        <Upload size={24} />
+                    </div>
+                    <div>
+                        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Import Data</h2>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm">Add new words to your collection.</p>
+                    </div>
+                </div>
+                <div className="flex gap-2">
+                    {selectedSourceId !== 'new' && (
+                        <button 
+                            onClick={() => onClearData(selectedSourceId)}
+                            className="text-red-500 hover:text-red-700 font-bold text-sm flex items-center gap-1 px-3 py-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition"
+                            title={selectedSourceId === 'default' ? "Clear items from Default" : "Delete this source"}
+                        >
+                            <Trash2 size={16} /> {selectedSourceId === 'default' ? 'Clear Default' : 'Delete Source'}
+                        </button>
+                    )}
+                    <button 
+                        onClick={() => onClearData()}
+                        className="text-red-500 hover:text-red-700 font-bold text-sm flex items-center gap-1 px-3 py-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition"
+                    >
+                        <Trash2 size={16} /> Clear All
+                    </button>
+                </div>
              </div>
 
-             <div className="space-y-4">
+             <div className="space-y-6">
+               {/* Source Selection */}
+               <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+                  <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">Destination Source</label>
+                  <div className="flex flex-col gap-3">
+                      <div className="flex flex-wrap gap-2">
+                        {dataSources.map(source => (
+                            <button
+                                key={source.id}
+                                onClick={() => setSelectedSourceId(source.id)}
+                                className={`px-4 py-2 rounded-lg font-bold text-sm border-2 transition flex items-center gap-2 ${
+                                    selectedSourceId === source.id 
+                                    ? 'bg-white dark:bg-gray-800 border-quizizz-purple text-quizizz-purple shadow-sm' 
+                                    : 'bg-transparent border-transparent text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800'
+                                }`}
+                            >
+                                <Database size={14} />
+                                {editingSourceId === source.id ? (
+                                    <div className="flex items-center gap-1" onClick={e => e.stopPropagation()}>
+                                        <input 
+                                            type="text" 
+                                            value={editingName}
+                                            onChange={e => setEditingName(e.target.value)}
+                                            className="w-32 px-1 py-0.5 text-sm border rounded dark:bg-gray-700 dark:text-white"
+                                            autoFocus
+                                        />
+                                        <span onClick={saveRename} className="cursor-pointer text-green-500 hover:text-green-700"><CheckCircle size={14}/></span>
+                                        <span onClick={cancelRename} className="cursor-pointer text-red-500 hover:text-red-700"><X size={14}/></span>
+                                    </div>
+                                ) : (
+                                    <>
+                                        {source.name}
+                                        <span className="ml-1 text-xs opacity-60">({source.items.length})</span>
+                                        <span 
+                                            onClick={(e) => startRenaming(source, e)}
+                                            className="ml-2 p-1 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400 hover:text-quizizz-purple rounded-full"
+                                            title="Rename Source"
+                                        >
+                                            <Edit2 size={12} />
+                                        </span>
+                                        {source.id !== 'default' && (
+                                            <span 
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    if(confirm(`Delete source "${source.name}"?`)) onClearData(source.id);
+                                                }}
+                                                className="ml-1 p-1 hover:bg-red-100 text-red-400 hover:text-red-600 rounded-full"
+                                                title="Delete Source"
+                                            >
+                                                <Trash2 size={12} />
+                                            </span>
+                                        )}
+                                    </>
+                                )}
+                            </button>
+                        ))}
+                        <button
+                            onClick={() => setSelectedSourceId('new')}
+                            className={`px-4 py-2 rounded-lg font-bold text-sm border-2 border-dashed transition flex items-center gap-2 ${
+                                selectedSourceId === 'new'
+                                ? 'bg-white dark:bg-gray-800 border-quizizz-purple text-quizizz-purple shadow-sm'
+                                : 'border-gray-300 text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800'
+                            }`}
+                        >
+                            <Plus size={14} /> New Source
+                        </button>
+                      </div>
+                      
+                      {selectedSourceId === 'new' && (
+                          <input
+                            type="text"
+                            value={newSourceName}
+                            onChange={(e) => setNewSourceName(e.target.value)}
+                            placeholder="Enter new source name..."
+                            className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:border-quizizz-purple focus:outline-none transition"
+                          />
+                      )}
+                  </div>
+               </div>
+
                <div>
-                 <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">CSV Data (Paste here)</label>
+                 <div className="flex justify-between items-center mb-2">
+                    <label className="block text-sm font-bold text-gray-700 dark:text-gray-300">Data Format</label>
+                    <div className="flex gap-2">
+                        {(['csv', 'json', 'txt'] as const).map(fmt => (
+                            <button
+                                key={fmt}
+                                onClick={() => setImportFormat(fmt)}
+                                className={`px-3 py-1 rounded text-xs font-bold uppercase transition ${
+                                    importFormat === fmt 
+                                    ? 'bg-quizizz-purple text-white' 
+                                    : 'bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400'
+                                }`}
+                            >
+                                {fmt}
+                            </button>
+                        ))}
+                    </div>
+                 </div>
+
+                 <div 
+                    className={`mb-4 p-6 border-2 border-dashed rounded-xl flex flex-col items-center justify-center transition cursor-pointer group ${
+                        isDragging 
+                        ? 'border-quizizz-purple bg-purple-50 dark:bg-purple-900/20' 
+                        : 'border-gray-300 dark:border-gray-600 text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800/50'
+                    }`}
+                    onClick={() => document.getElementById('file-upload')?.click()}
+                    onDragOver={handleDragOver}
+                    onDragLeave={handleDragLeave}
+                    onDrop={handleDrop}
+                 >
+                    <input 
+                        type="file" 
+                        id="file-upload" 
+                        className="hidden" 
+                        accept=".csv,.json,.txt"
+                        onChange={handleFileUpload}
+                    />
+                    <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition">
+                        <Upload size={24} className="text-gray-400 dark:text-gray-300" />
+                    </div>
+                    <p className="text-sm font-bold text-gray-700 dark:text-gray-300">Click to upload or drag and drop</p>
+                    <p className="text-xs text-gray-400 mt-1">Supports .csv, .json, .txt</p>
+                 </div>
+
                  <textarea 
                    value={importText}
                    onChange={(e) => setImportText(e.target.value)}
                    className="w-full h-48 px-4 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:border-quizizz-purple focus:outline-none transition font-mono text-sm"
-                   placeholder={`id,word,type,phonetic,description,meaning,example,exampleMeaning
-1,wait in line,,,Wait for your turn,xếp hàng,Please wait in line.,Vui lòng xếp hàng.
-2,wipe something off something,,,Clean surface,loại bỏ cái gì khỏi cái gì,The janitor had to wipe the dust off the counter.,Người gác cổng phải lau sạch bụi trên quầy.`}
+                   placeholder={
+                       importFormat === 'csv' 
+                       ? `id,word,type,phonetic,description,meaning,example,exampleMeaning\n1,wait in line,,,Wait for your turn,xếp hàng,Please wait in line.,Vui lòng xếp hàng.`
+                       : importFormat === 'json'
+                       ? `[\n  {\n    "word": "hello",\n    "meaning": "xin chào"\n  }\n]`
+                       : `Word: hello (noun)\nPhonetic: /həˈləʊ/\nMeaning: xin chào\n-------------------`
+                   }
                  />
                  <p className="text-xs text-gray-400 mt-2">
-                   * Ensure the first line is the header row: id,word,type,phonetic,description,meaning,example,exampleMeaning
+                   {importFormat === 'csv' && '* Ensure the first line is the header row: id,word,type,phonetic,description,meaning,example,exampleMeaning'}
+                   {importFormat === 'json' && '* Paste a valid JSON array of objects.'}
+                   {importFormat === 'txt' && '* Use the standard export format with "-------------------" separator.'}
                  </p>
                </div>
                <button 
-                 onClick={handleImport}
-                 disabled={!importText}
+                 onClick={handleImportClick}
+                 disabled={!importText || (selectedSourceId === 'new' && !newSourceName)}
                  className="w-full py-4 bg-quizizz-purple text-white rounded-xl font-bold shadow-[0_4px_0_#6c5ce7] active:shadow-none active:translate-y-[4px] disabled:opacity-50 disabled:shadow-none disabled:translate-y-0 transition flex justify-center items-center gap-2"
                >
                  <Upload size={20} />

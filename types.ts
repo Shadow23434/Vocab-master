@@ -10,6 +10,13 @@ export interface VocabItem {
   exampleMeaning: string;
 }
 
+export interface DataSource {
+  id: string;
+  name: string;
+  items: VocabItem[];
+  createdAt: number;
+}
+
 export enum AppMode {
   HOME = 'HOME',
   FLASHCARD = 'FLASHCARD',

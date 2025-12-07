@@ -1,0 +1,4619 @@
+[
+  {
+    "id": "1",
+    "word": "wait in line",
+    "type": "phr",
+    "phonetic": "/weɪt ɪn laɪn/",
+    "meaning": "Xếp hàng",
+    "example": "Please wait in line behind the yellow tape.",
+    "exampleMeaning": "Vui lòng xếp hàng phía sau dải băng màu vàng."
+  },
+  {
+    "id": "2",
+    "word": "wipe off",
+    "type": "phr v",
+    "phonetic": "/waɪp ɒf/",
+    "meaning": "Lau sạch, loại bỏ (bụi bẩn)",
+    "example": "The janitor had to wipe the dust off the counter.",
+    "exampleMeaning": "Người lao công phải lau sạch bụi trên quầy."
+  },
+  {
+    "id": "3",
+    "word": "throw away",
+    "type": "phr v",
+    "phonetic": "/θrəʊ əˈweɪ/",
+    "meaning": "Vứt bỏ",
+    "example": "You must throw away expired food immediately.",
+    "exampleMeaning": "Bạn phải vứt bỏ thực phẩm đã hết hạn ngay lập tức."
+  },
+  {
+    "id": "4",
+    "word": "shovel",
+    "type": "n, v",
+    "phonetic": "/ˈʃʌv.l/",
+    "meaning": "Cái xẻng (n), xúc bằng xẻng (v)",
+    "example": "He used a shovel to move the dirt for the garden.",
+    "exampleMeaning": "Ông ấy dùng xẻng để xúc đất làm vườn."
+  },
+  {
+    "id": "5",
+    "word": "rearrange",
+    "type": "v",
+    "phonetic": "/ˌriː.əˈreɪndʒ/",
+    "meaning": "Sắp xếp lại",
+    "example": "We need to rearrange the chairs before the conference.",
+    "exampleMeaning": "Chúng ta cần sắp xếp lại ghế trước khi hội nghị bắt đầu."
+  },
+  {
+    "id": "6",
+    "word": "vehicle",
+    "type": "n",
+    "phonetic": "/ˈviː.ə.kl/",
+    "meaning": "Phương tiện giao thông",
+    "example": "Parking your personal vehicle is strictly prohibited here.",
+    "exampleMeaning": "Việc đỗ xe cá nhân bị nghiêm cấm ở đây."
+  },
+  {
+    "id": "7",
+    "word": "rack",
+    "type": "n",
+    "phonetic": "/ræk/",
+    "meaning": "Giá đỡ, kệ",
+    "example": "All the new brochures are placed on the display rack.",
+    "exampleMeaning": "Tất cả các tờ rơi mới đều được đặt trên giá trưng bày."
+  },
+  {
+    "id": "8",
+    "word": "stack",
+    "type": "n, v",
+    "phonetic": "/stæk/",
+    "meaning": "Chồng, đống (n); xếp chồng (v)",
+    "example": "He made a tall stack of papers on his desk.",
+    "exampleMeaning": "Anh ta xếp một chồng giấy cao trên bàn làm việc."
+  },
+  {
+    "id": "9",
+    "word": "sweep",
+    "type": "v",
+    "phonetic": "/swiːp/",
+    "meaning": "Quét dọn",
+    "example": "Please sweep the corridor before the guests arrive.",
+    "exampleMeaning": "Vui lòng quét hành lang trước khi khách đến."
+  },
+  {
+    "id": "10",
+    "word": "material",
+    "type": "n",
+    "phonetic": "/məˈtɪə.ri.əl/",
+    "meaning": "Vật liệu, chất liệu",
+    "example": "The jacket is made from a lightweight, waterproof material.",
+    "exampleMeaning": "Chiếc áo khoác được làm từ chất liệu nhẹ, không thấm nước."
+  },
+  {
+    "id": "11",
+    "word": "mostly",
+    "type": "adv",
+    "phonetic": "/ˈməʊst.li/",
+    "meaning": "Chủ yếu là, hầu hết",
+    "example": "The attendees were mostly students from local universities.",
+    "exampleMeaning": "Những người tham dự chủ yếu là sinh viên đến từ các trường đại học địa phương."
+  },
+  {
+    "id": "12",
+    "word": "tenant",
+    "type": "n",
+    "phonetic": "/ˈten.ənt/",
+    "meaning": "Người thuê (nhà, đất)",
+    "example": "The tenant reported a leak in the ceiling to the landlord.",
+    "exampleMeaning": "Người thuê nhà đã báo cáo với chủ nhà về tình trạng rò rỉ trên trần nhà."
+  },
+  {
+    "id": "13",
+    "word": "vendor",
+    "type": "n",
+    "phonetic": "/ˈven.dər/",
+    "meaning": "Nhà cung cấp, người bán hàng",
+    "example": "The company selected a new software vendor for its accounting system.",
+    "exampleMeaning": "Công ty đã chọn một nhà cung cấp phần mềm mới cho hệ thống kế toán của mình."
+  },
+  {
+    "id": "14",
+    "word": "maintenance",
+    "type": "n",
+    "phonetic": "/ˈmeɪn.tən.əns/",
+    "meaning": "Sự bảo trì, bảo dưỡng",
+    "example": "Routine maintenance ensures the machinery operates efficiently.",
+    "exampleMeaning": "Bảo trì thường xuyên đảm bảo máy móc hoạt động hiệu quả."
+  },
+  {
+    "id": "15",
+    "word": "personnel",
+    "type": "n",
+    "phonetic": "/ˌpɜː.səˈnel/",
+    "meaning": "Nhân sự, nhân viên",
+    "example": "The hiring decision must be approved by the personnel department.",
+    "exampleMeaning": "Quyết định tuyển dụng phải được phòng nhân sự phê duyệt."
+  },
+  {
+    "id": "16",
+    "word": "division",
+    "type": "n",
+    "phonetic": "/dɪˈvɪʒ.n/",
+    "meaning": "Bộ phận, phòng ban",
+    "example": "The Marketing Division launched a new campaign last month.",
+    "exampleMeaning": "Phòng Tiếp thị đã triển khai một chiến dịch mới vào tháng trước."
+  },
+  {
+    "id": "17",
+    "word": "corridor",
+    "type": "n",
+    "phonetic": "/ˈkɒr.ɪ.dɔːr/",
+    "meaning": "Hành lang",
+    "example": "Please keep the corridor clear of storage boxes.",
+    "exampleMeaning": "Vui lòng giữ hành lang thông thoáng, không để hộp lưu trữ."
+  },
+  {
+    "id": "18",
+    "word": "achieve",
+    "type": "v",
+    "phonetic": "/əˈtʃiːv/",
+    "meaning": "Đạt được",
+    "example": "We hope to achieve our sales target by the end of the quarter.",
+    "exampleMeaning": "Chúng tôi hy vọng sẽ đạt được mục tiêu bán hàng vào cuối quý."
+  },
+  {
+    "id": "19",
+    "word": "turn out",
+    "type": "phr v",
+    "phonetic": "/tɜːn aʊt/",
+    "meaning": "Hóa ra là, trở nên",
+    "example": "The event turned out to be a huge success.",
+    "exampleMeaning": "Sự kiện này hóa ra lại thành công rực rỡ."
+  },
+  {
+    "id": "20",
+    "word": "available",
+    "type": "adj",
+    "phonetic": "/əˈveɪ.lə.bl/",
+    "meaning": "Có sẵn, rảnh rỗi",
+    "example": "The meeting room is available now if you want to use it.",
+    "exampleMeaning": "Phòng họp hiện đã có sẵn nếu bạn muốn sử dụng."
+  },
+  {
+    "id": "21",
+    "word": "prototype",
+    "type": "n",
+    "phonetic": "/ˈprəʊ.tə.taɪp/",
+    "meaning": "Nguyên mẫu",
+    "example": "Engineers are testing the final prototype of the new smartphone.",
+    "exampleMeaning": "Các kỹ sư đang thử nghiệm nguyên mẫu cuối cùng của điện thoại thông minh mới."
+  },
+  {
+    "id": "22",
+    "word": "nominate",
+    "type": "v",
+    "phonetic": "/ˈnɒm.ɪ.neɪt/",
+    "meaning": "Đề cử",
+    "example": "They will nominate a new chairperson at the annual meeting.",
+    "exampleMeaning": "Họ sẽ đề cử một chủ tịch mới tại cuộc họp thường niên."
+  },
+  {
+    "id": "23",
+    "word": "organize",
+    "type": "v",
+    "phonetic": "/ˈɔː.ɡən.aɪz/",
+    "meaning": "Tổ chức, sắp xếp",
+    "example": "She volunteered to organize the company's charity event.",
+    "exampleMeaning": "Cô ấy đã tình nguyện tổ chức sự kiện từ thiện của công ty."
+  },
+  {
+    "id": "24",
+    "word": "prescription",
+    "type": "n",
+    "phonetic": "/prɪˈskrɪp.ʃn/",
+    "meaning": "Đơn thuốc",
+    "example": "The doctor wrote a prescription for my medication.",
+    "exampleMeaning": "Bác sĩ đã kê đơn thuốc cho tôi."
+  },
+  {
+    "id": "25",
+    "word": "fundraiser",
+    "type": "n",
+    "phonetic": "/ˈfʌndˌreɪ.zər/",
+    "meaning": "Buổi gây quỹ, người gây quỹ",
+    "example": "The annual dinner is the biggest fundraiser for the foundation.",
+    "exampleMeaning": "Bữa tối thường niên là hoạt động gây quỹ lớn nhất của quỹ."
+  },
+  {
+    "id": "26",
+    "word": "merchandise",
+    "type": "n",
+    "phonetic": "/ˈmɜː.tʃən.daɪs/",
+    "meaning": "Hàng hóa",
+    "example": "All promotional merchandise is on sale this weekend.",
+    "exampleMeaning": "Tất cả hàng hóa khuyến mại đều được bán vào cuối tuần này."
+  },
+  {
+    "id": "27",
+    "word": "accounting",
+    "type": "n",
+    "phonetic": "/əˈkaʊn.tɪŋ/",
+    "meaning": "Kế toán, công việc kế toán",
+    "example": "He is responsible for all of the accounting functions in the firm.",
+    "exampleMeaning": "Ông chịu trách nhiệm về mọi chức năng kế toán trong công ty."
+  },
+  {
+    "id": "28",
+    "word": "invoice",
+    "type": "n",
+    "phonetic": "/ˈɪn.vɔɪs/",
+    "meaning": "Hóa đơn",
+    "example": "Please send the invoice directly to the finance department.",
+    "exampleMeaning": "Vui lòng gửi hóa đơn trực tiếp đến phòng tài chính."
+  },
+  {
+    "id": "29",
+    "word": "authorize",
+    "type": "v",
+    "phonetic": "/ˈɔː.θər.aɪz/",
+    "meaning": "Ủy quyền, cho phép",
+    "example": "Only the manager can authorize this large expenditure.",
+    "exampleMeaning": "Chỉ có người quản lý mới có thể phê duyệt khoản chi tiêu lớn này."
+  },
+  {
+    "id": "30",
+    "word": "uneventful",
+    "type": "adj",
+    "phonetic": "/ˌʌn.ɪˈvent.fl/",
+    "meaning": "Yên bình, không có chuyện gì xảy ra",
+    "example": "The flight was uneventful and landed on time.",
+    "exampleMeaning": "Chuyến bay diễn ra suôn sẻ và hạ cánh đúng giờ."
+  },
+  {
+    "id": "31",
+    "word": "behind schedule",
+    "type": "phr",
+    "phonetic": "/bɪˈhaɪnd ˈʃed.juːl/",
+    "meaning": "Chậm tiến độ",
+    "example": "The construction project is currently two weeks behind schedule.",
+    "exampleMeaning": "Dự án xây dựng hiện đang chậm tiến độ hai tuần."
+  },
+  {
+    "id": "32",
+    "word": "hospitality",
+    "type": "n",
+    "phonetic": "/ˌhɒs.pɪˈtæl.ə.ti/",
+    "meaning": "Lòng mến khách, ngành dịch vụ khách hàng",
+    "example": "The hotel is known for its excellent hospitality services.",
+    "exampleMeaning": "Khách sạn nổi tiếng với dịch vụ hiếu khách tuyệt vời."
+  },
+  {
+    "id": "33",
+    "word": "meteorology",
+    "type": "n",
+    "phonetic": "/ˌmiː.ti.əˈrɒl.ə.dʒi/",
+    "meaning": "Khí tượng học",
+    "example": "She studied meteorology to become a weather forecaster.",
+    "exampleMeaning": "Cô học ngành khí tượng học để trở thành một nhà dự báo thời tiết."
+  },
+  {
+    "id": "34",
+    "word": "absent",
+    "type": "adj",
+    "phonetic": "/ˈæb.sənt/",
+    "meaning": "Vắng mặt",
+    "example": "Mr. Chen was absent from the meeting due to a business trip.",
+    "exampleMeaning": "Ông Trần vắng mặt trong cuộc họp vì đi công tác."
+  },
+  {
+    "id": "35",
+    "word": "stamp",
+    "type": "n",
+    "phonetic": "/stæmp/",
+    "meaning": "Con tem",
+    "example": "Don't forget to put a stamp on the envelope before mailing it.",
+    "exampleMeaning": "Đừng quên dán tem lên phong bì trước khi gửi."
+  },
+  {
+    "id": "36",
+    "word": "retirement",
+    "type": "n",
+    "phonetic": "/rɪˈtaɪə.mənt/",
+    "meaning": "Sự nghỉ hưu",
+    "example": "We celebrated his retirement after thirty years of service.",
+    "exampleMeaning": "Chúng tôi đã tổ chức lễ nghỉ hưu của ông sau ba mươi năm phục vụ."
+  },
+  {
+    "id": "37",
+    "word": "demonstrate",
+    "type": "v",
+    "phonetic": "/ˈdem.ən.streɪt/",
+    "meaning": "Chứng minh, minh hoạ",
+    "example": "The engineer will demonstrate how the new machine works.",
+    "exampleMeaning": "Kỹ sư sẽ trình diễn cách thức hoạt động của máy mới."
+  },
+  {
+    "id": "38",
+    "word": "compact",
+    "type": "adj",
+    "phonetic": "/kəmˈpækt/",
+    "meaning": "Nhỏ gọn",
+    "example": "We chose a compact car for better fuel efficiency.",
+    "exampleMeaning": "Chúng tôi chọn một chiếc xe nhỏ gọn để tiết kiệm nhiên liệu hơn."
+  },
+  {
+    "id": "39",
+    "word": "registration",
+    "type": "n",
+    "phonetic": "/ˌredʒ.ɪˈstreɪ.ʃn/",
+    "meaning": "Sự đăng ký",
+    "example": "Online registration for the course opens next Monday.",
+    "exampleMeaning": "Đăng ký khóa học trực tuyến sẽ mở vào thứ Hai tuần tới."
+  },
+  {
+    "id": "40",
+    "word": "reduction",
+    "type": "n",
+    "phonetic": "/rɪˈdʌk.ʃn/",
+    "meaning": "Sự giảm bớt",
+    "example": "The company announced a 10% price reduction on all printers.",
+    "exampleMeaning": "Công ty đã thông báo giảm giá 10% cho tất cả các loại máy in."
+  },
+  {
+    "id": "41",
+    "word": "ingredient",
+    "type": "n",
+    "phonetic": "/ɪnˈɡriː.di.ənt/",
+    "meaning": "Thành phần, nguyên liệu",
+    "example": "The main ingredient in this dish is fresh local seafood.",
+    "exampleMeaning": "Thành phần chính của món ăn này là hải sản tươi sống địa phương."
+  },
+  {
+    "id": "42",
+    "word": "entirely",
+    "type": "adv",
+    "phonetic": "/ɪnˈtaɪə.li/",
+    "meaning": "Hoàn toàn, trọn vẹn",
+    "example": "The solution must be implemented entirely by the IT team.",
+    "exampleMeaning": "Giải pháp phải được triển khai hoàn toàn bởi nhóm CNTT."
+  },
+  {
+    "id": "43",
+    "word": "investigation",
+    "type": "n",
+    "phonetic": "/ɪnˌves.tɪˈɡeɪ.ʃn/",
+    "meaning": "Cuộc điều tra",
+    "example": "The police launched an investigation into the cause of the accident.",
+    "exampleMeaning": "Cảnh sát đã mở cuộc điều tra về nguyên nhân vụ tai nạn."
+  },
+  {
+    "id": "44",
+    "word": "lack",
+    "type": "n, v",
+    "phonetic": "/læk/",
+    "meaning": "Sự thiếu hụt (n); thiếu (v)",
+    "example": "The failure was due to a lack of communication.",
+    "exampleMeaning": "Sự thất bại là do thiếu sự giao tiếp."
+  },
+  {
+    "id": "45",
+    "word": "qualified",
+    "type": "adj",
+    "phonetic": "/ˈkwɒl.ɪ.faɪd/",
+    "meaning": "Đủ điều kiện, đủ trình độ",
+    "example": "We are looking for a qualified candidate with management experience.",
+    "exampleMeaning": "Chúng tôi đang tìm kiếm một ứng viên có trình độ và kinh nghiệm quản lý."
+  },
+  {
+    "id": "46",
+    "word": "preference",
+    "type": "n",
+    "phonetic": "/ˈpref.rəns/",
+    "meaning": "Sự ưu tiên, sở thích",
+    "example": "My preference is for a window seat during the flight.",
+    "exampleMeaning": "Tôi thích ngồi cạnh cửa sổ trong suốt chuyến bay."
+  },
+  {
+    "id": "47",
+    "word": "negotiate",
+    "type": "v",
+    "phonetic": "/nəˈɡəʊ.ʃi.eɪt/",
+    "meaning": "Đàm phán, thương lượng",
+    "example": "It took weeks to negotiate the terms of the new contract.",
+    "exampleMeaning": "Phải mất nhiều tuần để đàm phán các điều khoản của hợp đồng mới."
+  },
+  {
+    "id": "48",
+    "word": "oversee",
+    "type": "v",
+    "phonetic": "/ˌəʊ.vəˈsiː/",
+    "meaning": "Giám sát",
+    "example": "She was hired to oversee all production operations.",
+    "exampleMeaning": "Cô được thuê để giám sát toàn bộ hoạt động sản xuất."
+  },
+  {
+    "id": "49",
+    "word": "merger",
+    "type": "n",
+    "phonetic": "/ˈmɜː.dʒər/",
+    "meaning": "Sự sáp nhập",
+    "example": "The merger of the two airlines created a new dominant carrier.",
+    "exampleMeaning": "Sự sáp nhập của hai hãng hàng không đã tạo ra một hãng vận tải lớn mới."
+  },
+  {
+    "id": "50",
+    "word": "assignment",
+    "type": "n",
+    "phonetic": "/əˈsaɪn.mənt/",
+    "meaning": "Nhiệm vụ, bài tập được giao",
+    "example": "I completed the financial analysis assignment yesterday.",
+    "exampleMeaning": "Tôi đã hoàn thành bài tập phân tích tài chính ngày hôm qua."
+  },
+  {
+    "id": "51",
+    "word": "mention",
+    "type": "v",
+    "phonetic": "/ˈmen.ʃn/",
+    "meaning": "Đề cập đến",
+    "example": "Did he mention the due date for the revised proposal?",
+    "exampleMeaning": "Ông ấy có đề cập đến ngày nộp bản đề xuất sửa đổi không?"
+  },
+  {
+    "id": "52",
+    "word": "out of service",
+    "type": "phr",
+    "phonetic": "/aʊt əv ˈsɜː.vɪs/",
+    "meaning": "Ngừng hoạt động, hỏng",
+    "example": "The elevator has been out of service since this morning.",
+    "exampleMeaning": "Thang máy đã ngừng hoạt động từ sáng nay."
+  },
+  {
+    "id": "53",
+    "word": "initiative",
+    "type": "n",
+    "phonetic": "/ɪˈnɪʃ.ə.tɪv/",
+    "meaning": "Sáng kiến",
+    "example": "The CEO praised her initiative in streamlining the workflow.",
+    "exampleMeaning": "CEO khen ngợi sáng kiến của cô ấy trong việc hợp lý hóa quy trình làm việc."
+  },
+  {
+    "id": "54",
+    "word": "avoid",
+    "type": "v",
+    "phonetic": "/əˈvɔɪd/",
+    "meaning": "Tránh, né tránh",
+    "example": "We must avoid scheduling conflicts for the main speaker.",
+    "exampleMeaning": "Chúng ta phải tránh xung đột lịch trình với diễn giả chính."
+  },
+  {
+    "id": "55",
+    "word": "certification",
+    "type": "n",
+    "phonetic": "/ˌsɜː.tɪ.fɪˈkeɪ.ʃn/",
+    "meaning": "Giấy chứng nhận, sự cấp chứng chỉ",
+    "example": "He needs to renew his professional certification every three years.",
+    "exampleMeaning": "Anh ấy cần phải gia hạn chứng chỉ chuyên môn của mình ba năm một lần."
+  },
+  {
+    "id": "56",
+    "word": "annual",
+    "type": "adj",
+    "phonetic": "/ˈæn.ju.əl/",
+    "meaning": "Hàng năm, thường niên",
+    "example": "The annual report will be presented to the board next week.",
+    "exampleMeaning": "Báo cáo thường niên sẽ được trình lên hội đồng quản trị vào tuần tới."
+  },
+  {
+    "id": "57",
+    "word": "donor",
+    "type": "n",
+    "phonetic": "/ˈdəʊ.nər/",
+    "meaning": "Nhà tài trợ, người hiến tặng",
+    "example": "The new wing of the hospital was funded by a generous donor.",
+    "exampleMeaning": "Khu nhà mới của bệnh viện được tài trợ bởi một nhà tài trợ hào phóng."
+  },
+  {
+    "id": "58",
+    "word": "unfortunately",
+    "type": "adv",
+    "phonetic": "/ʌnˈfɔː.tʃə.nət.li/",
+    "meaning": "Thật không may",
+    "example": "Unfortunately, the train was delayed due to bad weather.",
+    "exampleMeaning": "Thật không may, chuyến tàu bị chậm trễ do thời tiết xấu."
+  },
+  {
+    "id": "59",
+    "word": "remove",
+    "type": "v",
+    "phonetic": "/rɪˈmuːv/",
+    "meaning": "Loại bỏ, dời đi",
+    "example": "Please remove all personal items from the office kitchen.",
+    "exampleMeaning": "Vui lòng mang hết đồ dùng cá nhân ra khỏi bếp văn phòng."
+  },
+  {
+    "id": "60",
+    "word": "glance",
+    "type": "n, v",
+    "phonetic": "/ɡlɑːns/",
+    "meaning": "Cái nhìn lướt qua (n); liếc nhìn (v)",
+    "example": "She took a quick glance at the clock.",
+    "exampleMeaning": "Cô liếc nhanh đồng hồ."
+  },
+  {
+    "id": "61",
+    "word": "assign",
+    "type": "v",
+    "phonetic": "/əˈsaɪn/",
+    "meaning": "Phân công, chỉ định",
+    "example": "The project leader will assign tasks to each team member.",
+    "exampleMeaning": "Trưởng dự án sẽ phân công nhiệm vụ cho từng thành viên trong nhóm."
+  },
+  {
+    "id": "62",
+    "word": "press conference",
+    "type": "n",
+    "phonetic": "/ˈpres kɒn.fər.əns/",
+    "meaning": "Cuộc họp báo",
+    "example": "The CEO announced the new product at a press conference.",
+    "exampleMeaning": "Tổng giám đốc điều hành đã công bố sản phẩm mới tại một cuộc họp báo."
+  },
+  {
+    "id": "63",
+    "word": "crucial",
+    "type": "adj",
+    "phonetic": "/ˈkruː.ʃl/",
+    "meaning": "Quan trọng, cốt yếu",
+    "example": "Timely data collection is crucial for accurate analysis.",
+    "exampleMeaning": "Việc thu thập dữ liệu kịp thời là rất quan trọng để phân tích chính xác."
+  },
+  {
+    "id": "64",
+    "word": "assemble",
+    "type": "v",
+    "phonetic": "/əˈsem.bl/",
+    "meaning": "Lắp ráp, tập hợp",
+    "example": "The workers need two hours to assemble the new machinery.",
+    "exampleMeaning": "Các công nhân cần hai giờ để lắp ráp máy móc mới."
+  },
+  {
+    "id": "65",
+    "word": "opportunity",
+    "type": "n",
+    "phonetic": "/ˌɒp.əˈtjuː.nə.ti/",
+    "meaning": "Cơ hội",
+    "example": "This overseas training offers a great opportunity for career growth.",
+    "exampleMeaning": "Chương trình đào tạo ở nước ngoài này mang lại cơ hội tuyệt vời để phát triển sự nghiệp."
+  },
+  {
+    "id": "66",
+    "word": "capacity",
+    "type": "n",
+    "phonetic": "/kəˈpæs.ə.ti/",
+    "meaning": "Sức chứa, công suất",
+    "example": "The stadium has a seating capacity of over 50,000 people.",
+    "exampleMeaning": "Sân vận động có sức chứa hơn 50.000 người."
+  },
+  {
+    "id": "67",
+    "word": "adjacent",
+    "type": "adj",
+    "phonetic": "/əˈdʒeɪ.snt/",
+    "meaning": "Liền kề, kế bên",
+    "example": "The director's office is adjacent to the main meeting room.",
+    "exampleMeaning": "Phòng giám đốc nằm cạnh phòng họp chính."
+  },
+  {
+    "id": "68",
+    "word": "designate",
+    "type": "v",
+    "phonetic": "/ˈdez.ɪɡ.neɪt/",
+    "meaning": "Chỉ định",
+    "example": "The parking spots closest to the entrance are designated for visitors.",
+    "exampleMeaning": "Các bãi đậu xe gần lối vào nhất được chỉ định cho khách."
+  },
+  {
+    "id": "69",
+    "word": "alternate",
+    "type": "v, adj",
+    "phonetic": "/ˈɔːl.tə.neɪt/",
+    "meaning": "Luân phiên, xen kẽ",
+    "example": "The shift managers alternate between the morning and evening schedules.",
+    "exampleMeaning": "Người quản lý ca làm việc luân phiên giữa ca sáng và ca tối."
+  },
+  {
+    "id": "70",
+    "word": "feature",
+    "type": "n, v",
+    "phonetic": "/ˈfiː.tʃər/",
+    "meaning": "Đặc điểm, tính năng (n); có đặc điểm (v)",
+    "example": "A key feature of the new model is its long battery life.",
+    "exampleMeaning": "Một tính năng chính của mẫu máy mới là thời lượng pin dài."
+  },
+  {
+    "id": "71",
+    "word": "proceeds",
+    "type": "n",
+    "phonetic": "/ˈprəʊ.siːdz/",
+    "meaning": "Tiền thu được (từ bán hàng, sự kiện)",
+    "example": "All proceeds from the auction will go to charity.",
+    "exampleMeaning": "Toàn bộ số tiền thu được từ cuộc đấu giá sẽ được dùng làm từ thiện."
+  },
+  {
+    "id": "72",
+    "word": "refreshments",
+    "type": "n",
+    "phonetic": "/rɪˈfreʃ.mənts/",
+    "meaning": "Đồ ăn thức uống nhẹ",
+    "example": "Light refreshments will be served during the intermission.",
+    "exampleMeaning": "Đồ ăn nhẹ sẽ được phục vụ trong giờ nghỉ giải lao."
+  },
+  {
+    "id": "73",
+    "word": "refer",
+    "type": "v",
+    "phonetic": "/rɪˈfɜːr/",
+    "meaning": "Tham khảo, đề cập",
+    "example": "Please refer to the user manual for installation instructions.",
+    "exampleMeaning": "Vui lòng tham khảo hướng dẫn sử dụng để biết cách cài đặt."
+  },
+  {
+    "id": "74",
+    "word": "guest speaker",
+    "type": "n",
+    "phonetic": "/ˌɡest ˈspiː.kər/",
+    "meaning": "Diễn giả khách mời",
+    "example": "We invited a prominent economist to be our guest speaker.",
+    "exampleMeaning": "Chúng tôi đã mời một nhà kinh tế học nổi tiếng làm diễn giả khách mời."
+  },
+  {
+    "id": "75",
+    "word": "uncover",
+    "type": "v",
+    "phonetic": "/ʌnˈkʌv.ər/",
+    "meaning": "Khám phá, phát hiện ra",
+    "example": "The audit helped uncover several issues in the budget.",
+    "exampleMeaning": "Cuộc kiểm toán đã giúp phát hiện ra một số vấn đề trong ngân sách."
+  },
+  {
+    "id": "76",
+    "word": "intricate",
+    "type": "adj",
+    "phonetic": "/ˈɪn.trɪ.kət/",
+    "meaning": "Phức tạp, tinh xảo",
+    "example": "The machine has a complex and intricate design.",
+    "exampleMeaning": "Chiếc máy này có thiết kế phức tạp và tinh vi."
+  },
+  {
+    "id": "77",
+    "word": "revise",
+    "type": "v",
+    "phonetic": "/rɪˈvaɪz/",
+    "meaning": "Sửa đổi, ôn tập",
+    "example": "The project team needs to revise the financial forecast.",
+    "exampleMeaning": "Nhóm dự án cần phải xem xét lại dự báo tài chính."
+  },
+  {
+    "id": "78",
+    "word": "commemorate",
+    "type": "v",
+    "phonetic": "/kəˈmem.ə.reɪt/",
+    "meaning": "Tưởng nhớ, kỷ niệm",
+    "example": "A special ceremony was held to commemorate the company's 50th anniversary.",
+    "exampleMeaning": "Một buổi lễ đặc biệt đã được tổ chức để kỷ niệm 50 năm thành lập công ty."
+  },
+  {
+    "id": "79",
+    "word": "association",
+    "type": "n",
+    "phonetic": "/əˌsəʊ.ʃiˈeɪ.ʃn/",
+    "meaning": "Hiệp hội, sự liên kết",
+    "example": "He is the president of the local business association.",
+    "exampleMeaning": "Ông là chủ tịch hiệp hội doanh nghiệp địa phương."
+  },
+  {
+    "id": "80",
+    "word": "insert",
+    "type": "v",
+    "phonetic": "/ɪnˈsɜːt/",
+    "meaning": "Chèn vào, đưa vào",
+    "example": "Please insert your card into the slot.",
+    "exampleMeaning": "Vui lòng chèn thẻ của bạn vào khe."
+  },
+  {
+    "id": "81",
+    "word": "arrange",
+    "type": "v",
+    "phonetic": "/əˈreɪndʒ/",
+    "meaning": "Sắp xếp",
+    "example": "They arranged the meeting for next Tuesday.",
+    "exampleMeaning": "Họ đã sắp xếp cuộc họp vào thứ Ba tới."
+  },
+  {
+    "id": "82",
+    "word": "discard",
+    "type": "v",
+    "phonetic": "/dɪˈskɑːd/",
+    "meaning": "Vứt bỏ, loại bỏ",
+    "example": "Old files should be shredded and discarded.",
+    "exampleMeaning": "Các hồ sơ cũ nên được hủy và vứt bỏ."
+  },
+  {
+    "id": "83",
+    "word": "empty",
+    "type": "adj, v",
+    "phonetic": "/ˈemp.ti/",
+    "meaning": "Trống rỗng (adj); làm trống (v)",
+    "example": "The storage room was completely empty after the move.",
+    "exampleMeaning": "Phòng lưu trữ hoàn toàn trống rỗng sau khi chuyển đi."
+  },
+  {
+    "id": "84",
+    "word": "scatter",
+    "type": "v",
+    "phonetic": "/ˈskæt.ər/",
+    "meaning": "Rải rác, phân tán",
+    "example": "The wind scattered the leaves across the yard.",
+    "exampleMeaning": "Gió làm lá rải rác khắp sân."
+  },
+  {
+    "id": "85",
+    "word": "canopy",
+    "type": "n",
+    "phonetic": "/ˈkæn.ə.pi/",
+    "meaning": "Mái che",
+    "example": "We waited under the protective canopy to avoid the rain.",
+    "exampleMeaning": "Chúng tôi đợi dưới mái che bảo vệ để tránh mưa."
+  },
+  {
+    "id": "86",
+    "word": "display",
+    "type": "v, n",
+    "phonetic": "/dɪˈspleɪ/",
+    "meaning": "Trưng bày (v); màn hình, sự trưng bày (n)",
+    "example": "The museum will display artifacts from ancient Egypt.",
+    "exampleMeaning": "Bảo tàng sẽ trưng bày các hiện vật từ Ai Cập cổ đại."
+  },
+  {
+    "id": "87",
+    "word": "budget",
+    "type": "n",
+    "phonetic": "/ˈbʌdʒ.ɪt/",
+    "meaning": "Ngân sách",
+    "example": "We must finalize the annual budget by the end of the month.",
+    "exampleMeaning": "Chúng ta phải hoàn thiện ngân sách hàng năm vào cuối tháng."
+  },
+  {
+    "id": "88",
+    "word": "main branch",
+    "type": "n",
+    "phonetic": "/meɪn brɑːntʃ/",
+    "meaning": "Chi nhánh chính",
+    "example": "All major decisions are made at the main branch office.",
+    "exampleMeaning": "Tất cả các quyết định lớn được đưa ra tại văn phòng chi nhánh chính."
+  },
+  {
+    "id": "89",
+    "word": "appointment",
+    "type": "n",
+    "phonetic": "/əˈpɔɪnt.mənt/",
+    "meaning": "Cuộc hẹn",
+    "example": "I have an appointment with the dentist at 3 PM.",
+    "exampleMeaning": "Tôi có một cuộc hẹn với nha sĩ lúc 3 giờ chiều."
+  },
+  {
+    "id": "90",
+    "word": "stop by",
+    "type": "phr v",
+    "phonetic": "/stɒp baɪ/",
+    "meaning": "Ghé qua",
+    "example": "I'll stop by the store on my way home.",
+    "exampleMeaning": "Tôi sẽ ghé qua cửa hàng trên đường về nhà."
+  },
+  {
+    "id": "91",
+    "word": "make it",
+    "type": "phr",
+    "phonetic": "/meɪk ɪt/",
+    "meaning": "Đến nơi, làm được",
+    "example": "Can you make it to the party on Friday night?",
+    "exampleMeaning": "Bạn có thể đến bữa tiệc vào tối thứ Sáu được không?"
+  },
+  {
+    "id": "92",
+    "word": "fill the position",
+    "type": "phr",
+    "phonetic": "/fɪl ðə pəˈzɪʃ.n/",
+    "meaning": "Tuyển được người vào vị trí",
+    "example": "We hope to fill the position by the end of the month.",
+    "exampleMeaning": "Chúng tôi hy vọng sẽ tuyển được người cho vị trí này vào cuối tháng."
+  },
+  {
+    "id": "93",
+    "word": "innovative",
+    "type": "adj",
+    "phonetic": "/ˈɪn.ə.və.tɪv/",
+    "meaning": "Có tính đổi mới, sáng tạo",
+    "example": "The company is known for its innovative marketing strategies.",
+    "exampleMeaning": "Công ty được biết đến với các chiến lược tiếp thị đổi mới."
+  },
+  {
+    "id": "94",
+    "word": "warranty",
+    "type": "n",
+    "phonetic": "/ˈwɒr.ən.ti/",
+    "meaning": "Sự bảo hành",
+    "example": "The laptop comes with a two-year warranty.",
+    "exampleMeaning": "Chiếc máy tính xách tay đi kèm với bảo hành hai năm."
+  },
+  {
+    "id": "95",
+    "word": "property",
+    "type": "n",
+    "phonetic": "/ˈprɒp.ə.ti/",
+    "meaning": "Tài sản, bất động sản",
+    "example": "The contract includes a list of all company property.",
+    "exampleMeaning": "Hợp đồng bao gồm danh sách tất cả tài sản của công ty."
+  },
+  {
+    "id": "96",
+    "word": "confirmation",
+    "type": "n",
+    "phonetic": "/ˌkɒn.fəˈmeɪ.ʃn/",
+    "meaning": "Sự xác nhận",
+    "example": "Please wait for a confirmation email after booking.",
+    "exampleMeaning": "Vui lòng đợi email xác nhận sau khi đặt chỗ."
+  },
+  {
+    "id": "97",
+    "word": "electrical failure",
+    "type": "n",
+    "phonetic": "/ɪˈlek.trɪ.kl ˈfeɪ.ljər/",
+    "meaning": "Sự cố mất điện, lỗi điện",
+    "example": "The storm caused a major electrical failure in the building.",
+    "exampleMeaning": "Cơn bão đã gây ra sự cố mất điện lớn trong tòa nhà."
+  },
+  {
+    "id": "98",
+    "word": "occur",
+    "type": "v",
+    "phonetic": "/əˈkɜːr/",
+    "meaning": "Xảy ra, diễn ra",
+    "example": "The incident is set to occur sometime this afternoon.",
+    "exampleMeaning": "Sự cố dự kiến sẽ xảy ra vào chiều nay."
+  },
+  {
+    "id": "99",
+    "word": "incorrect",
+    "type": "adj",
+    "phonetic": "/ˌɪn.kəˈrekt/",
+    "meaning": "Không chính xác",
+    "example": "The report contained some incorrect figures.",
+    "exampleMeaning": "Báo cáo chứa một số số liệu không chính xác."
+  },
+  {
+    "id": "100",
+    "word": "absolutely",
+    "type": "adv",
+    "phonetic": "/ˈæb.sə.luːt.li/",
+    "meaning": "Hoàn toàn, chắc chắn",
+    "example": "I am absolutely sure about the results.",
+    "exampleMeaning": "Tôi hoàn toàn chắc chắn về kết quả."
+  },
+  {
+    "id": "101",
+    "word": "acquire",
+    "type": "v",
+    "phonetic": "/əˈkwaɪə(r)/",
+    "meaning": "Đạt được, thu mua, giành được",
+    "example": "The library acquired several rare books recently.",
+    "exampleMeaning": "Thư viện đã thu được một số cuốn sách quý hiếm gần đây."
+  },
+  {
+    "id": "102",
+    "word": "significant",
+    "type": "adj",
+    "phonetic": "/sɪɡˈnɪfɪkənt/",
+    "meaning": "Đáng kể, quan trọng",
+    "example": "There was a significant rise in sales last quarter.",
+    "exampleMeaning": "Đã có một sự gia tăng đáng kể về doanh số trong quý trước."
+  },
+  {
+    "id": "103",
+    "word": "restoration",
+    "type": "n",
+    "phonetic": "/ˌrestəˈreɪʃn/",
+    "meaning": "Sự khôi phục, trùng tu",
+    "example": "The building requires complete restoration after the fire.",
+    "exampleMeaning": "Tòa nhà cần được trùng tu hoàn toàn sau vụ cháy."
+  },
+  {
+    "id": "104",
+    "word": "stunning",
+    "type": "adj",
+    "phonetic": "/ˈstʌnɪŋ/",
+    "meaning": "Tuyệt đẹp, lộng lẫy",
+    "example": "The lobby features a stunning view of the city skyline.",
+    "exampleMeaning": "Sảnh đợi có tầm nhìn tuyệt đẹp ra đường chân trời thành phố."
+  },
+  {
+    "id": "105",
+    "word": "unveil",
+    "type": "v",
+    "phonetic": "/ˌʌnˈveɪl/",
+    "meaning": "Tiết lộ, công bố, khánh thành",
+    "example": "The company will unveil its new logo next week.",
+    "exampleMeaning": "Công ty sẽ công bố logo mới của mình vào tuần tới."
+  },
+  {
+    "id": "106",
+    "word": "anniversary",
+    "type": "n",
+    "phonetic": "/ˌænɪˈvɜːsəri/",
+    "meaning": "Lễ kỷ niệm, ngày kỷ niệm",
+    "example": "We are celebrating the company's 10th anniversary.",
+    "exampleMeaning": "Chúng tôi đang kỷ niệm 10 năm thành lập công ty."
+  },
+  {
+    "id": "107",
+    "word": "informal",
+    "type": "adj",
+    "phonetic": "/ɪnˈfɔːml/",
+    "meaning": "Không trang trọng, thân mật",
+    "example": "The meeting will be an informal discussion among colleagues.",
+    "exampleMeaning": "Cuộc họp sẽ là một cuộc thảo luận không trang trọng giữa các đồng nghiệp."
+  },
+  {
+    "id": "108",
+    "word": "pharmaceutical",
+    "type": "adj",
+    "phonetic": "/ˌfɑːməˈsuːtɪkl/",
+    "meaning": "Thuộc về dược phẩm",
+    "example": "The pharmaceutical industry is heavily regulated.",
+    "exampleMeaning": "Ngành công nghiệp dược phẩm được quản lý rất chặt chẽ."
+  },
+  {
+    "id": "109",
+    "word": "manufacturer",
+    "type": "n",
+    "phonetic": "/ˌmænjuˈfæktʃərə(r)/",
+    "meaning": "Nhà sản xuất",
+    "example": "The car manufacturer recalled several models for safety checks.",
+    "exampleMeaning": "Nhà sản xuất ô tô đã thu hồi một số mẫu xe để kiểm tra an toàn."
+  },
+  {
+    "id": "110",
+    "word": "mandatory",
+    "type": "adj",
+    "phonetic": "/ˈmændətəri/",
+    "meaning": "Bắt buộc",
+    "example": "Wearing a helmet is mandatory on this construction site.",
+    "exampleMeaning": "Đội mũ bảo hiểm là bắt buộc tại công trường xây dựng này."
+  },
+  {
+    "id": "111",
+    "word": "entire",
+    "type": "adj",
+    "phonetic": "/ɪnˈtaɪə(r)/",
+    "meaning": "Toàn bộ",
+    "example": "He ate the entire pizza by himself.",
+    "exampleMeaning": "Anh ấy đã ăn hết toàn bộ chiếc bánh pizza một mình."
+  },
+  {
+    "id": "112",
+    "word": "funding",
+    "type": "n",
+    "phonetic": "/ˈfʌndɪŋ/",
+    "meaning": "Kinh phí, quỹ tài trợ",
+    "example": "The project relies heavily on government funding.",
+    "exampleMeaning": "Dự án phụ thuộc rất nhiều vào kinh phí của chính phủ."
+  },
+  {
+    "id": "113",
+    "word": "extend",
+    "type": "v",
+    "phonetic": "/ɪkˈstend/",
+    "meaning": "Kéo dài, gia hạn",
+    "example": "They decided to extend the deadline by one week.",
+    "exampleMeaning": "Họ quyết định gia hạn thời hạn thêm một tuần."
+  },
+  {
+    "id": "114",
+    "word": "assistance",
+    "type": "n",
+    "phonetic": "/əˈsɪstəns/",
+    "meaning": "Sự hỗ trợ, giúp đỡ",
+    "example": "Please ask a staff member for technical assistance.",
+    "exampleMeaning": "Vui lòng hỏi nhân viên để được hỗ trợ kỹ thuật."
+  },
+  {
+    "id": "115",
+    "word": "apply for",
+    "type": "phr v",
+    "phonetic": "/əˈplaɪ fɔː(r)/",
+    "meaning": "Ứng tuyển, nộp đơn cho",
+    "example": "She decided to apply for the managerial position.",
+    "exampleMeaning": "Cô ấy quyết định ứng tuyển vào vị trí quản lý."
+  },
+  {
+    "id": "116",
+    "word": "grant",
+    "type": "n, v",
+    "phonetic": "/ɡrɑːnt/",
+    "meaning": "Khoản trợ cấp (n); cấp, ban cho (v)",
+    "example": "The student received a research grant from the university.",
+    "exampleMeaning": "Sinh viên đã nhận được một khoản trợ cấp nghiên cứu từ trường đại học."
+  },
+  {
+    "id": "117",
+    "word": "segment",
+    "type": "n",
+    "phonetic": "/ˈseɡmənt/",
+    "meaning": "Phân khúc, bộ phận",
+    "example": "This car model targets the luxury segment of the market.",
+    "exampleMeaning": "Mẫu xe này nhắm vào phân khúc hạng sang của thị trường."
+  },
+  {
+    "id": "118",
+    "word": "state-of-the-art",
+    "type": "adj",
+    "phonetic": "/ˌsteɪt əv ði ˈɑːt/",
+    "meaning": "Hiện đại nhất, tân tiến nhất",
+    "example": "The new factory uses state-of-the-art technology.",
+    "exampleMeaning": "Nhà máy mới sử dụng công nghệ hiện đại nhất."
+  },
+  {
+    "id": "119",
+    "word": "athlete",
+    "type": "n",
+    "phonetic": "/ˈæθliːt/",
+    "meaning": "Vận động viên",
+    "example": "The athlete trained daily for the upcoming marathon.",
+    "exampleMeaning": "Vận động viên đã tập luyện hàng ngày cho cuộc marathon sắp tới."
+  },
+  {
+    "id": "120",
+    "word": "compete",
+    "type": "v",
+    "phonetic": "/kəmˈpiːt/",
+    "meaning": "Cạnh tranh, thi đấu",
+    "example": "Several companies compete fiercely in this sector.",
+    "exampleMeaning": "Một số công ty cạnh tranh khốc liệt trong lĩnh vực này."
+  },
+  {
+    "id": "121",
+    "word": "delighted",
+    "type": "adj",
+    "phonetic": "/dɪˈlaɪtɪd/",
+    "meaning": "Vui mừng, hài lòng",
+    "example": "We were delighted with the positive feedback from our customers.",
+    "exampleMeaning": "Chúng tôi rất hài lòng với phản hồi tích cực từ khách hàng."
+  },
+  {
+    "id": "122",
+    "word": "institute",
+    "type": "n",
+    "phonetic": "/ˈɪnstɪtjuːt/",
+    "meaning": "Học viện, viện nghiên cứu",
+    "example": "She works at a research institute focusing on climate change.",
+    "exampleMeaning": "Cô ấy làm việc tại một viện nghiên cứu tập trung vào biến đổi khí hậu."
+  },
+  {
+    "id": "123",
+    "word": "preserve",
+    "type": "v",
+    "phonetic": "/prɪˈzɜːv/",
+    "meaning": "Bảo tồn, gìn giữ",
+    "example": "The goal is to preserve the historical integrity of the building.",
+    "exampleMeaning": "Mục tiêu là gìn giữ sự toàn vẹn lịch sử của tòa nhà."
+  },
+  {
+    "id": "124",
+    "word": "allocate",
+    "type": "v",
+    "phonetic": "/ˈæləkeɪt/",
+    "meaning": "Phân bổ, cấp cho",
+    "example": "The manager must allocate tasks to the team members.",
+    "exampleMeaning": "Người quản lý phải phân bổ nhiệm vụ cho các thành viên trong nhóm."
+  },
+  {
+    "id": "125",
+    "word": "preliminary",
+    "type": "adj",
+    "phonetic": "/prɪˈlɪmɪnəri/",
+    "meaning": "Sơ bộ, mở đầu",
+    "example": "The preliminary results are encouraging, but not final.",
+    "exampleMeaning": "Các kết quả sơ bộ rất đáng khích lệ, nhưng chưa phải cuối cùng."
+  },
+  {
+    "id": "126",
+    "word": "findings",
+    "type": "n",
+    "phonetic": "/ˈfaɪndɪŋz/",
+    "meaning": "Các phát hiện, kết quả nghiên cứu",
+    "example": "The final report details all the study's findings.",
+    "exampleMeaning": "Báo cáo cuối cùng trình bày chi tiết tất cả các phát hiện của nghiên cứu."
+  },
+  {
+    "id": "127",
+    "word": "forecasting",
+    "type": "n",
+    "phonetic": "/ˈfɔːkɑːstɪŋ/",
+    "meaning": "Sự dự báo, công tác dự báo",
+    "example": "Accurate sales forecasting is vital for inventory management.",
+    "exampleMeaning": "Công việc dự báo doanh số chính xác là rất quan trọng cho quản lý hàng tồn kho."
+  },
+  {
+    "id": "128",
+    "word": "customize",
+    "type": "v",
+    "phonetic": "/ˈkʌstəmaɪz/",
+    "meaning": "Tùy chỉnh",
+    "example": "Customers can customize the color and features of the product.",
+    "exampleMeaning": "Khách hàng có thể tùy chỉnh màu sắc và tính năng của sản phẩm."
+  },
+  {
+    "id": "129",
+    "word": "transplant",
+    "type": "v",
+    "phonetic": "/trænsˈplɑːnt/",
+    "meaning": "Cấy ghép, di dời (cây cối)",
+    "example": "They need to transplant the young trees to a new location.",
+    "exampleMeaning": "Họ cần di dời những cây non đến một địa điểm mới."
+  },
+  {
+    "id": "130",
+    "word": "variety",
+    "type": "n",
+    "phonetic": "/vəˈraɪəti/",
+    "meaning": "Sự đa dạng, nhiều loại",
+    "example": "The menu offers a wide variety of vegetarian options.",
+    "exampleMeaning": "Thực đơn cung cấp nhiều lựa chọn ăn chay đa dạng."
+  },
+  {
+    "id": "131",
+    "word": "resident",
+    "type": "n",
+    "phonetic": "/ˈrezɪdənt/",
+    "meaning": "Cư dân",
+    "example": "The issue was raised by a concerned local resident.",
+    "exampleMeaning": "Vấn đề được nêu ra bởi một cư dân địa phương."
+  },
+  {
+    "id": "132",
+    "word": "promotion",
+    "type": "n",
+    "phonetic": "/prəˈməʊʃn/",
+    "meaning": "Sự quảng bá, sự thăng chức",
+    "example": "The new marketing promotion increased our store traffic.",
+    "exampleMeaning": "Sự quảng bá tiếp thị mới đã làm tăng lượng khách đến cửa hàng của chúng tôi."
+  },
+  {
+    "id": "133",
+    "word": "fill out",
+    "type": "phr v",
+    "phonetic": "/fɪl aʊt/",
+    "meaning": "Điền vào (đơn, phiếu)",
+    "example": "Please fill out this form completely before submission.",
+    "exampleMeaning": "Vui lòng điền vào mẫu này một cách đầy đủ trước khi nộp."
+  },
+  {
+    "id": "134",
+    "word": "receipt",
+    "type": "n",
+    "phonetic": "/rɪˈsiːt/",
+    "meaning": "Biên lai",
+    "example": "You must keep the receipt to receive a refund.",
+    "exampleMeaning": "Bạn phải giữ biên lai để được hoàn tiền."
+  },
+  {
+    "id": "135",
+    "word": "engage",
+    "type": "v",
+    "phonetic": "/ɪnˈɡeɪdʒ/",
+    "meaning": "Tham gia, thu hút",
+    "example": "The seminar aims to engage young professionals in leadership.",
+    "exampleMeaning": "Hội thảo nhằm mục đích thu hút các chuyên gia trẻ vào vai trò lãnh đạo."
+  },
+  {
+    "id": "136",
+    "word": "reside",
+    "type": "v",
+    "phonetic": "/rɪˈzaɪd/",
+    "meaning": "Cư trú, sinh sống",
+    "example": "She currently resides in an apartment near the city center.",
+    "exampleMeaning": "Hiện tại cô ấy cư trú trong một căn hộ gần trung tâm thành phố."
+  },
+  {
+    "id": "137",
+    "word": "stimulation",
+    "type": "n",
+    "phonetic": "/ˌstɪmjuˈleɪʃn/",
+    "meaning": "Sự kích thích, khuyến khích",
+    "example": "The new curriculum provides intellectual stimulation for students.",
+    "exampleMeaning": "Chương trình giảng dạy mới cung cấp sự kích thích trí tuệ cho học sinh."
+  },
+  {
+    "id": "138",
+    "word": "representative",
+    "type": "n",
+    "phonetic": "/ˌreprɪˈzentətɪv/",
+    "meaning": "Người đại diện",
+    "example": "A sales representative will contact you shortly.",
+    "exampleMeaning": "Một người đại diện bán hàng sẽ liên hệ với bạn ngay sau đây."
+  },
+  {
+    "id": "139",
+    "word": "permission",
+    "type": "n",
+    "phonetic": "/pəˈmɪʃn/",
+    "meaning": "Sự cho phép",
+    "example": "You need written permission to use copyrighted images.",
+    "exampleMeaning": "Bạn cần sự cho phép bằng văn bản để sử dụng hình ảnh có bản quyền."
+  },
+  {
+    "id": "140",
+    "word": "certified",
+    "type": "adj",
+    "phonetic": "/ˈsɜːtɪfaɪd/",
+    "meaning": "Được chứng nhận, có bằng cấp",
+    "example": "He is a certified financial planner.",
+    "exampleMeaning": "Anh ấy là một nhà hoạch định tài chính được chứng nhận."
+  },
+  {
+    "id": "141",
+    "word": "determine",
+    "type": "v",
+    "phonetic": "/dɪˈtɜːmɪn/",
+    "meaning": "Xác định, quyết định",
+    "example": "We need to determine the cause of the system failure.",
+    "exampleMeaning": "Chúng ta cần xác định nguyên nhân gây ra lỗi hệ thống."
+  },
+  {
+    "id": "142",
+    "word": "upcoming",
+    "type": "adj",
+    "phonetic": "/ˈʌpkʌmɪŋ/",
+    "meaning": "Sắp tới",
+    "example": "Don't miss the upcoming company retreat next month.",
+    "exampleMeaning": "Đừng bỏ lỡ chuyến đi nghỉ dưỡng sắp tới của công ty vào tháng sau."
+  },
+  {
+    "id": "143",
+    "word": "dependable",
+    "type": "adj",
+    "phonetic": "/dɪˈpendəbl/",
+    "meaning": "Đáng tin cậy",
+    "example": "She is a dependable employee who always meets deadlines.",
+    "exampleMeaning": "Cô ấy là một nhân viên đáng tin cậy, người luôn hoàn thành đúng thời hạn."
+  },
+  {
+    "id": "144",
+    "word": "reminder",
+    "type": "n",
+    "phonetic": "/rɪˈmaɪndə(r)/",
+    "meaning": "Lời nhắc nhở",
+    "example": "The calendar sent a reminder for the team meeting.",
+    "exampleMeaning": "Lịch đã gửi một lời nhắc cho cuộc họp nhóm."
+  },
+  {
+    "id": "145",
+    "word": "surrounding",
+    "type": "adj",
+    "phonetic": "/səˈraʊndɪŋ/",
+    "meaning": "Xung quanh, bao quanh",
+    "example": "The hotel is easily accessible from the surrounding cities.",
+    "exampleMeaning": "Khách sạn dễ dàng tiếp cận từ các thành phố xung quanh."
+  },
+  {
+    "id": "146",
+    "word": "opposition",
+    "type": "n",
+    "phonetic": "/ˌɒpəˈzɪʃn/",
+    "meaning": "Sự phản đối, phe đối lập",
+    "example": "There was strong opposition to the new zoning laws.",
+    "exampleMeaning": "Đã có sự phản đối mạnh mẽ đối với luật phân vùng mới."
+  },
+  {
+    "id": "147",
+    "word": "adjust",
+    "type": "v",
+    "phonetic": "/əˈdʒʌst/",
+    "meaning": "Điều chỉnh",
+    "example": "You may need to adjust the settings for optimal viewing.",
+    "exampleMeaning": "Bạn có thể cần điều chỉnh cài đặt để xem tối ưu."
+  },
+  {
+    "id": "148",
+    "word": "durable",
+    "type": "adj",
+    "phonetic": "/ˈdjʊərəbl/",
+    "meaning": "Bền, lâu bền",
+    "example": "We use only durable materials for our outdoor furniture.",
+    "exampleMeaning": "Chúng tôi chỉ sử dụng vật liệu bền cho đồ nội thất ngoài trời của mình."
+  },
+  {
+    "id": "149",
+    "word": "rave review",
+    "type": "n",
+    "phonetic": "/ˌreɪv rɪˈvjuː/",
+    "meaning": "Lời khen ngợi nồng nhiệt, đánh giá tích cực",
+    "example": "The new restaurant received rave reviews from food critics.",
+    "exampleMeaning": "Nhà hàng mới nhận được những đánh giá khen ngợi từ các nhà phê bình ẩm thực."
+  },
+  {
+    "id": "150",
+    "word": "nutrition",
+    "type": "n",
+    "phonetic": "/njuˈtrɪʃn/",
+    "meaning": "Dinh dưỡng",
+    "example": "The label provides complete nutrition information.",
+    "exampleMeaning": "Nhãn cung cấp thông tin dinh dưỡng đầy đủ."
+  },
+  {
+    "id": "151",
+    "word": "justify",
+    "type": "v",
+    "phonetic": "/ˈdʒʌstɪfaɪ/",
+    "meaning": "Biện minh, giải trình",
+    "example": "You must justify the high cost in your budget proposal.",
+    "exampleMeaning": "Bạn phải giải trình cho chi phí cao trong đề xuất ngân sách của mình."
+  },
+  {
+    "id": "152",
+    "word": "criticize",
+    "type": "v",
+    "phonetic": "/ˈkrɪtɪsaɪz/",
+    "meaning": "Chỉ trích, phê bình",
+    "example": "It is unfair to criticize the team before the final results are in.",
+    "exampleMeaning": "Thật không công bằng khi chỉ trích đội trước khi có kết quả cuối cùng."
+  },
+  {
+    "id": "153",
+    "word": "inconvenience",
+    "type": "n",
+    "phonetic": "/ˌɪnkənˈviːniəns/",
+    "meaning": "Sự bất tiện",
+    "example": "We apologize for any inconvenience caused by the delay.",
+    "exampleMeaning": "Chúng tôi xin lỗi vì bất kỳ sự bất tiện nào gây ra bởi sự chậm trễ."
+  },
+  {
+    "id": "154",
+    "word": "anticipate",
+    "type": "v",
+    "phonetic": "/ænˈtɪsɪpeɪt/",
+    "meaning": "Dự đoán, lường trước",
+    "example": "We anticipate a large crowd for the product launch event.",
+    "exampleMeaning": "Chúng tôi dự đoán một lượng lớn khán giả cho sự kiện ra mắt sản phẩm."
+  },
+  {
+    "id": "155",
+    "word": "spill",
+    "type": "v, n",
+    "phonetic": "/spɪl/",
+    "meaning": "Làm tràn (v); sự làm tràn (n)",
+    "example": "Be careful not to spill the coffee on the new carpet.",
+    "exampleMeaning": "Hãy cẩn thận đừng làm tràn cà phê ra thảm mới."
+  },
+  {
+    "id": "156",
+    "word": "railing",
+    "type": "n",
+    "phonetic": "/ˈreɪlɪŋ/",
+    "meaning": "Lan can",
+    "example": "Hold onto the railing when going down the stairs.",
+    "exampleMeaning": "Hãy bám vào lan can khi đi xuống cầu thang."
+  },
+  {
+    "id": "157",
+    "word": "out of stock",
+    "type": "phr",
+    "phonetic": "/ˌaʊt əv ˈstɒk/",
+    "meaning": "Hết hàng",
+    "example": "The popular printer model is currently out of stock.",
+    "exampleMeaning": "Mẫu máy in phổ biến hiện đang hết hàng."
+  },
+  {
+    "id": "158",
+    "word": "be scheduled to",
+    "type": "phr",
+    "phonetic": "/bi ˈʃedjuːld tu/",
+    "meaning": "Được lên lịch để (làm gì)",
+    "example": "The delivery is scheduled to arrive before noon.",
+    "exampleMeaning": "Việc giao hàng được lên lịch đến trước buổi trưa."
+  },
+  {
+    "id": "159",
+    "word": "require",
+    "type": "v",
+    "phonetic": "/rɪˈkwaɪə(r)/",
+    "meaning": "Yêu cầu, đòi hỏi",
+    "example": "The job requires strong communication skills.",
+    "exampleMeaning": "Công việc yêu cầu kỹ năng giao tiếp tốt."
+  },
+  {
+    "id": "160",
+    "word": "charge",
+    "type": "v, n",
+    "phonetic": "/tʃɑːdʒ/",
+    "meaning": "Tính phí (v); phí, lệ phí (n)",
+    "example": "They charge a fee for late payment.",
+    "exampleMeaning": "Họ tính một khoản phí cho việc thanh toán muộn."
+  },
+  {
+    "id": "161",
+    "word": "supervisor",
+    "type": "n",
+    "phonetic": "/ˈsuːpəvaɪzə(r)/",
+    "meaning": "Người giám sát",
+    "example": "Report any safety issues to your immediate supervisor.",
+    "exampleMeaning": "Báo cáo bất kỳ vấn đề an toàn nào cho người giám sát trực tiếp của bạn."
+  },
+  {
+    "id": "162",
+    "word": "harvest",
+    "type": "v, n",
+    "phonetic": "/ˈhɑːvɪst/",
+    "meaning": "Thu hoạch (v); vụ thu hoạch (n)",
+    "example": "Farmers begin to harvest the wheat in early autumn.",
+    "exampleMeaning": "Nông dân bắt đầu thu hoạch lúa mì vào đầu mùa thu."
+  },
+  {
+    "id": "163",
+    "word": "demonstration",
+    "type": "n",
+    "phonetic": "/ˌdemənˈstreɪʃn/",
+    "meaning": "Sự minh họa, giới thiệu sản phẩm",
+    "example": "The chef gave a demonstration of the new cooking tool.",
+    "exampleMeaning": "Đầu bếp đã trình diễn minh họa công cụ nấu ăn mới."
+  },
+  {
+    "id": "164",
+    "word": "prefer",
+    "type": "v",
+    "phonetic": "/prɪˈfɜː(r)/",
+    "meaning": "Thích hơn, ưu tiên hơn",
+    "example": "I prefer working from home to commuting every day.",
+    "exampleMeaning": "Tôi thích làm việc tại nhà hơn là đi lại hàng ngày."
+  },
+  {
+    "id": "165",
+    "word": "aisle",
+    "type": "n",
+    "phonetic": "/aɪl/",
+    "meaning": "Lối đi (giữa các dãy ghế/kệ)",
+    "example": "The wedding ceremony will be held down the center aisle.",
+    "exampleMeaning": "Lễ cưới sẽ được tổ chức dọc theo lối đi chính giữa."
+  },
+  {
+    "id": "166",
+    "word": "officially",
+    "type": "adv",
+    "phonetic": "/əˈfɪʃəli/",
+    "meaning": "Một cách chính thức",
+    "example": "The project was officially launched last month.",
+    "exampleMeaning": "Dự án đã chính thức được khởi động vào tháng trước."
+  },
+  {
+    "id": "167",
+    "word": "sign a contract",
+    "type": "phr",
+    "phonetic": "/saɪn ə ˈkɒntrækt/",
+    "meaning": "Ký hợp đồng",
+    "example": "Both parties agreed to sign a contract next week.",
+    "exampleMeaning": "Cả hai bên đã đồng ý ký hợp đồng vào tuần tới."
+  },
+  {
+    "id": "168",
+    "word": "donate",
+    "type": "v",
+    "phonetic": "/dəʊˈneɪt/",
+    "meaning": "Quyên góp, ủng hộ",
+    "example": "The company decided to donate 10% of its profits to charity.",
+    "exampleMeaning": "Công ty quyết định quyên góp 10% lợi nhuận của mình cho từ thiện."
+  },
+  {
+    "id": "169",
+    "word": "foundation",
+    "type": "n",
+    "phonetic": "/faʊnˈdeɪʃn/",
+    "meaning": "Tổ chức, quỹ tài trợ",
+    "example": "She works for a non-profit foundation focused on education.",
+    "exampleMeaning": "Cô ấy làm việc cho một tổ chức phi lợi nhuận tập trung vào giáo dục."
+  },
+  {
+    "id": "170",
+    "word": "organization",
+    "type": "n",
+    "phonetic": "/ˌɔːɡənaɪˈzeɪʃn/",
+    "meaning": "Tổ chức, cơ quan",
+    "example": "The organization is planning a major fundraising event.",
+    "exampleMeaning": "Tổ chức đang lên kế hoạch cho một sự kiện gây quỹ lớn."
+  },
+  {
+    "id": "171",
+    "word": "expand",
+    "type": "v",
+    "phonetic": "/ɪkˈspænd/",
+    "meaning": "Mở rộng, phát triển",
+    "example": "They plan to expand their business into the Asian market.",
+    "exampleMeaning": "Họ dự định mở rộng kinh doanh sang thị trường châu Á."
+  },
+  {
+    "id": "172",
+    "word": "create",
+    "type": "v",
+    "phonetic": "/kriˈeɪt/",
+    "meaning": "Tạo ra, sáng tạo",
+    "example": "The new software is designed to create custom reports.",
+    "exampleMeaning": "Phần mềm mới được thiết kế để tạo ra các báo cáo tùy chỉnh."
+  },
+  {
+    "id": "173",
+    "word": "application",
+    "type": "n",
+    "phonetic": "/ˌæplɪˈkeɪʃn/",
+    "meaning": "Đơn xin, ứng dụng",
+    "example": "Have you submitted your application for the university program?",
+    "exampleMeaning": "Bạn đã nộp đơn xin tham gia chương trình đại học chưa?"
+  },
+  {
+    "id": "174",
+    "word": "participant",
+    "type": "n",
+    "phonetic": "/pɑːˈtɪsɪpənt/",
+    "meaning": "Người tham gia",
+    "example": "Each participant received a certificate of completion.",
+    "exampleMeaning": "Mỗi người tham gia đã nhận được chứng chỉ hoàn thành."
+  },
+  {
+    "id": "175",
+    "word": "impressive",
+    "type": "adj",
+    "phonetic": "/ɪmˈpresɪv/",
+    "meaning": "Ấn tượng",
+    "example": "The team achieved impressive results in the first quarter.",
+    "exampleMeaning": "Đội đã đạt được kết quả ấn tượng trong quý đầu tiên."
+  },
+  {
+    "id": "176",
+    "word": "turnout",
+    "type": "n",
+    "phonetic": "/ˈtɜːnaʊt/",
+    "meaning": "Số lượng người tham dự",
+    "example": "We had a high turnout at the annual shareholders meeting.",
+    "exampleMeaning": "Chúng tôi đã có số người tham dự cao tại cuộc họp cổ đông thường niên."
+  },
+  {
+    "id": "177",
+    "word": "certainly",
+    "type": "adv",
+    "phonetic": "/ˈsɜːtnli/",
+    "meaning": "Chắc chắn, tất nhiên",
+    "example": "This new strategy will certainly increase our profits.",
+    "exampleMeaning": "Chiến lược mới này chắc chắn sẽ tăng lợi nhuận của chúng tôi."
+  },
+  {
+    "id": "178",
+    "word": "streamline",
+    "type": "v",
+    "phonetic": "/ˈstriːmlaɪn/",
+    "meaning": "Tinh giản, hợp lý hóa (quy trình)",
+    "example": "The goal is to streamline the hiring process to save time.",
+    "exampleMeaning": "Mục tiêu là tinh giản quy trình tuyển dụng để tiết kiệm thời gian."
+  },
+  {
+    "id": "179",
+    "word": "specific",
+    "type": "adj",
+    "phonetic": "/spəˈsɪfɪk/",
+    "meaning": "Cụ thể, đặc trưng",
+    "example": "Please provide specific examples to support your argument.",
+    "exampleMeaning": "Vui lòng cung cấp các ví dụ cụ thể để hỗ trợ lập luận của bạn."
+  },
+  {
+    "id": "180",
+    "word": "executive",
+    "type": "n",
+    "phonetic": "/ɪɡˈzekjətɪv/",
+    "meaning": "Người điều hành, giám đốc",
+    "example": "The executive team held an emergency meeting yesterday.",
+    "exampleMeaning": "Đội ngũ điều hành đã tổ chức một cuộc họp khẩn cấp hôm qua."
+  },
+  {
+    "id": "181",
+    "word": "administrative",
+    "type": "adj",
+    "phonetic": "/ədˈmɪnɪstrətɪv/",
+    "meaning": "Thuộc về hành chính, quản trị",
+    "example": "She handles all the administrative duties for the department.",
+    "exampleMeaning": "Cô ấy xử lý tất cả các nhiệm vụ hành chính cho phòng ban."
+  },
+  {
+    "id": "182",
+    "word": "investment",
+    "type": "n",
+    "phonetic": "/ɪnˈvestmənt/",
+    "meaning": "Sự đầu tư, khoản đầu tư",
+    "example": "We are seeking foreign investment for our infrastructure projects.",
+    "exampleMeaning": "Chúng tôi đang tìm kiếm đầu tư nước ngoài cho các dự án cơ sở hạ tầng."
+  },
+  {
+    "id": "183",
+    "word": "cost estimate",
+    "type": "n",
+    "phonetic": "/kɒst ˈestɪmət/",
+    "meaning": "Bảng ước tính chi phí",
+    "example": "The contractor provided a detailed cost estimate for the renovation.",
+    "exampleMeaning": "Nhà thầu đã cung cấp một bảng ước tính chi phí chi tiết cho việc cải tạo."
+  },
+  {
+    "id": "184",
+    "word": "instruction",
+    "type": "n",
+    "phonetic": "/ɪnˈstrʌkʃn/",
+    "meaning": "Sự hướng dẫn, chỉ dẫn",
+    "example": "Follow the instructions carefully before assembling the furniture.",
+    "exampleMeaning": "Làm theo hướng dẫn cẩn thận trước khi lắp ráp đồ nội thất."
+  },
+  {
+    "id": "185",
+    "word": "reasonable",
+    "type": "adj",
+    "phonetic": "/ˈriːznəbl/",
+    "meaning": "Hợp lý (giá cả), phải chăng",
+    "example": "The store offers products at a reasonable price.",
+    "exampleMeaning": "Cửa hàng cung cấp sản phẩm với giá cả hợp lý."
+  },
+  {
+    "id": "186",
+    "word": "production",
+    "type": "n",
+    "phonetic": "/prəˈdʌkʃn/",
+    "meaning": "Sự sản xuất, sản lượng",
+    "example": "Car production has increased significantly this quarter.",
+    "exampleMeaning": "Sản lượng ô tô đã tăng đáng kể trong quý này."
+  },
+  {
+    "id": "187",
+    "word": "persuade",
+    "type": "v",
+    "phonetic": "/pəˈsweɪd/",
+    "meaning": "Thuyết phục",
+    "example": "The salesperson tried to persuade me to buy the extended warranty.",
+    "exampleMeaning": "Người bán hàng đã cố gắng thuyết phục tôi mua bảo hành mở rộng."
+  },
+  {
+    "id": "188",
+    "word": "inexpensive",
+    "type": "adj",
+    "phonetic": "/ˌɪnɪkˈspensɪv/",
+    "meaning": "Không đắt, rẻ",
+    "example": "We found an inexpensive solution for the office supplies.",
+    "exampleMeaning": "Chúng tôi đã tìm thấy một giải pháp không đắt tiền cho đồ dùng văn phòng."
+  },
+  {
+    "id": "189",
+    "word": "issue",
+    "type": "n, v",
+    "phonetic": "/ˈɪʃuː/",
+    "meaning": "Vấn đề (n); phát hành (v)",
+    "example": "The main issue is the delay in material delivery.",
+    "exampleMeaning": "Vấn đề chính là sự chậm trễ trong việc giao vật liệu."
+  },
+  {
+    "id": "190",
+    "word": "evaluate",
+    "type": "v",
+    "phonetic": "/ɪˈvæljueɪt/",
+    "meaning": "Đánh giá, định giá",
+    "example": "The manager will evaluate each employee's performance.",
+    "exampleMeaning": "Người quản lý sẽ đánh giá hiệu suất của từng nhân viên."
+  },
+  {
+    "id": "191",
+    "word": "head over",
+    "type": "phr v",
+    "phonetic": "/hed ˈəʊvə(r)/",
+    "meaning": "Đi đến, di chuyển tới",
+    "example": "Let's head over to the main auditorium for the keynote speech.",
+    "exampleMeaning": "Chúng ta hãy đi đến khán phòng chính để nghe bài phát biểu quan trọng."
+  },
+  {
+    "id": "192",
+    "word": "take care of",
+    "type": "phr v",
+    "phonetic": "/teɪk keə(r) əv/",
+    "meaning": "Chăm sóc, lo liệu, xử lý",
+    "example": "Who will take care of the paperwork while you are away?",
+    "exampleMeaning": "Ai sẽ lo liệu giấy tờ khi bạn đi vắng?"
+  },
+  {
+    "id": "193",
+    "word": "celebrate",
+    "type": "v",
+    "phonetic": "/ˈselɪbreɪt/",
+    "meaning": "Ăn mừng, kỷ niệm",
+    "example": "The company will celebrate its anniversary with a grand party.",
+    "exampleMeaning": "Công ty sẽ tổ chức lễ kỷ niệm bằng một bữa tiệc lớn."
+  },
+  {
+    "id": "194",
+    "word": "former",
+    "type": "adj",
+    "phonetic": "/ˈfɔːmə(r)/",
+    "meaning": "Cựu, trước đây",
+    "example": "The former CEO now runs his own consulting firm.",
+    "exampleMeaning": "Cựu CEO hiện đang điều hành công ty tư vấn riêng của mình."
+  },
+  {
+    "id": "195",
+    "word": "colleague",
+    "type": "n",
+    "phonetic": "/ˈkɒliːɡ/",
+    "meaning": "Đồng nghiệp",
+    "example": "I shared the workload with my colleague, Sarah.",
+    "exampleMeaning": "Tôi đã chia sẻ khối lượng công việc với đồng nghiệp của mình, Sarah."
+  },
+  {
+    "id": "196",
+    "word": "distribute",
+    "type": "v",
+    "phonetic": "/dɪˈstrɪbjuːt/",
+    "meaning": "Phân phối",
+    "example": "The company plans to distribute the new software update globally.",
+    "exampleMeaning": "Công ty có kế hoạch phân phối bản cập nhật phần mềm mới trên toàn cầu."
+  },
+  {
+    "id": "197",
+    "word": "urgent",
+    "type": "adj",
+    "phonetic": "/ˈɜːdʒənt/",
+    "meaning": "Khẩn cấp",
+    "example": "This document requires urgent attention from the legal team.",
+    "exampleMeaning": "Tài liệu này yêu cầu sự chú ý khẩn cấp từ đội pháp lý."
+  },
+  {
+    "id": "198",
+    "word": "fully equipped",
+    "type": "adj",
+    "phonetic": "/ˌfʊli ɪˈkwɪpt/",
+    "meaning": "Được trang bị đầy đủ",
+    "example": "The laboratory is fully equipped with the latest technology.",
+    "exampleMeaning": "Phòng thí nghiệm được trang bị đầy đủ công nghệ mới nhất."
+  },
+  {
+    "id": "199",
+    "word": "capability",
+    "type": "n",
+    "phonetic": "/ˌkeɪpəˈbɪləti/",
+    "meaning": "Khả năng, năng lực",
+    "example": "The server has the capability to handle millions of transactions.",
+    "exampleMeaning": "Máy chủ có khả năng xử lý hàng triệu giao dịch."
+  },
+  {
+    "id": "200",
+    "word": "novelty",
+    "type": "n",
+    "phonetic": "/ˈnɒvlti/",
+    "meaning": "Sự mới lạ, tính mới mẻ",
+    "example": "The novelty of the product attracted many early adopters.",
+    "exampleMeaning": "Tính mới lạ của sản phẩm đã thu hút nhiều người dùng sớm."
+  },
+  {
+    "id": "201",
+    "word": "in time",
+    "type": "idiom",
+    "phonetic": "/ɪn taɪm/",
+    "meaning": "Kịp giờ, đúng lúc",
+    "example": "We arrived at the airport just in time to catch our flight.",
+    "exampleMeaning": "Chúng tôi đến sân bay kịp giờ để bắt chuyến bay."
+  },
+  {
+    "id": "202",
+    "word": "notification",
+    "type": "n",
+    "phonetic": "/ˌnəʊtɪfɪˈkeɪʃn/",
+    "meaning": "Thông báo",
+    "example": "You will receive an email notification when your order ships.",
+    "exampleMeaning": "Bạn sẽ nhận được email thông báo khi đơn hàng được vận chuyển."
+  },
+  {
+    "id": "203",
+    "word": "procedure",
+    "type": "n",
+    "phonetic": "/prəˈsiːdʒə(r)/",
+    "meaning": "Quy trình, thủ tục",
+    "example": "The new safety procedure must be followed by all employees.",
+    "exampleMeaning": "Tất cả nhân viên phải tuân thủ quy trình an toàn mới."
+  },
+  {
+    "id": "204",
+    "word": "investigate",
+    "type": "v",
+    "phonetic": "/ɪnˈvestɪɡeɪt/",
+    "meaning": "Điều tra, nghiên cứu",
+    "example": "The internal team will investigate the cause of the system failure.",
+    "exampleMeaning": "Nhóm nội bộ sẽ điều tra nguyên nhân gây ra lỗi hệ thống."
+  },
+  {
+    "id": "205",
+    "word": "alert",
+    "type": "adj, v, n",
+    "phonetic": "/əˈlɜːt/",
+    "meaning": "Tỉnh táo (adj); cảnh báo (v/n)",
+    "example": "We must remain alert for any changes in the market.",
+    "exampleMeaning": "Chúng ta phải luôn tỉnh táo trước mọi thay đổi trên thị trường."
+  },
+  {
+    "id": "206",
+    "word": "go over",
+    "type": "phr v",
+    "phonetic": "/ɡəʊ ˈəʊvə(r)/",
+    "meaning": "Xem kỹ lại, kiểm tra lại",
+    "example": "Let's go over the presentation slides one more time.",
+    "exampleMeaning": "Chúng ta hãy xem kỹ lại các slide trình bày thêm một lần nữa."
+  },
+  {
+    "id": "207",
+    "word": "affordable",
+    "type": "adj",
+    "phonetic": "/əˈfɔːdəbl/",
+    "meaning": "Giá cả phải chăng",
+    "example": "The company aims to provide affordable healthcare plans.",
+    "exampleMeaning": "Công ty nhắm đến việc cung cấp các gói chăm sóc sức khỏe với giá phải chăng."
+  },
+  {
+    "id": "208",
+    "word": "dedication",
+    "type": "n",
+    "phonetic": "/ˌdedɪˈkeɪʃn/",
+    "meaning": "Sự tận tụy, cống hiến",
+    "example": "His dedication to the project led to its successful completion.",
+    "exampleMeaning": "Sự tận tụy của anh ấy đối với dự án đã dẫn đến sự thành công của nó."
+  },
+  {
+    "id": "209",
+    "word": "operate",
+    "type": "v",
+    "phonetic": "/ˈɒpəreɪt/",
+    "meaning": "Vận hành, hoạt động",
+    "example": "The technician will show you how to operate the new machine.",
+    "exampleMeaning": "Kỹ thuật viên sẽ chỉ cho bạn cách vận hành máy mới."
+  },
+  {
+    "id": "210",
+    "word": "obtain",
+    "type": "v",
+    "phonetic": "/əbˈteɪn/",
+    "meaning": "Đạt được, có được (giấy phép, thông tin)",
+    "example": "You must obtain a permit before starting construction.",
+    "exampleMeaning": "Bạn phải xin được giấy phép trước khi bắt đầu xây dựng."
+  },
+  {
+    "id": "211",
+    "word": "open house",
+    "type": "n",
+    "phonetic": "/ˌəʊpən ˈhaʊs/",
+    "meaning": "Ngày mở cửa tham quan (trường học, nhà mẫu...)",
+    "example": "The university is hosting an open house for prospective students.",
+    "exampleMeaning": "Trường đại học đang tổ chức ngày mở cửa tham quan cho sinh viên tiềm năng."
+  },
+  {
+    "id": "212",
+    "word": "frequent",
+    "type": "adj",
+    "phonetic": "/ˈfriːkwənt/",
+    "meaning": "Thường xuyên",
+    "example": "Frequent breaks are recommended during long work sessions.",
+    "exampleMeaning": "Các lần nghỉ giải lao thường xuyên được khuyến khích trong các ca làm việc dài."
+  },
+  {
+    "id": "213",
+    "word": "commercial",
+    "type": "adj, n",
+    "phonetic": "/kəˈmɜːʃl/",
+    "meaning": "Thương mại (adj); quảng cáo (n)",
+    "example": "The building is located in a busy commercial district.",
+    "exampleMeaning": "Tòa nhà nằm trong một khu thương mại sầm uất."
+  },
+  {
+    "id": "214",
+    "word": "landscape",
+    "type": "v, n",
+    "phonetic": "/ˈlændskeɪp/",
+    "meaning": "Làm cảnh quan, phong cảnh",
+    "example": "They hired a team to landscape the front garden.",
+    "exampleMeaning": "Họ đã thuê một đội để thiết kế cảnh quan khu vườn phía trước."
+  },
+  {
+    "id": "215",
+    "word": "productivity",
+    "type": "n",
+    "phonetic": "/ˌprɒdʌkˈtɪvəti/",
+    "meaning": "Năng suất",
+    "example": "The new tools helped increase our team's productivity.",
+    "exampleMeaning": "Các công cụ mới đã giúp tăng năng suất của đội chúng tôi."
+  },
+  {
+    "id": "216",
+    "word": "vary",
+    "type": "v",
+    "phonetic": "/ˈveəri/",
+    "meaning": "Thay đổi, biến đổi, khác nhau",
+    "example": "The prices of the items may vary depending on the season.",
+    "exampleMeaning": "Giá của các mặt hàng có thể thay đổi tùy thuộc vào mùa."
+  },
+  {
+    "id": "217",
+    "word": "concourse",
+    "type": "n",
+    "phonetic": "/ˈkɒŋkɔːs/",
+    "meaning": "Sảnh lớn (nhà ga, sân bay)",
+    "example": "The main concourse was crowded with travelers.",
+    "exampleMeaning": "Sảnh chính đông nghẹt khách du lịch."
+  },
+  {
+    "id": "218",
+    "word": "nutritional",
+    "type": "adj",
+    "phonetic": "/njuˈtrɪʃənl/",
+    "meaning": "Thuộc về dinh dưỡng",
+    "example": "Always check the nutritional information label before buying.",
+    "exampleMeaning": "Luôn kiểm tra nhãn thông tin dinh dưỡng trước khi mua."
+  },
+  {
+    "id": "219",
+    "word": "examine",
+    "type": "v",
+    "phonetic": "/ɪɡˈzæmɪn/",
+    "meaning": "Kiểm tra, khám xét",
+    "example": "The mechanic will examine the car's engine for any faults.",
+    "exampleMeaning": "Thợ máy sẽ kiểm tra động cơ xe để tìm bất kỳ lỗi nào."
+  },
+  {
+    "id": "220",
+    "word": "float",
+    "type": "v",
+    "phonetic": "/fləʊt/",
+    "meaning": "Nổi, trôi",
+    "example": "The logs were seen floating down the river.",
+    "exampleMeaning": "Những khúc gỗ được nhìn thấy đang trôi trên sông."
+  },
+  {
+    "id": "221",
+    "word": "in the distance",
+    "type": "idiom",
+    "phonetic": "/ɪn ðə ˈdɪstəns/",
+    "meaning": "Ở đằng xa",
+    "example": "We could see the city lights glittering in the distance.",
+    "exampleMeaning": "Chúng tôi có thể thấy ánh đèn thành phố lấp lánh ở đằng xa."
+  },
+  {
+    "id": "222",
+    "word": "supplier",
+    "type": "n",
+    "phonetic": "/səˈplaɪə(r)/",
+    "meaning": "Nhà cung cấp",
+    "example": "We rely on our local supplier for fresh ingredients.",
+    "exampleMeaning": "Chúng tôi dựa vào nhà cung cấp địa phương để có nguyên liệu tươi."
+  },
+  {
+    "id": "223",
+    "word": "reservation",
+    "type": "n",
+    "phonetic": "/ˌrezəˈveɪʃn/",
+    "meaning": "Sự đặt chỗ trước",
+    "example": "I made a dinner reservation for two people at eight o'clock.",
+    "exampleMeaning": "Tôi đã đặt bàn ăn tối cho hai người lúc tám giờ."
+  },
+  {
+    "id": "224",
+    "word": "comfortable",
+    "type": "adj",
+    "phonetic": "/ˈkʌmftəbl/",
+    "meaning": "Thoải mái",
+    "example": "These new office chairs are much more comfortable.",
+    "exampleMeaning": "Những chiếc ghế văn phòng mới này thoải mái hơn nhiều."
+  },
+  {
+    "id": "225",
+    "word": "certificate",
+    "type": "n",
+    "phonetic": "/səˈtɪfɪkət/",
+    "meaning": "Giấy chứng nhận, chứng chỉ",
+    "example": "He received a certificate upon completion of the training course.",
+    "exampleMeaning": "Anh ấy đã nhận được giấy chứng nhận sau khi hoàn thành khóa đào tạo."
+  },
+  {
+    "id": "226",
+    "word": "renovate",
+    "type": "v",
+    "phonetic": "/ˈrenəveɪt/",
+    "meaning": "Cải tạo, nâng cấp (nhà cửa)",
+    "example": "The library will close next month to renovate the reading area.",
+    "exampleMeaning": "Thư viện sẽ đóng cửa vào tháng tới để cải tạo khu vực đọc."
+  },
+  {
+    "id": "227",
+    "word": "expedited delivery",
+    "type": "n",
+    "phonetic": "/ˈekspədaɪtɪd dɪˈlɪvəri/",
+    "meaning": "Giao hàng hỏa tốc",
+    "example": "We paid extra for expedited delivery to ensure it arrives tomorrow.",
+    "exampleMeaning": "Chúng tôi đã trả thêm tiền giao hàng hỏa tốc để đảm bảo nó đến vào ngày mai."
+  },
+  {
+    "id": "228",
+    "word": "pursue",
+    "type": "v",
+    "phonetic": "/pəˈsjuː/",
+    "meaning": "Theo đuổi",
+    "example": "She decided to pursue a career in corporate finance.",
+    "exampleMeaning": "Cô ấy quyết định theo đuổi sự nghiệp trong lĩnh vực tài chính doanh nghiệp."
+  },
+  {
+    "id": "229",
+    "word": "job fair",
+    "type": "n",
+    "phonetic": "/ˈdʒɒb feə(r)/",
+    "meaning": "Hội chợ việc làm",
+    "example": "Many graduates attend the annual job fair to meet employers.",
+    "exampleMeaning": "Nhiều sinh viên tốt nghiệp tham dự hội chợ việc làm thường niên để gặp gỡ nhà tuyển dụng."
+  },
+  {
+    "id": "230",
+    "word": "inspiring",
+    "type": "adj",
+    "phonetic": "/ɪnˈspaɪərɪŋ/",
+    "meaning": "Truyền cảm hứng",
+    "example": "The guest speaker gave a truly inspiring presentation.",
+    "exampleMeaning": "Diễn giả khách mời đã có một bài thuyết trình thực sự truyền cảm hứng."
+  },
+  {
+    "id": "231",
+    "word": "look over",
+    "type": "phr v",
+    "phonetic": "/lʊk ˈəʊvə(r)/",
+    "meaning": "Xem qua, kiểm tra sơ bộ",
+    "example": "I need to look over the contract before signing.",
+    "exampleMeaning": "Tôi cần xem qua hợp đồng trước khi ký."
+  },
+  {
+    "id": "232",
+    "word": "nearby",
+    "type": "adj, adv",
+    "phonetic": "/ˌnɪəˈbaɪ/",
+    "meaning": "Gần đó, lân cận",
+    "example": "Is there a coffee shop nearby where we can meet?",
+    "exampleMeaning": "Có quán cà phê nào gần đây mà chúng ta có thể gặp nhau không?"
+  },
+  {
+    "id": "233",
+    "word": "suspend",
+    "type": "v",
+    "phonetic": "/səˈspend/",
+    "meaning": "Đình chỉ, tạm ngưng",
+    "example": "They had to suspend production due to a lack of raw materials.",
+    "exampleMeaning": "Họ phải tạm ngừng sản xuất vì thiếu nguyên liệu thô."
+  },
+  {
+    "id": "234",
+    "word": "particular",
+    "type": "adj",
+    "phonetic": "/pəˈtɪkjələ(r)/",
+    "meaning": "Cụ thể, đặc biệt",
+    "example": "Do you have a particular style of shirt you are looking for?",
+    "exampleMeaning": "Bạn đang tìm kiếm một kiểu áo sơ mi cụ thể nào không?"
+  },
+  {
+    "id": "235",
+    "word": "overdue",
+    "type": "adj",
+    "phonetic": "/ˌəʊvəˈdjuː/",
+    "meaning": "Quá hạn",
+    "example": "Your library book is now three weeks overdue.",
+    "exampleMeaning": "Cuốn sách thư viện của bạn đã quá hạn ba tuần."
+  },
+  {
+    "id": "236",
+    "word": "emphasize",
+    "type": "v",
+    "phonetic": "/ˈemfəsaɪz/",
+    "meaning": "Nhấn mạnh",
+    "example": "The manager emphasized the importance of meeting the deadline.",
+    "exampleMeaning": "Người quản lý nhấn mạnh tầm quan trọng của việc đáp ứng thời hạn."
+  },
+  {
+    "id": "237",
+    "word": "deposit",
+    "type": "n, v",
+    "phonetic": "/dɪˈpɒzɪt/",
+    "meaning": "Tiền đặt cọc (n); đặt cọc (v)",
+    "example": "We had to pay a security deposit equal to one month's rent.",
+    "exampleMeaning": "Chúng tôi phải trả một khoản tiền đặt cọc bằng một tháng tiền thuê nhà."
+  },
+  {
+    "id": "238",
+    "word": "specialized",
+    "type": "adj",
+    "phonetic": "/ˈspeʃəlaɪzd/",
+    "meaning": "Chuyên dụng, có chuyên môn",
+    "example": "Our team offers specialized consulting services.",
+    "exampleMeaning": "Đội ngũ của chúng tôi cung cấp các dịch vụ tư vấn chuyên môn."
+  },
+  {
+    "id": "239",
+    "word": "equipment",
+    "type": "n",
+    "phonetic": "/ɪˈkwɪpmənt/",
+    "meaning": "Thiết bị, dụng cụ",
+    "example": "All safety equipment must be checked before starting work.",
+    "exampleMeaning": "Tất cả thiết bị an toàn phải được kiểm tra trước khi bắt đầu công việc."
+  },
+  {
+    "id": "240",
+    "word": "around the corner",
+    "type": "idiom",
+    "phonetic": "/əˌraʊnd ðə ˈkɔːnə(r)/",
+    "meaning": "Sắp xảy ra, rất gần",
+    "example": "The annual company meeting is just around the corner.",
+    "exampleMeaning": "Cuộc họp thường niên của công ty sắp diễn ra rồi."
+  },
+  {
+    "id": "241",
+    "word": "description",
+    "type": "n",
+    "phonetic": "/dɪˈskrɪpʃn/",
+    "meaning": "Sự mô tả",
+    "example": "The job description lists the required skills.",
+    "exampleMeaning": "Bản mô tả công việc liệt kê các kỹ năng cần thiết."
+  },
+  {
+    "id": "242",
+    "word": "direction",
+    "type": "n",
+    "phonetic": "/dəˈrekʃn/",
+    "meaning": "Phương hướng, sự chỉ dẫn",
+    "example": "The map provides clear directions to the new conference venue.",
+    "exampleMeaning": "Bản đồ cung cấp hướng dẫn rõ ràng đến địa điểm hội nghị mới."
+  },
+  {
+    "id": "243",
+    "word": "currently",
+    "type": "adv",
+    "phonetic": "/ˈkʌrəntli/",
+    "meaning": "Hiện tại",
+    "example": "The position is currently vacant.",
+    "exampleMeaning": "Vị trí hiện đang trống."
+  },
+  {
+    "id": "244",
+    "word": "rent",
+    "type": "v, n",
+    "phonetic": "/rent/",
+    "meaning": "Thuê, cho thuê",
+    "example": "They rent out their spare apartment to students.",
+    "exampleMeaning": "Họ cho sinh viên thuê căn hộ trống của họ."
+  },
+  {
+    "id": "245",
+    "word": "lease",
+    "type": "v, n",
+    "phonetic": "/liːs/",
+    "meaning": "Cho thuê (dài hạn)",
+    "example": "The company decided to lease the entire floor.",
+    "exampleMeaning": "Công ty quyết định thuê toàn bộ tầng."
+  },
+  {
+    "id": "246",
+    "word": "figure out",
+    "type": "phr v",
+    "phonetic": "/ˈfɪɡə(r) aʊt/",
+    "meaning": "Tìm ra, hiểu ra",
+    "example": "We need to figure out a better way to manage inventory.",
+    "exampleMeaning": "Chúng ta cần tìm ra cách tốt hơn để quản lý hàng tồn kho."
+  },
+  {
+    "id": "247",
+    "word": "incomplete",
+    "type": "adj",
+    "phonetic": "/ˌɪnkəmˈpliːt/",
+    "meaning": "Chưa hoàn thành, thiếu",
+    "example": "The survey was incomplete because some questions were left blank.",
+    "exampleMeaning": "Cuộc khảo sát chưa hoàn thành vì một số câu hỏi bị bỏ trống."
+  },
+  {
+    "id": "248",
+    "word": "drop off",
+    "type": "phr v",
+    "phonetic": "/drɒp ɒf/",
+    "meaning": "Thả xuống (khách/hàng); giảm dần",
+    "example": "Sales usually drop off during the slow season.",
+    "exampleMeaning": "Doanh số bán hàng thường giảm xuống trong mùa thấp điểm."
+  },
+  {
+    "id": "249",
+    "word": "respond to",
+    "type": "phr v",
+    "phonetic": "/rɪˈspɒnd tu/",
+    "meaning": "Phản hồi, trả lời",
+    "example": "Please respond to the email invitation by the end of the week.",
+    "exampleMeaning": "Vui lòng phản hồi thư mời qua email trước cuối tuần."
+  },
+  {
+    "id": "250",
+    "word": "consultation",
+    "type": "n",
+    "phonetic": "/ˌkɒnslˈteɪʃn/",
+    "meaning": "Sự tư vấn",
+    "example": "The doctor offers a free consultation for new patients.",
+    "exampleMeaning": "Bác sĩ cung cấp dịch vụ tư vấn miễn phí cho bệnh nhân mới."
+  },
+  {
+    "id": "251",
+    "word": "inspection",
+    "type": "n",
+    "phonetic": "/ɪnˈspekʃn/",
+    "meaning": "Sự thanh tra, kiểm tra",
+    "example": "The building passed its final safety inspection yesterday.",
+    "exampleMeaning": "Tòa nhà đã vượt qua cuộc kiểm tra an toàn cuối cùng vào ngày hôm qua."
+  },
+  {
+    "id": "252",
+    "word": "thorough",
+    "type": "adj",
+    "phonetic": "/ˈθʌrə/",
+    "meaning": "Kỹ lưỡng, thấu đáo",
+    "example": "A thorough analysis of the data is required.",
+    "exampleMeaning": "Cần có một phân tích kỹ lưỡng về dữ liệu."
+  },
+  {
+    "id": "253",
+    "word": "intact",
+    "type": "adj",
+    "phonetic": "/ɪnˈtækt/",
+    "meaning": "Nguyên vẹn",
+    "example": "Despite the storm, the ancient statue remained completely intact.",
+    "exampleMeaning": "Bất chấp cơn bão, bức tượng cổ vẫn hoàn toàn nguyên vẹn."
+  },
+  {
+    "id": "254",
+    "word": "sort out",
+    "type": "phr v",
+    "phonetic": "/sɔːt aʊt/",
+    "meaning": "Sắp xếp, giải quyết",
+    "example": "I need to sort out all the files before the auditor arrives.",
+    "exampleMeaning": "Tôi cần sắp xếp tất cả các tập tin trước khi kiểm toán viên đến."
+  },
+  {
+    "id": "255",
+    "word": "relief",
+    "type": "n",
+    "phonetic": "/rɪˈliːf/",
+    "meaning": "Sự nhẹ nhõm, sự cứu trợ",
+    "example": "It was a huge relief to know the missing package had been found.",
+    "exampleMeaning": "Thật là một sự nhẹ nhõm lớn khi biết gói hàng bị mất đã được tìm thấy."
+  },
+  {
+    "id": "256",
+    "word": "fencing",
+    "type": "n",
+    "phonetic": "/ˈfensɪŋ/",
+    "meaning": "Hàng rào",
+    "example": "The property is surrounded by wooden fencing.",
+    "exampleMeaning": "Khu đất được bao quanh bởi hàng rào gỗ."
+  },
+  {
+    "id": "257",
+    "word": "commute",
+    "type": "v",
+    "phonetic": "/kəˈmjuːt/",
+    "meaning": "Đi lại (đi làm)",
+    "example": "Many employees commute long distances to reach the city center.",
+    "exampleMeaning": "Nhiều nhân viên di chuyển quãng đường dài để đến trung tâm thành phố."
+  },
+  {
+    "id": "258",
+    "word": "horrendous",
+    "type": "adj",
+    "phonetic": "/hɒˈrendəs/",
+    "meaning": "Kinh khủng, khủng khiếp",
+    "example": "The traffic jam this morning was absolutely horrendous.",
+    "exampleMeaning": "Tình trạng kẹt xe sáng nay thực sự khủng khiếp."
+  },
+  {
+    "id": "259",
+    "word": "apologize",
+    "type": "v",
+    "phonetic": "/əˈpɒlədʒaɪz/",
+    "meaning": "Xin lỗi",
+    "example": "We would like to apologize for the delay.",
+    "exampleMeaning": "Chúng tôi muốn xin lỗi về sự chậm trễ."
+  },
+  {
+    "id": "260",
+    "word": "improvement",
+    "type": "n",
+    "phonetic": "/ɪmˈpruːvmənt/",
+    "meaning": "Sự cải thiện",
+    "example": "There has been a noticeable improvement in her skills.",
+    "exampleMeaning": "Đã có sự cải thiện đáng chú ý trong kỹ năng của cô ấy."
+  },
+  {
+    "id": "261",
+    "word": "mistaken",
+    "type": "adj",
+    "phonetic": "/mɪˈsteɪkən/",
+    "meaning": "Nhầm lẫn, sai lầm",
+    "example": "I think you are mistaken about the time of the meeting.",
+    "exampleMeaning": "Tôi nghĩ bạn đã nhầm lẫn về thời gian của cuộc họp."
+  },
+  {
+    "id": "262",
+    "word": "assumption",
+    "type": "n",
+    "phonetic": "/əˈsʌmpʃn/",
+    "meaning": "Sự giả định",
+    "example": "The success was based on the assumption that funding would be secured.",
+    "exampleMeaning": "Thành công dựa trên giả định rằng nguồn vốn sẽ được đảm bảo."
+  },
+  {
+    "id": "263",
+    "word": "dissatisfaction",
+    "type": "n",
+    "phonetic": "/ˌdɪsˌsætɪsˈfækʃn/",
+    "meaning": "Sự không hài lòng, bất mãn",
+    "example": "The survey revealed a high level of employee dissatisfaction.",
+    "exampleMeaning": "Cuộc khảo sát tiết lộ mức độ bất mãn cao của nhân viên."
+  },
+  {
+    "id": "264",
+    "word": "activate",
+    "type": "v",
+    "phonetic": "/ˈæktɪveɪt/",
+    "meaning": "Kích hoạt",
+    "example": "Please activate your new security badge.",
+    "exampleMeaning": "Vui lòng kích hoạt huy hiệu bảo mật mới của bạn."
+  },
+  {
+    "id": "265",
+    "word": "clarification",
+    "type": "n",
+    "phonetic": "/ˌklærɪfɪˈkeɪʃn/",
+    "meaning": "Sự làm rõ",
+    "example": "I need clarification on the exact requirements.",
+    "exampleMeaning": "Tôi cần sự làm rõ về các yêu cầu chính xác."
+  },
+  {
+    "id": "266",
+    "word": "distracting",
+    "type": "adj",
+    "phonetic": "/dɪˈstræktɪŋ/",
+    "meaning": "Gây xao nhãng, mất tập trung",
+    "example": "The noise from the construction site is very distracting.",
+    "exampleMeaning": "Tiếng ồn từ công trường xây dựng rất gây mất tập trung."
+  },
+  {
+    "id": "267",
+    "word": "replacement",
+    "type": "n",
+    "phonetic": "/rɪˈpleɪsmənt/",
+    "meaning": "Sự thay thế, người/vật thay thế",
+    "example": "We are looking for a replacement for the old copy machine.",
+    "exampleMeaning": "Chúng tôi đang tìm kiếm một sự thay thế cho máy photocopy cũ."
+  },
+  {
+    "id": "268",
+    "word": "publicity",
+    "type": "n",
+    "phonetic": "/pʌbˈlɪsəti/",
+    "meaning": "Sự công khai, sự quảng bá",
+    "example": "The launch event generated a lot of positive publicity.",
+    "exampleMeaning": "Sự kiện ra mắt đã tạo ra rất nhiều sự quảng bá tích cực."
+  },
+  {
+    "id": "269",
+    "word": "retreat",
+    "type": "n, v",
+    "phonetic": "/rɪˈtriːt/",
+    "meaning": "Chuyến nghỉ dưỡng (n); rút lui (v)",
+    "example": "The executive team went on a weekend retreat.",
+    "exampleMeaning": "Đội ngũ điều hành đã đi nghỉ dưỡng cuối tuần."
+  },
+  {
+    "id": "270",
+    "word": "unavailable",
+    "type": "adj",
+    "phonetic": "/ˌʌnəˈveɪləbl/",
+    "meaning": "Không có sẵn, bận",
+    "example": "The manager is currently unavailable to take your call.",
+    "exampleMeaning": "Quản lý hiện không có sẵn để nhận cuộc gọi của bạn."
+  },
+  {
+    "id": "271",
+    "word": "on-site",
+    "type": "adj, adv",
+    "phonetic": "/ˌɒn ˈsaɪt/",
+    "meaning": "Tại chỗ, tại hiện trường",
+    "example": "All technicians must report for on-site training.",
+    "exampleMeaning": "Tất cả các kỹ thuật viên phải báo cáo để đào tạo tại chỗ."
+  },
+  {
+    "id": "272",
+    "word": "resolve",
+    "type": "v",
+    "phonetic": "/rɪˈzɒlv/",
+    "meaning": "Giải quyết",
+    "example": "We need to resolve this scheduling conflict.",
+    "exampleMeaning": "Chúng ta cần giải quyết xung đột lịch trình này."
+  },
+  {
+    "id": "273",
+    "word": "involved",
+    "type": "adj",
+    "phonetic": "/ɪnˈvɒlvd/",
+    "meaning": "Liên quan, tham gia vào",
+    "example": "She was deeply involved in the planning.",
+    "exampleMeaning": "Cô ấy đã tham gia sâu vào việc lập kế hoạch."
+  },
+  {
+    "id": "274",
+    "word": "inaccessible",
+    "type": "adj",
+    "phonetic": "/ˌɪnækˈsesəbl/",
+    "meaning": "Không thể tiếp cận",
+    "example": "The server room is currently inaccessible.",
+    "exampleMeaning": "Phòng máy chủ hiện không thể tiếp cận được."
+  },
+  {
+    "id": "275",
+    "word": "convenience",
+    "type": "n",
+    "phonetic": "/kənˈviːniəns/",
+    "meaning": "Sự tiện lợi",
+    "example": "The new mobile app is designed for customer convenience.",
+    "exampleMeaning": "Ứng dụng di động mới được thiết kế để mang lại sự tiện lợi cho khách hàng."
+  },
+  {
+    "id": "276",
+    "word": "regularly",
+    "type": "adv",
+    "phonetic": "/ˈreɡjələli/",
+    "meaning": "Thường xuyên, đều đặn",
+    "example": "The equipment must be checked regularly.",
+    "exampleMeaning": "Thiết bị phải được kiểm tra thường xuyên."
+  },
+  {
+    "id": "277",
+    "word": "alternative",
+    "type": "adj, n",
+    "phonetic": "/ɔːlˈtɜːnətɪv/",
+    "meaning": "Thay thế (adj); sự lựa chọn khác (n)",
+    "example": "We need to find an alternative date for the meeting.",
+    "exampleMeaning": "Chúng ta cần tìm một ngày thay thế cho cuộc họp."
+  },
+  {
+    "id": "278",
+    "word": "retain",
+    "type": "v",
+    "phonetic": "/rɪˈteɪn/",
+    "meaning": "Giữ lại, duy trì",
+    "example": "The company needs to work harder to retain its best talent.",
+    "exampleMeaning": "Công ty cần nỗ lực hơn để giữ chân những nhân tài tốt nhất."
+  },
+  {
+    "id": "279",
+    "word": "implement",
+    "type": "v",
+    "phonetic": "/ˈɪmplɪment/",
+    "meaning": "Triển khai, thực hiện",
+    "example": "The team will implement the new software system.",
+    "exampleMeaning": "Đội sẽ triển khai hệ thống phần mềm mới."
+  },
+  {
+    "id": "280",
+    "word": "collaboration",
+    "type": "n",
+    "phonetic": "/kəˌlæbəˈreɪʃn/",
+    "meaning": "Sự cộng tác",
+    "example": "The project was a successful collaboration between departments.",
+    "exampleMeaning": "Dự án là sự cộng tác thành công giữa các phòng ban."
+  },
+  {
+    "id": "281",
+    "word": "heads-up",
+    "type": "n",
+    "phonetic": "/ˌhedz ˈʌp/",
+    "meaning": "Lời báo trước, cảnh báo",
+    "example": "Thanks for the heads-up about the expected price increase.",
+    "exampleMeaning": "Cảm ơn vì lời báo trước về việc tăng giá dự kiến."
+  },
+  {
+    "id": "282",
+    "word": "potential",
+    "type": "adj, n",
+    "phonetic": "/pəˈtenʃl/",
+    "meaning": "Tiềm năng",
+    "example": "We are targeting potential customers in Asia.",
+    "exampleMeaning": "Chúng tôi đang nhắm đến các khách hàng tiềm năng ở châu Á."
+  },
+  {
+    "id": "283",
+    "word": "motivate",
+    "type": "v",
+    "phonetic": "/ˈməʊtɪveɪt/",
+    "meaning": "Thúc đẩy, tạo động lực",
+    "example": "The manager uses bonuses to motivate the sales team.",
+    "exampleMeaning": "Quản lý sử dụng tiền thưởng để tạo động lực cho đội ngũ bán hàng."
+  },
+  {
+    "id": "284",
+    "word": "automatically",
+    "type": "adv",
+    "phonetic": "/ˌɔːtəˈmætɪkli/",
+    "meaning": "Tự động",
+    "example": "The system automatically saves your work.",
+    "exampleMeaning": "Hệ thống tự động lưu công việc của bạn."
+  },
+  {
+    "id": "285",
+    "word": "kneel down",
+    "type": "phr v",
+    "phonetic": "/niːl daʊn/",
+    "meaning": "Quỳ xuống",
+    "example": "The workers had to kneel down to fix the floor tiles.",
+    "exampleMeaning": "Các công nhân đã phải quỳ xuống để sửa các viên gạch sàn."
+  },
+  {
+    "id": "286",
+    "word": "ceiling",
+    "type": "n",
+    "phonetic": "/ˈsiːlɪŋ/",
+    "meaning": "Trần nhà",
+    "example": "A water leak stained the ceiling in the conference room.",
+    "exampleMeaning": "Vết rò rỉ nước làm ố trần phòng hội nghị."
+  },
+  {
+    "id": "287",
+    "word": "whole",
+    "type": "adj",
+    "phonetic": "/həʊl/",
+    "meaning": "Toàn bộ, nguyên vẹn",
+    "example": "The whole staff attended the mandatory training session.",
+    "exampleMeaning": "Toàn bộ nhân viên đã tham dự buổi tập huấn bắt buộc."
+  },
+  {
+    "id": "288",
+    "word": "mural",
+    "type": "n",
+    "phonetic": "/ˈmjʊərəl/",
+    "meaning": "Tranh tường",
+    "example": "A colourful mural covers the entire wall.",
+    "exampleMeaning": "Một bức tranh tường đầy màu sắc bao phủ toàn bộ bức tường."
+  },
+  {
+    "id": "289",
+    "word": "have an opening",
+    "type": "phr",
+    "phonetic": "/hæv ən ˈəʊpnɪŋ/",
+    "meaning": "Có vị trí trống (tuyển dụng)",
+    "example": "We currently have an opening for an IT technician.",
+    "exampleMeaning": "Chúng tôi hiện đang có một vị trí tuyển dụng kỹ thuật viên CNTT."
+  },
+  {
+    "id": "290",
+    "word": "recital",
+    "type": "n",
+    "phonetic": "/rɪˈsaɪtl/",
+    "meaning": "Buổi biểu diễn độc tấu",
+    "example": "The music school is hosting a piano recital next Sunday.",
+    "exampleMeaning": "Trường âm nhạc đang tổ chức một buổi biểu diễn độc tấu piano vào Chủ nhật tới."
+  },
+  {
+    "id": "291",
+    "word": "receptionist",
+    "type": "n",
+    "phonetic": "/rɪˈsepʃənɪst/",
+    "meaning": "Lễ tân",
+    "example": "The receptionist directs all visitors to the correct department.",
+    "exampleMeaning": "Lễ tân hướng dẫn tất cả khách tham quan đến đúng bộ phận."
+  },
+  {
+    "id": "292",
+    "word": "awfully",
+    "type": "adv",
+    "phonetic": "/ˈɔːfli/",
+    "meaning": "Vô cùng, hết sức (thường dùng với nghĩa tiêu cực hoặc nhấn mạnh)",
+    "example": "The presentation was awfully complicated.",
+    "exampleMeaning": "Bài thuyết trình vô cùng phức tạp."
+  },
+  {
+    "id": "293",
+    "word": "high-rise",
+    "type": "adj, n",
+    "phonetic": "/ˈhaɪ raɪz/",
+    "meaning": "Cao tầng",
+    "example": "Our office is on the 20th floor of a high-rise building.",
+    "exampleMeaning": "Văn phòng của chúng tôi nằm trên tầng 20 của một tòa nhà cao tầng."
+  },
+  {
+    "id": "294",
+    "word": "sales report",
+    "type": "n",
+    "phonetic": "/seɪlz rɪˈpɔːt/",
+    "meaning": "Báo cáo bán hàng",
+    "example": "The manager reviewed the monthly sales report.",
+    "exampleMeaning": "Người quản lý đã xem xét báo cáo bán hàng hàng tháng."
+  },
+  {
+    "id": "295",
+    "word": "shipment",
+    "type": "n",
+    "phonetic": "/ˈʃɪpmənt/",
+    "meaning": "Lô hàng, việc giao hàng",
+    "example": "We are expecting a large shipment next week.",
+    "exampleMeaning": "Chúng tôi đang chờ một lô hàng lớn vào tuần tới."
+  },
+  {
+    "id": "296",
+    "word": "assembly",
+    "type": "n",
+    "phonetic": "/əˈsembli/",
+    "meaning": "Sự lắp ráp",
+    "example": "The new assembly line improved efficiency.",
+    "exampleMeaning": "Dây chuyền lắp ráp mới đã cải thiện hiệu quả."
+  },
+  {
+    "id": "297",
+    "word": "layout",
+    "type": "n",
+    "phonetic": "/ˈleɪaʊt/",
+    "meaning": "Bố cục, cách bố trí",
+    "example": "The new office layout encourages collaboration.",
+    "exampleMeaning": "Bố cục văn phòng mới khuyến khích sự cộng tác."
+  },
+  {
+    "id": "298",
+    "word": "revenue",
+    "type": "n",
+    "phonetic": "/ˈrevənjuː/",
+    "meaning": "Doanh thu",
+    "example": "The company's revenue increased by 15%.",
+    "exampleMeaning": "Doanh thu của công ty đã tăng 15%."
+  },
+  {
+    "id": "299",
+    "word": "informative",
+    "type": "adj",
+    "phonetic": "/ɪnˈfɔːmətɪv/",
+    "meaning": "Nhiều thông tin, bổ ích",
+    "example": "The workshop was highly informative.",
+    "exampleMeaning": "Buổi hội thảo rất bổ ích."
+  },
+  {
+    "id": "300",
+    "word": "manufacture",
+    "type": "v",
+    "phonetic": "/ˌmænjuˈfæktʃə(r)/",
+    "meaning": "Sản xuất, chế tạo",
+    "example": "The factory manufactures car parts.",
+    "exampleMeaning": "Nhà máy sản xuất phụ tùng ô tô."
+  },
+  {
+    "id": "301",
+    "word": "shut off",
+    "type": "phr v",
+    "phonetic": "/ʃʌt ɒf/",
+    "meaning": "Tắt, ngắt (điện, máy móc)",
+    "example": "Please remember to shut off the air conditioning when you leave.",
+    "exampleMeaning": "Vui lòng nhớ tắt điều hòa khi bạn rời đi."
+  },
+  {
+    "id": "302",
+    "word": "expiration date",
+    "type": "n",
+    "phonetic": "/ˌekspəˈreɪʃn deɪt/",
+    "meaning": "Ngày hết hạn",
+    "example": "Check the expiration date on all perishable goods.",
+    "exampleMeaning": "Hãy kiểm tra ngày hết hạn trên tất cả hàng hóa dễ hỏng."
+  },
+  {
+    "id": "303",
+    "word": "identify",
+    "type": "v",
+    "phonetic": "/aɪˈdentɪfaɪ/",
+    "meaning": "Nhận diện, nhận dạng",
+    "example": "The security system can identify unauthorized access attempts.",
+    "exampleMeaning": "Hệ thống an ninh có thể nhận diện các nỗ lực truy cập trái phép."
+  },
+  {
+    "id": "304",
+    "word": "generate",
+    "type": "v",
+    "phonetic": "/ˈdʒenəreɪt/",
+    "meaning": "Tạo ra, phát sinh",
+    "example": "The new campaign is expected to generate significant interest.",
+    "exampleMeaning": "Chiến dịch mới dự kiến sẽ tạo ra sự quan tâm đáng kể."
+  },
+  {
+    "id": "305",
+    "word": "testimonial",
+    "type": "n",
+    "phonetic": "/ˌtestɪˈməʊniəl/",
+    "meaning": "Lời chứng thực, nhận xét của khách hàng",
+    "example": "We use client testimonials to promote our consulting services.",
+    "exampleMeaning": "Chúng tôi sử dụng lời chứng thực của khách hàng để quảng bá dịch vụ tư vấn."
+  },
+  {
+    "id": "306",
+    "word": "efficiency",
+    "type": "n",
+    "phonetic": "/ɪˈfɪʃnsi/",
+    "meaning": "Hiệu quả, năng suất",
+    "example": "The new software will increase the team's overall efficiency.",
+    "exampleMeaning": "Phần mềm mới sẽ tăng hiệu quả tổng thể của nhóm."
+  },
+  {
+    "id": "307",
+    "word": "resurface",
+    "type": "v",
+    "phonetic": "/ˌriːˈsɜːfɪs/",
+    "meaning": "Trải lại mặt đường, làm mới bề mặt",
+    "example": "The city plans to resurface the main road next month.",
+    "exampleMeaning": "Thành phố dự định trải lại mặt đường chính vào tháng tới."
+  },
+  {
+    "id": "308",
+    "word": "approval",
+    "type": "n",
+    "phonetic": "/əˈpruːvl/",
+    "meaning": "Sự phê duyệt, sự chấp thuận",
+    "example": "The budget requires final approval from the finance committee.",
+    "exampleMeaning": "Ngân sách yêu cầu sự phê duyệt cuối cùng từ ủy ban tài chính."
+  },
+  {
+    "id": "309",
+    "word": "knowledgeable",
+    "type": "adj",
+    "phonetic": "/ˈnɒlɪdʒəbl/",
+    "meaning": "Am hiểu, có kiến thức",
+    "example": "The technician was very knowledgeable about the system.",
+    "exampleMeaning": "Kỹ thuật viên rất am hiểu về hệ thống."
+  },
+  {
+    "id": "310",
+    "word": "compliment",
+    "type": "n",
+    "phonetic": "/ˈkɒmplɪmənt/",
+    "meaning": "Lời khen ngợi",
+    "example": "The designer received a great compliment on her work.",
+    "exampleMeaning": "Nhà thiết kế đã nhận được một lời khen lớn về công việc của cô ấy."
+  },
+  {
+    "id": "311",
+    "word": "financing",
+    "type": "n",
+    "phonetic": "/ˈfaɪnænsɪŋ/",
+    "meaning": "Sự tài trợ, huy động vốn",
+    "example": "We are seeking external financing for the new venture.",
+    "exampleMeaning": "Chúng tôi đang tìm kiếm nguồn tài chính bên ngoài cho dự án mới."
+  },
+  {
+    "id": "312",
+    "word": "coordinator",
+    "type": "n",
+    "phonetic": "/kəʊˈɔːdɪneɪtə(r)/",
+    "meaning": "Điều phối viên",
+    "example": "The event coordinator managed all aspects of the conference.",
+    "exampleMeaning": "Điều phối viên sự kiện đã quản lý tất cả các khía cạnh của hội nghị."
+  },
+  {
+    "id": "313",
+    "word": "attract",
+    "type": "v",
+    "phonetic": "/əˈtrækt/",
+    "meaning": "Thu hút, hấp dẫn",
+    "example": "The new exhibition is expected to attract many visitors.",
+    "exampleMeaning": "Triển lãm mới dự kiến sẽ thu hút nhiều khách tham quan."
+  },
+  {
+    "id": "314",
+    "word": "draft",
+    "type": "n",
+    "phonetic": "/drɑːft/",
+    "meaning": "Bản nháp, phác thảo",
+    "example": "Please submit the first draft of your proposal by the deadline.",
+    "exampleMeaning": "Vui lòng nộp bản nháp đầu tiên của đề xuất trước thời hạn."
+  },
+  {
+    "id": "315",
+    "word": "standard",
+    "type": "n",
+    "phonetic": "/ˈstændəd/",
+    "meaning": "Tiêu chuẩn",
+    "example": "The company maintains high standards for product quality.",
+    "exampleMeaning": "Công ty duy trì các tiêu chuẩn cao về chất lượng sản phẩm."
+  },
+  {
+    "id": "316",
+    "word": "identification",
+    "type": "n",
+    "phonetic": "/aɪˌdentɪfɪˈkeɪʃn/",
+    "meaning": "Giấy tờ tùy thân, sự nhận dạng",
+    "example": "A valid form of identification is required to enter.",
+    "exampleMeaning": "Cần có một loại giấy tờ tùy thân hợp lệ để vào cửa."
+  },
+  {
+    "id": "317",
+    "word": "come along",
+    "type": "phr v",
+    "phonetic": "/kʌm əˈlɒŋ/",
+    "meaning": "Tiến triển, đi cùng",
+    "example": "The construction work is coming along faster than anticipated.",
+    "exampleMeaning": "Công việc xây dựng đang tiến triển nhanh hơn dự kiến."
+  },
+  {
+    "id": "318",
+    "word": "by means of",
+    "type": "idiom",
+    "phonetic": "/baɪ miːnz əv/",
+    "meaning": "Bằng cách, thông qua",
+    "example": "The equipment was transported by means of a heavy truck.",
+    "exampleMeaning": "Thiết bị được vận chuyển bằng một chiếc xe tải hạng nặng."
+  },
+  {
+    "id": "319",
+    "word": "job description",
+    "type": "n",
+    "phonetic": "/dʒɒb dɪˈskrɪpʃn/",
+    "meaning": "Bản mô tả công việc",
+    "example": "Read the job description carefully before applying.",
+    "exampleMeaning": "Hãy đọc kỹ bản mô tả công việc trước khi ứng tuyển."
+  },
+  {
+    "id": "320",
+    "word": "valid",
+    "type": "adj",
+    "phonetic": "/ˈvælɪd/",
+    "meaning": "Hợp lệ, có hiệu lực",
+    "example": "The promotional code is valid only for online purchases.",
+    "exampleMeaning": "Mã khuyến mãi chỉ có hiệu lực cho các giao dịch mua hàng trực tuyến."
+  },
+  {
+    "id": "321",
+    "word": "crowded",
+    "type": "adj",
+    "phonetic": "/ˈkraʊdɪd/",
+    "meaning": "Đông đúc",
+    "example": "The market gets very crowded on Saturday mornings.",
+    "exampleMeaning": "Chợ trở nên rất đông đúc vào các buổi sáng thứ Bảy."
+  },
+  {
+    "id": "322",
+    "word": "challenging",
+    "type": "adj",
+    "phonetic": "/ˈtʃælɪndʒɪŋ/",
+    "meaning": "Đầy thách thức",
+    "example": "She accepted the challenging assignment to lead the project.",
+    "exampleMeaning": "Cô ấy đã chấp nhận nhiệm vụ đầy thách thức là lãnh đạo dự án."
+  },
+  {
+    "id": "323",
+    "word": "confirm",
+    "type": "v",
+    "phonetic": "/kənˈfɜːm/",
+    "meaning": "Xác nhận",
+    "example": "Please confirm your attendance by Friday.",
+    "exampleMeaning": "Vui lòng xác nhận việc tham dự của bạn trước thứ Sáu."
+  },
+  {
+    "id": "324",
+    "word": "set aside",
+    "type": "phr v",
+    "phonetic": "/set əˈsaɪd/",
+    "meaning": "Dành ra, để dành",
+    "example": "We need to set aside funds for unexpected repairs.",
+    "exampleMeaning": "Chúng ta cần để dành tiền cho các sửa chữa không lường trước được."
+  },
+  {
+    "id": "325",
+    "word": "increase",
+    "type": "v",
+    "phonetic": "/ɪnˈkriːs/",
+    "meaning": "Tăng lên",
+    "example": "The company plans to increase production capacity.",
+    "exampleMeaning": "Công ty dự định tăng công suất sản xuất."
+  },
+  {
+    "id": "326",
+    "word": "expedite",
+    "type": "v",
+    "phonetic": "/ˈekspədaɪt/",
+    "meaning": "Xúc tiến, đẩy nhanh",
+    "example": "We must expedite the delivery of the essential parts.",
+    "exampleMeaning": "Chúng ta phải đẩy nhanh việc giao các bộ phận thiết yếu."
+  },
+  {
+    "id": "327",
+    "word": "estate",
+    "type": "n",
+    "phonetic": "/ɪˈsteɪt/",
+    "meaning": "Bất động sản, điền trang",
+    "example": "She works as a real estate agent.",
+    "exampleMeaning": "Cô ấy làm việc như một đại lý bất động sản."
+  },
+  {
+    "id": "328",
+    "word": "volunteer",
+    "type": "v, n",
+    "phonetic": "/ˌvɒlənˈtɪə(r)/",
+    "meaning": "Tình nguyện (v); tình nguyện viên (n)",
+    "example": "Many employees volunteer their time to help charity.",
+    "exampleMeaning": "Nhiều nhân viên tình nguyện dành thời gian để giúp đỡ từ thiện."
+  },
+  {
+    "id": "329",
+    "word": "eligible",
+    "type": "adj",
+    "phonetic": "/ˈelɪdʒəbl/",
+    "meaning": "Đủ tư cách, thích hợp",
+    "example": "Only full-time employees are eligible for the benefits plan.",
+    "exampleMeaning": "Chỉ nhân viên toàn thời gian mới đủ điều kiện tham gia chương trình phúc lợi."
+  },
+  {
+    "id": "330",
+    "word": "complimentary",
+    "type": "adj",
+    "phonetic": "/ˌkɒmplɪˈmentri/",
+    "meaning": "Miễn phí, biếu tặng",
+    "example": "Guests receive a complimentary breakfast buffet.",
+    "exampleMeaning": "Khách nhận được bữa sáng tự chọn miễn phí."
+  },
+  {
+    "id": "331",
+    "word": "house",
+    "type": "v",
+    "phonetic": "/haʊz/",
+    "meaning": "Chứa, cung cấp chỗ ở",
+    "example": "The new facility will house all the archived documents.",
+    "exampleMeaning": "Cơ sở mới sẽ chứa tất cả các tài liệu đã được lưu trữ."
+  },
+  {
+    "id": "332",
+    "word": "botanical garden",
+    "type": "n",
+    "phonetic": "/bəˌtænɪkl ˈɡɑːdn/",
+    "meaning": "Vườn bách thảo",
+    "example": "The botanical garden is famous for its orchids.",
+    "exampleMeaning": "Vườn bách thảo nổi tiếng với hoa lan."
+  },
+  {
+    "id": "333",
+    "word": "deadline",
+    "type": "n",
+    "phonetic": "/ˈdedlaɪn/",
+    "meaning": "Hạn chót",
+    "example": "The final deadline for submission is Monday.",
+    "exampleMeaning": "Hạn chót nộp bài là thứ Hai."
+  },
+  {
+    "id": "334",
+    "word": "retrieve",
+    "type": "v",
+    "phonetic": "/rɪˈtriːv/",
+    "meaning": "Lấy lại, khôi phục",
+    "example": "The system allows you to quickly retrieve lost files.",
+    "exampleMeaning": "Hệ thống cho phép bạn nhanh chóng lấy lại các tập tin bị mất."
+  },
+  {
+    "id": "335",
+    "word": "end up in",
+    "type": "phr v",
+    "phonetic": "/end ʌp ɪn/",
+    "meaning": "Kết cục ở, cuối cùng lại ở",
+    "example": "Many old electronics end up in landfills.",
+    "exampleMeaning": "Nhiều thiết bị điện tử cũ cuối cùng lại nằm ở các bãi rác."
+  },
+  {
+    "id": "336",
+    "word": "leftover",
+    "type": "n",
+    "phonetic": "/ˈleftəʊvə(r)/",
+    "meaning": "Phần thừa, thức ăn thừa",
+    "example": "Please place all leftover food in the containers.",
+    "exampleMeaning": "Vui lòng đặt tất cả thức ăn thừa vào các hộp đựng."
+  },
+  {
+    "id": "337",
+    "word": "gather",
+    "type": "v",
+    "phonetic": "/ˈɡæðə(r)/",
+    "meaning": "Tụ họp, thu thập",
+    "example": "Employees will gather in the cafeteria.",
+    "exampleMeaning": "Nhân viên sẽ tụ họp tại căng tin."
+  },
+  {
+    "id": "338",
+    "word": "underway",
+    "type": "adj",
+    "phonetic": "/ˌʌndəˈweɪ/",
+    "meaning": "Đang tiến hành, đang diễn ra",
+    "example": "Negotiations for the new contract are underway.",
+    "exampleMeaning": "Các cuộc đàm phán cho hợp đồng mới đang được tiến hành."
+  },
+  {
+    "id": "339",
+    "word": "deny",
+    "type": "v",
+    "phonetic": "/dɪˈnaɪ/",
+    "meaning": "Phủ nhận, từ chối",
+    "example": "The spokesperson denied all claims of a delay.",
+    "exampleMeaning": "Người phát ngôn đã phủ nhận tất cả các tuyên bố về sự chậm trễ."
+  },
+  {
+    "id": "340",
+    "word": "responsibility",
+    "type": "n",
+    "phonetic": "/rɪˌspɒnsəˈbɪləti/",
+    "meaning": "Trách nhiệm",
+    "example": "The manager delegated the responsibility to HR.",
+    "exampleMeaning": "Người quản lý đã giao trách nhiệm cho bộ phận nhân sự."
+  },
+  {
+    "id": "341",
+    "word": "settle into",
+    "type": "phr v",
+    "phonetic": "/ˈsetl ˈɪntə/",
+    "meaning": "Hòa nhập, quen dần với",
+    "example": "The new hires should settle into their roles quickly.",
+    "exampleMeaning": "Những nhân viên mới nên hòa nhập với vai trò của họ nhanh chóng."
+  },
+  {
+    "id": "342",
+    "word": "point out",
+    "type": "phr v",
+    "phonetic": "/pɔɪnt aʊt/",
+    "meaning": "Chỉ ra, lưu ý",
+    "example": "The auditor pointed out discrepancies in the records.",
+    "exampleMeaning": "Kiểm toán viên đã chỉ ra sự khác biệt trong hồ sơ."
+  },
+  {
+    "id": "343",
+    "word": "take advantage of",
+    "type": "idiom",
+    "phonetic": "/teɪk ədˈvɑːntɪdʒ əv/",
+    "meaning": "Tận dụng, lợi dụng",
+    "example": "Employees should take advantage of the training courses.",
+    "exampleMeaning": "Nhân viên nên tận dụng các khóa đào tạo."
+  },
+  {
+    "id": "344",
+    "word": "price quote",
+    "type": "n",
+    "phonetic": "/praɪs kwəʊt/",
+    "meaning": "Báo giá",
+    "example": "We received a competitive price quote from the supplier.",
+    "exampleMeaning": "Chúng tôi đã nhận được một báo giá cạnh tranh từ nhà cung cấp."
+  },
+  {
+    "id": "345",
+    "word": "custodial staff",
+    "type": "n",
+    "phonetic": "/kʌˈstəʊdiəl stɑːf/",
+    "meaning": "Nhân viên tạp vụ/bảo vệ",
+    "example": "The custodial staff maintains the cleanliness of the building.",
+    "exampleMeaning": "Nhân viên tạp vụ duy trì sự sạch sẽ của tòa nhà."
+  },
+  {
+    "id": "346",
+    "word": "polish",
+    "type": "v",
+    "phonetic": "/ˈpɒlɪʃ/",
+    "meaning": "Đánh bóng",
+    "example": "Please polish the conference table.",
+    "exampleMeaning": "Vui lòng đánh bóng bàn hội nghị."
+  },
+  {
+    "id": "347",
+    "word": "walkway",
+    "type": "n",
+    "phonetic": "/ˈwɔːkweɪ/",
+    "meaning": "Lối đi bộ",
+    "example": "Please keep the walkway clear of boxes.",
+    "exampleMeaning": "Vui lòng giữ lối đi bộ không bị vướng hộp."
+  },
+  {
+    "id": "348",
+    "word": "tray",
+    "type": "n",
+    "phonetic": "/treɪ/",
+    "meaning": "Cái khay, mâm",
+    "example": "The waiter carried a heavy tray of dishes.",
+    "exampleMeaning": "Người phục vụ mang một cái khay đầy đĩa nặng."
+  },
+  {
+    "id": "349",
+    "word": "trolley",
+    "type": "n",
+    "phonetic": "/ˈtrɒli/",
+    "meaning": "Xe đẩy",
+    "example": "We need a trolley to move the packages.",
+    "exampleMeaning": "Chúng ta cần một chiếc xe đẩy để di chuyển các gói hàng."
+  },
+  {
+    "id": "350",
+    "word": "replace",
+    "type": "v",
+    "phonetic": "/rɪˈpleɪs/",
+    "meaning": "Thay thế",
+    "example": "The company decided to replace the old computers.",
+    "exampleMeaning": "Công ty quyết định thay thế những chiếc máy tính cũ."
+  },
+  {
+    "id": "351",
+    "word": "outdoor",
+    "type": "adj",
+    "phonetic": "/ˈaʊtdɔː(r)/",
+    "meaning": "Ngoài trời",
+    "example": "The restaurant has a lovely outdoor seating area.",
+    "exampleMeaning": "Nhà hàng có khu vực chỗ ngồi ngoài trời đáng yêu."
+  },
+  {
+    "id": "352",
+    "word": "unoccupied",
+    "type": "adj",
+    "phonetic": "/ˌʌnˈɒkjupaɪd/",
+    "meaning": "Còn trống, không có người ngồi",
+    "example": "The desk in the corner is currently unoccupied.",
+    "exampleMeaning": "Bàn làm việc trong góc hiện đang trống."
+  },
+  {
+    "id": "353",
+    "word": "entrance",
+    "type": "n",
+    "phonetic": "/ˈentrəns/",
+    "meaning": "Lối vào",
+    "example": "The main entrance is closed for repairs.",
+    "exampleMeaning": "Lối vào chính đang đóng cửa để sửa chữa."
+  },
+  {
+    "id": "354",
+    "word": "pile",
+    "type": "n",
+    "phonetic": "/paɪl/",
+    "meaning": "Chồng, đống",
+    "example": "There is a pile of documents waiting to be filed.",
+    "exampleMeaning": "Có một chồng tài liệu đang chờ được lưu trữ."
+  },
+  {
+    "id": "355",
+    "word": "brick",
+    "type": "n",
+    "phonetic": "/brɪk/",
+    "meaning": "Gạch",
+    "example": "The house is built with red brick.",
+    "exampleMeaning": "Ngôi nhà được xây bằng gạch đỏ."
+  },
+  {
+    "id": "356",
+    "word": "sign up for",
+    "type": "phr v",
+    "phonetic": "/saɪn ʌp fɔː(r)/",
+    "meaning": "Đăng ký tham gia",
+    "example": "Did you sign up for the yoga class yet?",
+    "exampleMeaning": "Bạn đã đăng ký lớp học yoga chưa?"
+  },
+  {
+    "id": "357",
+    "word": "subscription",
+    "type": "n",
+    "phonetic": "/səbˈskrɪpʃn/",
+    "meaning": "Sự đăng ký (báo, tạp chí...)",
+    "example": "I cancelled my magazine subscription last month.",
+    "exampleMeaning": "Tôi đã hủy đăng ký tạp chí vào tháng trước."
+  },
+  {
+    "id": "358",
+    "word": "in effect",
+    "type": "idiom",
+    "phonetic": "/ɪn ɪˈfekt/",
+    "meaning": "Có hiệu lực",
+    "example": "The new rules will be in effect from tomorrow.",
+    "exampleMeaning": "Các quy tắc mới sẽ có hiệu lực từ ngày mai."
+  },
+  {
+    "id": "359",
+    "word": "renovation",
+    "type": "n",
+    "phonetic": "/ˌrenəˈveɪʃn/",
+    "meaning": "Sự cải tạo, đổi mới",
+    "example": "The office renovation will take two months.",
+    "exampleMeaning": "Việc cải tạo văn phòng sẽ mất hai tháng."
+  },
+  {
+    "id": "360",
+    "word": "latest",
+    "type": "adj",
+    "phonetic": "/ˈleɪtɪst/",
+    "meaning": "Mới nhất",
+    "example": "Have you seen the latest product catalogue?",
+    "exampleMeaning": "Bạn đã xem danh mục sản phẩm mới nhất chưa?"
+  },
+  {
+    "id": "361",
+    "word": "successful",
+    "type": "adj",
+    "phonetic": "/səkˈsesfl/",
+    "meaning": "Thành công",
+    "example": "The launch of the new software was very successful.",
+    "exampleMeaning": "Việc ra mắt phần mềm mới rất thành công."
+  },
+  {
+    "id": "362",
+    "word": "selection",
+    "type": "n",
+    "phonetic": "/sɪˈlekʃn/",
+    "meaning": "Sự lựa chọn",
+    "example": "They have a wide selection of imported wines.",
+    "exampleMeaning": "Họ có nhiều sự lựa chọn các loại rượu nhập khẩu."
+  },
+  {
+    "id": "363",
+    "word": "overseas",
+    "type": "adj, adv",
+    "phonetic": "/ˌəʊvəˈsiːz/",
+    "meaning": "Ở nước ngoài",
+    "example": "He is considering an overseas assignment.",
+    "exampleMeaning": "Anh ấy đang cân nhắc một nhiệm vụ ở nước ngoài."
+  },
+  {
+    "id": "364",
+    "word": "candidate",
+    "type": "n",
+    "phonetic": "/ˈkændɪdət/",
+    "meaning": "Ứng viên",
+    "example": "We interviewed three strong candidates.",
+    "exampleMeaning": "Chúng tôi đã phỏng vấn ba ứng viên mạnh."
+  },
+  {
+    "id": "365",
+    "word": "contract",
+    "type": "n",
+    "phonetic": "/ˈkɒntrækt/",
+    "meaning": "Hợp đồng",
+    "example": "The contract expires at the end of the month.",
+    "exampleMeaning": "Hợp đồng hết hạn vào cuối tháng."
+  },
+  {
+    "id": "366",
+    "word": "expire",
+    "type": "v",
+    "phonetic": "/ɪkˈspaɪə(r)/",
+    "meaning": "Hết hạn",
+    "example": "Make sure your passport does not expire before your trip.",
+    "exampleMeaning": "Hãy đảm bảo hộ chiếu của bạn không hết hạn trước chuyến đi."
+  },
+  {
+    "id": "367",
+    "word": "afford",
+    "type": "v",
+    "phonetic": "/əˈfɔːd/",
+    "meaning": "Đủ khả năng chi trả",
+    "example": "I cannot afford a new car right now.",
+    "exampleMeaning": "Tôi không đủ khả năng chi trả một chiếc xe mới ngay lúc này."
+  },
+  {
+    "id": "368",
+    "word": "launch",
+    "type": "v",
+    "phonetic": "/lɔːntʃ/",
+    "meaning": "Ra mắt, khai trương",
+    "example": "The company plans to launch its new product in May.",
+    "exampleMeaning": "Công ty lên kế hoạch ra mắt sản phẩm mới vào tháng Năm."
+  },
+  {
+    "id": "369",
+    "word": "access",
+    "type": "n",
+    "phonetic": "/ˈækses/",
+    "meaning": "Quyền truy cập, sự tiếp cận",
+    "example": "You need a password to gain access to the file.",
+    "exampleMeaning": "Bạn cần một mật khẩu để truy cập vào tệp."
+  },
+  {
+    "id": "370",
+    "word": "competitor",
+    "type": "n",
+    "phonetic": "/kəmˈpetɪtə(r)/",
+    "meaning": "Đối thủ cạnh tranh",
+    "example": "Our main competitor just lowered their prices.",
+    "exampleMeaning": "Đối thủ chính của chúng tôi vừa giảm giá."
+  },
+  {
+    "id": "371",
+    "word": "reach",
+    "type": "v",
+    "phonetic": "/riːtʃ/",
+    "meaning": "Với tới, đạt được",
+    "example": "She tried to reach the top shelf but couldn't.",
+    "exampleMeaning": "Cô ấy cố gắng với tới kệ trên cùng nhưng không thể."
+  },
+  {
+    "id": "372",
+    "word": "book",
+    "type": "v",
+    "phonetic": "/bʊk/",
+    "meaning": "Đặt (vé, chỗ)",
+    "example": "I need to book a flight to London.",
+    "exampleMeaning": "Tôi cần đặt một chuyến bay đến London."
+  },
+  {
+    "id": "373",
+    "word": "last",
+    "type": "v",
+    "phonetic": "/lɑːst/",
+    "meaning": "Kéo dài",
+    "example": "The meeting lasted for over three hours.",
+    "exampleMeaning": "Cuộc họp kéo dài hơn ba giờ."
+  },
+  {
+    "id": "374",
+    "word": "recharge",
+    "type": "v",
+    "phonetic": "/ˌriːˈtʃɑːdʒ/",
+    "meaning": "Nạp lại (pin, năng lượng)",
+    "example": "I need to recharge the battery of my phone.",
+    "exampleMeaning": "Tôi cần nạp lại pin điện thoại của mình."
+  },
+  {
+    "id": "375",
+    "word": "limited",
+    "type": "adj",
+    "phonetic": "/ˈlɪmɪtɪd/",
+    "meaning": "Có hạn, hạn chế",
+    "example": "Seats are limited, so please register early.",
+    "exampleMeaning": "Chỗ ngồi có hạn, vì vậy vui lòng đăng ký sớm."
+  },
+  {
+    "id": "376",
+    "word": "payment",
+    "type": "n",
+    "phonetic": "/ˈpeɪmənt/",
+    "meaning": "Sự thanh toán, khoản thanh toán",
+    "example": "The payment is due by the 15th.",
+    "exampleMeaning": "Khoản thanh toán đến hạn vào ngày 15."
+  },
+  {
+    "id": "377",
+    "word": "handle",
+    "type": "v",
+    "phonetic": "/ˈhændl/",
+    "meaning": "Xử lý, giải quyết",
+    "example": "The manager handles all customer complaints.",
+    "exampleMeaning": "Người quản lý xử lý tất cả các khiếu nại của khách hàng."
+  },
+  {
+    "id": "378",
+    "word": "process",
+    "type": "v",
+    "phonetic": "/prəˈses/",
+    "meaning": "Xử lý (đơn từ, thông tin)",
+    "example": "We are currently processing your application.",
+    "exampleMeaning": "Chúng tôi hiện đang xử lý đơn đăng ký của bạn."
+  },
+  {
+    "id": "379",
+    "word": "include",
+    "type": "v",
+    "phonetic": "/ɪnˈkluːd/",
+    "meaning": "Bao gồm",
+    "example": "The tour price includes accommodation and meals.",
+    "exampleMeaning": "Giá tour bao gồm chỗ ở và bữa ăn."
+  },
+  {
+    "id": "380",
+    "word": "local",
+    "type": "adj",
+    "phonetic": "/ˈləʊkl/",
+    "meaning": "Địa phương",
+    "example": "We prefer to buy local produce.",
+    "exampleMeaning": "Chúng tôi thích mua sản phẩm địa phương."
+  },
+  {
+    "id": "381",
+    "word": "approve",
+    "type": "v",
+    "phonetic": "/əˈpruːv/",
+    "meaning": "Chấp thuận, phê duyệt",
+    "example": "The board must approve the final project plan.",
+    "exampleMeaning": "Hội đồng quản trị phải chấp thuận kế hoạch dự án cuối cùng."
+  },
+  {
+    "id": "382",
+    "word": "improve",
+    "type": "v",
+    "phonetic": "/ɪmˈpruːv/",
+    "meaning": "Cải thiện, nâng cao",
+    "example": "The company is working to improve customer service.",
+    "exampleMeaning": "Công ty đang nỗ lực cải thiện dịch vụ khách hàng."
+  },
+  {
+    "id": "383",
+    "word": "election",
+    "type": "n",
+    "phonetic": "/ɪˈlekʃn/",
+    "meaning": "Cuộc bầu cử",
+    "example": "The results of the election will be announced tonight.",
+    "exampleMeaning": "Kết quả bầu cử sẽ được công bố tối nay."
+  },
+  {
+    "id": "384",
+    "word": "charity",
+    "type": "n",
+    "phonetic": "/ˈtʃærəti/",
+    "meaning": "Từ thiện, tổ chức từ thiện",
+    "example": "All proceeds will go to a local charity.",
+    "exampleMeaning": "Tất cả số tiền thu được sẽ được chuyển đến một tổ chức từ thiện địa phương."
+  },
+  {
+    "id": "385",
+    "word": "branch",
+    "type": "n",
+    "phonetic": "/brɑːntʃ/",
+    "meaning": "Chi nhánh",
+    "example": "The bank is opening a new branch downtown.",
+    "exampleMeaning": "Ngân hàng đang mở một chi nhánh mới ở trung tâm thành phố."
+  },
+  {
+    "id": "386",
+    "word": "license",
+    "type": "n",
+    "phonetic": "/ˈlaɪsns/",
+    "meaning": "Giấy phép",
+    "example": "You need a valid license to drive a motorcycle.",
+    "exampleMeaning": "Bạn cần một giấy phép hợp lệ để lái xe máy."
+  },
+  {
+    "id": "387",
+    "word": "venue",
+    "type": "n",
+    "phonetic": "/ˈvenjuː/",
+    "meaning": "Địa điểm tổ chức",
+    "example": "The concert venue can hold up to 10,000 people.",
+    "exampleMeaning": "Địa điểm tổ chức buổi hòa nhạc có thể chứa tới 10.000 người."
+  },
+  {
+    "id": "388",
+    "word": "investor",
+    "type": "n",
+    "phonetic": "/ɪnˈvestə(r)/",
+    "meaning": "Nhà đầu tư",
+    "example": "The company is seeking new foreign investors.",
+    "exampleMeaning": "Công ty đang tìm kiếm các nhà đầu tư nước ngoài mới."
+  },
+  {
+    "id": "389",
+    "word": "enroll",
+    "type": "v",
+    "phonetic": "/ɪnˈrəʊl/",
+    "meaning": "Ghi danh, kết nạp",
+    "example": "Students must enroll for classes online.",
+    "exampleMeaning": "Học sinh phải ghi danh cho các lớp học trực tuyến."
+  },
+  {
+    "id": "390",
+    "word": "accountant",
+    "type": "n",
+    "phonetic": "/əˈkaʊntənt/",
+    "meaning": "Kế toán viên",
+    "example": "I hired an accountant to handle my taxes.",
+    "exampleMeaning": "Tôi đã thuê một kế toán để xử lý thuế của tôi."
+  },
+  {
+    "id": "391",
+    "word": "store",
+    "type": "n",
+    "phonetic": "/stɔː(r)/",
+    "meaning": "Cửa hàng",
+    "example": "The electronics store is having a big sale.",
+    "exampleMeaning": "Cửa hàng điện tử đang có một đợt giảm giá lớn."
+  },
+  {
+    "id": "392",
+    "word": "warehouse",
+    "type": "n",
+    "phonetic": "/ˈweəhaʊs/",
+    "meaning": "Nhà kho",
+    "example": "The inventory is kept in the main warehouse.",
+    "exampleMeaning": "Hàng tồn kho được giữ trong kho chính."
+  },
+  {
+    "id": "393",
+    "word": "inventory",
+    "type": "n",
+    "phonetic": "/ˈɪnvəntri/",
+    "meaning": "Hàng tồn kho, sự kiểm kê",
+    "example": "We need to conduct a full inventory check.",
+    "exampleMeaning": "Chúng ta cần tiến hành kiểm tra hàng tồn kho đầy đủ."
+  },
+  {
+    "id": "394",
+    "word": "mayor",
+    "type": "n",
+    "phonetic": "/meə(r)/",
+    "meaning": "Thị trưởng",
+    "example": "The mayor will attend the annual festival.",
+    "exampleMeaning": "Thị trưởng sẽ tham dự lễ hội thường niên."
+  },
+  {
+    "id": "395",
+    "word": "address",
+    "type": "v",
+    "phonetic": "/əˈdres/",
+    "meaning": "Diễn thuyết, giải quyết (vấn đề)",
+    "example": "He will address the employees about the recent changes.",
+    "exampleMeaning": "Anh ấy sẽ diễn thuyết với nhân viên về những thay đổi gần đây."
+  },
+  {
+    "id": "396",
+    "word": "conduct",
+    "type": "v",
+    "phonetic": "/kənˈdʌkt/",
+    "meaning": "Tiến hành, thực hiện",
+    "example": "The team will conduct a thorough review.",
+    "exampleMeaning": "Đội sẽ tiến hành một đánh giá kỹ lưỡng."
+  },
+  {
+    "id": "397",
+    "word": "diverse",
+    "type": "adj",
+    "phonetic": "/daɪˈvɜːs/",
+    "meaning": "Đa dạng",
+    "example": "The company has a diverse range of products.",
+    "exampleMeaning": "Công ty có một phạm vi sản phẩm đa dạng."
+  },
+  {
+    "id": "398",
+    "word": "skilled",
+    "type": "adj",
+    "phonetic": "/skɪld/",
+    "meaning": "Lành nghề, có kỹ năng",
+    "example": "We are hiring skilled technicians.",
+    "exampleMeaning": "Chúng tôi đang thuê các kỹ thuật viên lành nghề."
+  },
+  {
+    "id": "399",
+    "word": "recruit",
+    "type": "v",
+    "phonetic": "/rɪˈkruːt/",
+    "meaning": "Tuyển dụng",
+    "example": "The HR department is actively recruiting new staff.",
+    "exampleMeaning": "Bộ phận nhân sự đang tích cực tuyển dụng nhân viên mới."
+  },
+  {
+    "id": "400",
+    "word": "correct",
+    "type": "adj",
+    "phonetic": "/kəˈrekt/",
+    "meaning": "Chính xác",
+    "example": "Please ensure the information is correct.",
+    "exampleMeaning": "Vui lòng đảm bảo thông tin là chính xác."
+  },
+  {
+    "id": "401",
+    "word": "suitable",
+    "type": "adj",
+    "phonetic": "/ˈsuːtəbl/",
+    "meaning": "Phù hợp",
+    "example": "This candidate is highly suitable for the role.",
+    "exampleMeaning": "Ứng viên này rất phù hợp với vai trò."
+  },
+  {
+    "id": "402",
+    "word": "restock",
+    "type": "v",
+    "phonetic": "/ˌriːˈstɒk/",
+    "meaning": "Bổ sung hàng",
+    "example": "We need to restock the supplies on aisle five.",
+    "exampleMeaning": "Chúng ta cần bổ sung lại hàng hóa ở lối đi số năm."
+  },
+  {
+    "id": "403",
+    "word": "rest",
+    "type": "v",
+    "phonetic": "/rest/",
+    "meaning": "Nghỉ ngơi",
+    "example": "The staff will rest during the lunch break.",
+    "exampleMeaning": "Nhân viên sẽ nghỉ ngơi trong giờ ăn trưa."
+  },
+  {
+    "id": "404",
+    "word": "decorate",
+    "type": "v",
+    "phonetic": "/ˈdekəreɪt/",
+    "meaning": "Trang trí",
+    "example": "We decided to decorate the office for the party.",
+    "exampleMeaning": "Chúng tôi quyết định trang trí văn phòng cho bữa tiệc."
+  },
+  {
+    "id": "405",
+    "word": "post",
+    "type": "v",
+    "phonetic": "/pəʊst/",
+    "meaning": "Đăng, niêm yết (thông báo)",
+    "example": "He will post the announcement on the board.",
+    "exampleMeaning": "Anh ấy sẽ đăng thông báo trên bảng."
+  },
+  {
+    "id": "406",
+    "word": "storage",
+    "type": "n",
+    "phonetic": "/ˈstɔːrɪdʒ/",
+    "meaning": "Kho lưu trữ, sự lưu trữ",
+    "example": "The extra equipment is kept in storage.",
+    "exampleMeaning": "Thiết bị bổ sung được giữ trong kho lưu trữ."
+  },
+  {
+    "id": "407",
+    "word": "press release",
+    "type": "n",
+    "phonetic": "/ˌpres rɪˈliːs/",
+    "meaning": "Thông cáo báo chí",
+    "example": "The company issued a press release about the product.",
+    "exampleMeaning": "Công ty đã phát hành thông cáo báo chí về sản phẩm."
+  },
+  {
+    "id": "408",
+    "word": "renew",
+    "type": "v",
+    "phonetic": "/rɪˈnjuː/",
+    "meaning": "Gia hạn, làm mới",
+    "example": "You must renew your membership.",
+    "exampleMeaning": "Bạn phải gia hạn tư cách thành viên."
+  },
+  {
+    "id": "409",
+    "word": "newsletter",
+    "type": "n",
+    "phonetic": "/ˈnjuːzletə(r)/",
+    "meaning": "Bản tin",
+    "example": "The monthly newsletter contains updates.",
+    "exampleMeaning": "Bản tin hàng tháng chứa các cập nhật."
+  },
+  {
+    "id": "410",
+    "word": "reschedule",
+    "type": "v",
+    "phonetic": "/ˌriːˈʃedjuːl/",
+    "meaning": "Sắp xếp lại lịch",
+    "example": "We had to reschedule the meeting.",
+    "exampleMeaning": "Chúng tôi đã phải dời lại lịch cuộc họp."
+  },
+  {
+    "id": "411",
+    "word": "performance",
+    "type": "n",
+    "phonetic": "/pəˈfɔːməns/",
+    "meaning": "Hiệu suất, màn trình diễn",
+    "example": "The manager reviewed his team's performance.",
+    "exampleMeaning": "Người quản lý đã xem xét hiệu suất của đội anh ấy."
+  },
+  {
+    "id": "412",
+    "word": "recipe",
+    "type": "n",
+    "phonetic": "/ˈresəpi/",
+    "meaning": "Công thức (nấu ăn)",
+    "example": "She followed the recipe exactly.",
+    "exampleMeaning": "Cô ấy đã làm theo đúng công thức."
+  },
+  {
+    "id": "413",
+    "word": "loyal customer",
+    "type": "n",
+    "phonetic": "/ˈlɔɪəl ˈkʌstəmə(r)/",
+    "meaning": "Khách hàng trung thành",
+    "example": "We offer discounts to loyal customers.",
+    "exampleMeaning": "Chúng tôi cung cấp giảm giá cho khách hàng trung thành."
+  },
+  {
+    "id": "414",
+    "word": "summary",
+    "type": "n",
+    "phonetic": "/ˈsʌməri/",
+    "meaning": "Bản tóm tắt",
+    "example": "The report included a summary of the findings.",
+    "exampleMeaning": "Báo cáo bao gồm phần tóm tắt các phát hiện."
+  },
+  {
+    "id": "415",
+    "word": "supply",
+    "type": "n",
+    "phonetic": "/səˈplaɪ/",
+    "meaning": "Nguồn cung cấp",
+    "example": "We need to order a new supply of paper.",
+    "exampleMeaning": "Chúng tôi cần đặt mua một nguồn cung cấp giấy mới."
+  },
+  {
+    "id": "416",
+    "word": "fee",
+    "type": "n",
+    "phonetic": "/fiː/",
+    "meaning": "Lệ phí, phí dịch vụ",
+    "example": "There is a small fee for using the room.",
+    "exampleMeaning": "Có một khoản phí nhỏ cho việc sử dụng phòng."
+  },
+  {
+    "id": "417",
+    "word": "malfunction",
+    "type": "n",
+    "phonetic": "/ˌmælˈfʌŋkʃn/",
+    "meaning": "Sự cố, trục trặc",
+    "example": "The elevator stopped due to a malfunction.",
+    "exampleMeaning": "Thang máy ngừng hoạt động do trục trặc."
+  },
+  {
+    "id": "418",
+    "word": "account",
+    "type": "n",
+    "phonetic": "/əˈkaʊnt/",
+    "meaning": "Tài khoản",
+    "example": "Please check your bank account balance.",
+    "exampleMeaning": "Vui lòng kiểm tra số dư tài khoản ngân hàng của bạn."
+  },
+  {
+    "id": "419",
+    "word": "last-minute",
+    "type": "adj",
+    "phonetic": "/ˌlɑːst ˈmɪnɪt/",
+    "meaning": "Phút chót",
+    "example": "The last-minute change caused confusion.",
+    "exampleMeaning": "Sự thay đổi phút chót đã gây ra bối rối."
+  },
+  {
+    "id": "420",
+    "word": "luncheon",
+    "type": "n",
+    "phonetic": "/ˈlʌntʃən/",
+    "meaning": "Tiệc trưa",
+    "example": "The company held a luncheon for investors.",
+    "exampleMeaning": "Công ty đã tổ chức một bữa tiệc trưa cho các nhà đầu tư."
+  },
+  {
+    "id": "421",
+    "word": "résumé",
+    "type": "n",
+    "phonetic": "/ˈrezjumeɪ/",
+    "meaning": "Sơ yếu lý lịch (CV)",
+    "example": "Please attach your résumé to the application.",
+    "exampleMeaning": "Vui lòng đính kèm sơ yếu lý lịch của bạn vào đơn xin việc."
+  },
+  {
+    "id": "422",
+    "word": "construction",
+    "type": "n",
+    "phonetic": "/kənˈstrʌkʃn/",
+    "meaning": "Sự xây dựng, công trình",
+    "example": "The construction of the building starts next month.",
+    "exampleMeaning": "Việc xây dựng tòa nhà bắt đầu vào tháng tới."
+  },
+  {
+    "id": "423",
+    "word": "present",
+    "type": "v",
+    "phonetic": "/prɪˈzent/",
+    "meaning": "Trình bày, thuyết trình",
+    "example": "He will present his findings today.",
+    "exampleMeaning": "Anh ấy sẽ trình bày những phát hiện của mình hôm nay."
+  },
+  {
+    "id": "424",
+    "word": "monitor",
+    "type": "n",
+    "phonetic": "/ˈmɒnɪtə(r)/",
+    "meaning": "Màn hình",
+    "example": "He bought a new computer monitor.",
+    "exampleMeaning": "Anh ấy đã mua một màn hình máy tính mới."
+  },
+  {
+    "id": "425",
+    "word": "bulletin board",
+    "type": "n",
+    "phonetic": "/ˈbʊlətɪn bɔːd/",
+    "meaning": "Bảng thông báo",
+    "example": "Check the bulletin board for news.",
+    "exampleMeaning": "Hãy kiểm tra bảng thông báo để biết tin tức."
+  },
+  {
+    "id": "426",
+    "word": "assist",
+    "type": "v",
+    "phonetic": "/əˈsɪst/",
+    "meaning": "Hỗ trợ, giúp đỡ",
+    "example": "She can assist you with the paperwork.",
+    "exampleMeaning": "Cô ấy có thể hỗ trợ bạn làm giấy tờ."
+  },
+  {
+    "id": "427",
+    "word": "coworker",
+    "type": "n",
+    "phonetic": "/ˈkəʊwɜːkə(r)/",
+    "meaning": "Đồng nghiệp",
+    "example": "I went to lunch with a coworker.",
+    "exampleMeaning": "Tôi đã đi ăn trưa với một đồng nghiệp."
+  },
+  {
+    "id": "428",
+    "word": "management",
+    "type": "n",
+    "phonetic": "/ˈmænɪdʒmənt/",
+    "meaning": "Ban quản lý, sự quản lý",
+    "example": "The management team is meeting today.",
+    "exampleMeaning": "Ban quản lý đang họp hôm nay."
+  },
+  {
+    "id": "429",
+    "word": "location",
+    "type": "n",
+    "phonetic": "/ləʊˈkeɪʃn/",
+    "meaning": "Vị trí, địa điểm",
+    "example": "The new store has a great location.",
+    "exampleMeaning": "Cửa hàng mới có một vị trí tuyệt vời."
+  },
+  {
+    "id": "430",
+    "word": "value",
+    "type": "n",
+    "phonetic": "/ˈvæljuː/",
+    "meaning": "Giá trị",
+    "example": "The value of the property has increased.",
+    "exampleMeaning": "Giá trị của tài sản đã tăng lên."
+  },
+  {
+    "id": "431",
+    "word": "refund",
+    "type": "n",
+    "phonetic": "/ˈriːfʌnd/",
+    "meaning": "Tiền hoàn lại",
+    "example": "He demanded a full refund.",
+    "exampleMeaning": "Anh ta yêu cầu hoàn lại toàn bộ tiền."
+  },
+  {
+    "id": "432",
+    "word": "postpone",
+    "type": "v",
+    "phonetic": "/pəˈspəʊn/",
+    "meaning": "Hoãn lại",
+    "example": "We had to postpone the event.",
+    "exampleMeaning": "Chúng tôi đã phải hoãn sự kiện lại."
+  },
+  {
+    "id": "433",
+    "word": "review",
+    "type": "v",
+    "phonetic": "/rɪˈvjuː/",
+    "meaning": "Xem xét, đánh giá",
+    "example": "Please review the document carefully.",
+    "exampleMeaning": "Vui lòng xem xét tài liệu cẩn thận."
+  },
+  {
+    "id": "434",
+    "word": "agenda",
+    "type": "n",
+    "phonetic": "/əˈdʒendə/",
+    "meaning": "Chương trình nghị sự",
+    "example": "What is on the agenda for today?",
+    "exampleMeaning": "Chương trình nghị sự cho hôm nay có gì?"
+  },
+  {
+    "id": "435",
+    "word": "stock",
+    "type": "n",
+    "phonetic": "/stɒk/",
+    "meaning": "Cổ phiếu, hàng tồn kho",
+    "example": "We need to check the stock level.",
+    "exampleMeaning": "Chúng ta cần kiểm tra mức hàng tồn kho."
+  },
+  {
+    "id": "436",
+    "word": "accommodate",
+    "type": "v",
+    "phonetic": "/əˈkɒmədeɪt/",
+    "meaning": "Cung cấp chỗ ở, đáp ứng",
+    "example": "The hotel can accommodate 500 guests.",
+    "exampleMeaning": "Khách sạn có thể chứa 500 khách."
+  },
+  {
+    "id": "437",
+    "word": "assure",
+    "type": "v",
+    "phonetic": "/əˈʃʊə(r)/",
+    "meaning": "Đảm bảo, cam đoan",
+    "example": "I assure you that it will be ready.",
+    "exampleMeaning": "Tôi đảm bảo với bạn rằng nó sẽ sẵn sàng."
+  },
+  {
+    "id": "438",
+    "word": "accessible",
+    "type": "adj",
+    "phonetic": "/əkˈsesəbl/",
+    "meaning": "Có thể tiếp cận được",
+    "example": "The building is accessible by wheelchair.",
+    "exampleMeaning": "Tòa nhà có thể tiếp cận bằng xe lăn."
+  },
+  {
+    "id": "439",
+    "word": "detail",
+    "type": "n",
+    "phonetic": "/ˈdiːteɪl/",
+    "meaning": "Chi tiết",
+    "example": "Pay attention to every detail.",
+    "exampleMeaning": "Hãy chú ý đến từng chi tiết."
+  },
+  {
+    "id": "440",
+    "word": "proposal",
+    "type": "n",
+    "phonetic": "/prəˈpəʊzl/",
+    "meaning": "Bản đề xuất",
+    "example": "He submitted a proposal for the project.",
+    "exampleMeaning": "Anh ấy đã nộp một bản đề xuất cho dự án."
+  },
+  {
+    "id": "441",
+    "word": "equip",
+    "type": "v",
+    "phonetic": "/ɪˈkwɪp/",
+    "meaning": "Trang bị",
+    "example": "The lab is equipped with modern tools.",
+    "exampleMeaning": "Phòng thí nghiệm được trang bị các công cụ hiện đại."
+  },
+  {
+    "id": "442",
+    "word": "share",
+    "type": "v",
+    "phonetic": "/ʃeə(r)/",
+    "meaning": "Chia sẻ, cổ phần",
+    "example": "Please share your ideas with the team.",
+    "exampleMeaning": "Vui lòng chia sẻ ý tưởng của bạn với nhóm."
+  },
+  {
+    "id": "443",
+    "word": "progress",
+    "type": "n",
+    "phonetic": "/ˈprəʊɡres/",
+    "meaning": "Sự tiến bộ, tiến triển",
+    "example": "We are making good progress.",
+    "exampleMeaning": "Chúng ta đang có những tiến triển tốt."
+  },
+  {
+    "id": "444",
+    "word": "at short notice",
+    "type": "idiom",
+    "phonetic": "/ət ʃɔːt ˈnəʊtɪs/",
+    "meaning": "Trong thời gian gấp rút, báo gấp",
+    "example": "Thank you for coming at short notice.",
+    "exampleMeaning": "Cảm ơn bạn đã đến dù được báo gấp."
+  },
+  {
+    "id": "445",
+    "word": "solution",
+    "type": "n",
+    "phonetic": "/səˈluːʃn/",
+    "meaning": "Giải pháp",
+    "example": "We need to find a solution quickly.",
+    "exampleMeaning": "Chúng ta cần tìm giải pháp nhanh chóng."
+  },
+  {
+    "id": "446",
+    "word": "option",
+    "type": "n",
+    "phonetic": "/ˈɒpʃn/",
+    "meaning": "Sự lựa chọn",
+    "example": "We have several options to consider.",
+    "exampleMeaning": "Chúng tôi có một vài lựa chọn để cân nhắc."
+  },
+  {
+    "id": "447",
+    "word": "patron",
+    "type": "n",
+    "phonetic": "/ˈpeɪtrən/",
+    "meaning": "Khách hàng quen, người bảo trợ",
+    "example": "He is a regular patron of this restaurant.",
+    "exampleMeaning": "Ông ấy là khách quen của nhà hàng này."
+  },
+  {
+    "id": "448",
+    "word": "trade show",
+    "type": "n",
+    "phonetic": "/treɪd ʃəʊ/",
+    "meaning": "Hội chợ thương mại",
+    "example": "We attended a trade show in Las Vegas.",
+    "exampleMeaning": "Chúng tôi đã tham dự một hội chợ thương mại ở Las Vegas."
+  },
+  {
+    "id": "449",
+    "word": "separate",
+    "type": "adj",
+    "phonetic": "/ˈseprət/",
+    "meaning": "Riêng biệt, tách rời",
+    "example": "Use a separate sheet of paper.",
+    "exampleMeaning": "Sử dụng một tờ giấy riêng biệt."
+  },
+  {
+    "id": "450",
+    "word": "advertisement",
+    "type": "n",
+    "phonetic": "/ədˈvɜːtɪsmənt/",
+    "meaning": "Quảng cáo",
+    "example": "I saw an advertisement for the job.",
+    "exampleMeaning": "Tôi đã thấy một quảng cáo cho công việc đó."
+  },
+  {
+    "id": "451",
+    "word": "satisfaction",
+    "type": "n",
+    "phonetic": "/ˌsætɪsˈfækʃn/",
+    "meaning": "Sự hài lòng",
+    "example": "Customer satisfaction is our priority.",
+    "exampleMeaning": "Sự hài lòng của khách hàng là ưu tiên của chúng tôi."
+  },
+  {
+    "id": "452",
+    "word": "stress",
+    "type": "n",
+    "phonetic": "/stres/",
+    "meaning": "Sự căng thẳng, áp lực",
+    "example": "He is under a lot of stress.",
+    "exampleMeaning": "Anh ấy đang chịu rất nhiều áp lực."
+  },
+  {
+    "id": "453",
+    "word": "permit",
+    "type": "v, n",
+    "phonetic": "/pəˈmɪt/",
+    "meaning": "Cho phép (v); giấy phép (n)",
+    "example": "Photography is not permitted here.",
+    "exampleMeaning": "Chụp ảnh không được phép ở đây."
+  },
+  {
+    "id": "454",
+    "word": "government",
+    "type": "n",
+    "phonetic": "/ˈɡʌvnmənt/",
+    "meaning": "Chính phủ",
+    "example": "The government announced new taxes.",
+    "exampleMeaning": "Chính phủ đã công bố các loại thuế mới."
+  },
+  {
+    "id": "455",
+    "word": "forecast",
+    "type": "n",
+    "phonetic": "/ˈfɔːkɑːst/",
+    "meaning": "Dự báo",
+    "example": "The weather forecast predicts rain.",
+    "exampleMeaning": "Dự báo thời tiết báo sẽ có mưa."
+  },
+  {
+    "id": "456",
+    "word": "ladder",
+    "type": "n",
+    "phonetic": "/ˈlædə(r)/",
+    "meaning": "Cái thang",
+    "example": "The painter needs a ladder to reach the ceiling.",
+    "exampleMeaning": "Thợ sơn cần một cái thang để với tới trần nhà."
+  },
+  {
+    "id": "457",
+    "word": "light fixture",
+    "type": "n",
+    "phonetic": "/laɪt ˈfɪkstʃə(r)/",
+    "meaning": "Bộ đèn, thiết bị chiếu sáng",
+    "example": "The light fixture needs a new bulb.",
+    "exampleMeaning": "Bộ đèn cần một bóng đèn mới."
+  },
+  {
+    "id": "458",
+    "word": "trim",
+    "type": "v",
+    "phonetic": "/trɪm/",
+    "meaning": "Cắt tỉa",
+    "example": "We need to trim the hedges.",
+    "exampleMeaning": "Chúng ta cần cắt tỉa hàng rào."
+  },
+  {
+    "id": "459",
+    "word": "hang",
+    "type": "v",
+    "phonetic": "/hæŋ/",
+    "meaning": "Treo",
+    "example": "Don't forget to hang your coat.",
+    "exampleMeaning": "Đừng quên treo áo khoác của bạn."
+  },
+  {
+    "id": "460",
+    "word": "cover",
+    "type": "v",
+    "phonetic": "/ˈkʌvə(r)/",
+    "meaning": "Che phủ, bao phủ",
+    "example": "They covered the furniture to protect it.",
+    "exampleMeaning": "Họ đã che phủ đồ đạc để bảo vệ nó."
+  },
+  {
+    "id": "461",
+    "word": "assistant",
+    "type": "n",
+    "phonetic": "/əˈsɪstənt/",
+    "meaning": "Trợ lý",
+    "example": "The manager's assistant handles emails.",
+    "exampleMeaning": "Trợ lý của quản lý xử lý các email."
+  },
+  {
+    "id": "462",
+    "word": "regulation",
+    "type": "n",
+    "phonetic": "/ˌreɡjuˈleɪʃn/",
+    "meaning": "Quy định",
+    "example": "Safety regulations are strictly enforced.",
+    "exampleMeaning": "Các quy định an toàn được thực thi nghiêm ngặt."
+  },
+  {
+    "id": "463",
+    "word": "round-trip",
+    "type": "n",
+    "phonetic": "/ˌraʊnd ˈtrɪp/",
+    "meaning": "Chuyến đi khứ hồi",
+    "example": "I booked a round-trip ticket.",
+    "exampleMeaning": "Tôi đã đặt vé khứ hồi."
+  },
+  {
+    "id": "464",
+    "word": "security",
+    "type": "n",
+    "phonetic": "/sɪˈkjʊərəti/",
+    "meaning": "An ninh",
+    "example": "Security checked our bags.",
+    "exampleMeaning": "An ninh đã kiểm tra túi của chúng tôi."
+  },
+  {
+    "id": "465",
+    "word": "flyer",
+    "type": "n",
+    "phonetic": "/ˈflaɪə(r)/",
+    "meaning": "Tờ rơi",
+    "example": "We handed out flyers for the event.",
+    "exampleMeaning": "Chúng tôi đã phát tờ rơi cho sự kiện."
+  },
+  {
+    "id": "466",
+    "word": "professional",
+    "type": "adj",
+    "phonetic": "/prəˈfeʃənl/",
+    "meaning": "Chuyên nghiệp",
+    "example": "She is very professional.",
+    "exampleMeaning": "Cô ấy rất chuyên nghiệp."
+  },
+  {
+    "id": "467",
+    "word": "official",
+    "type": "adj",
+    "phonetic": "/əˈfɪʃl/",
+    "meaning": "Chính thức",
+    "example": "The official results will be published tomorrow.",
+    "exampleMeaning": "Kết quả chính thức sẽ được công bố vào ngày mai."
+  },
+  {
+    "id": "468",
+    "word": "role",
+    "type": "n",
+    "phonetic": "/rəʊl/",
+    "meaning": "Vai trò",
+    "example": "His role is to manage clients.",
+    "exampleMeaning": "Vai trò của anh ấy là quản lý khách hàng."
+  },
+  {
+    "id": "469",
+    "word": "responsible",
+    "type": "adj",
+    "phonetic": "/rɪˈspɒnsəbl/",
+    "meaning": "Chịu trách nhiệm",
+    "example": "Who is responsible for this project?",
+    "exampleMeaning": "Ai chịu trách nhiệm cho dự án này?"
+  },
+  {
+    "id": "470",
+    "word": "various",
+    "type": "adj",
+    "phonetic": "/ˈveəriəs/",
+    "meaning": "Khác nhau, đa dạng",
+    "example": "We tried various methods.",
+    "exampleMeaning": "Chúng tôi đã thử nhiều phương pháp khác nhau."
+  },
+  {
+    "id": "471",
+    "word": "previous",
+    "type": "adj",
+    "phonetic": "/ˈpriːviəs/",
+    "meaning": "Trước đó",
+    "example": "In the previous chapter, we discussed grammar.",
+    "exampleMeaning": "Trong chương trước, chúng ta đã thảo luận về ngữ pháp."
+  },
+  {
+    "id": "472",
+    "word": "appreciate",
+    "type": "v",
+    "phonetic": "/əˈpriːʃieɪt/",
+    "meaning": "Trân trọng, cảm kích",
+    "example": "I appreciate your help.",
+    "exampleMeaning": "Tôi trân trọng sự giúp đỡ của bạn."
+  },
+  {
+    "id": "473",
+    "word": "grocery",
+    "type": "n",
+    "phonetic": "/ˈɡrəʊsəri/",
+    "meaning": "Tạp hóa",
+    "example": "I need to buy some groceries.",
+    "exampleMeaning": "Tôi cần mua một ít hàng tạp hóa."
+  },
+  {
+    "id": "474",
+    "word": "decision",
+    "type": "n",
+    "phonetic": "/dɪˈsɪʒn/",
+    "meaning": "Quyết định",
+    "example": "It was a difficult decision.",
+    "exampleMeaning": "Đó là một quyết định khó khăn."
+  },
+  {
+    "id": "475",
+    "word": "significantly",
+    "type": "adv",
+    "phonetic": "/sɪɡˈnɪfɪkəntli/",
+    "meaning": "Đáng kể",
+    "example": "Sales improved significantly.",
+    "exampleMeaning": "Doanh số đã cải thiện đáng kể."
+  },
+  {
+    "id": "476",
+    "word": "existing",
+    "type": "adj",
+    "phonetic": "/ɪɡˈzɪstɪŋ/",
+    "meaning": "Hiện có",
+    "example": "We will use existing resources.",
+    "exampleMeaning": "Chúng tôi sẽ sử dụng các nguồn lực hiện có."
+  },
+  {
+    "id": "477",
+    "word": "strategy",
+    "type": "n",
+    "phonetic": "/ˈstrætədʒi/",
+    "meaning": "Chiến lược",
+    "example": "They developed a new marketing strategy.",
+    "exampleMeaning": "Họ đã phát triển một chiến lược tiếp thị mới."
+  },
+  {
+    "id": "478",
+    "word": "bid",
+    "type": "n",
+    "phonetic": "/bɪd/",
+    "meaning": "Sự đấu thầu, bỏ thầu",
+    "example": "They submitted a bid for the contract.",
+    "exampleMeaning": "Họ đã nộp hồ sơ đấu thầu cho hợp đồng."
+  },
+  {
+    "id": "479",
+    "word": "seek",
+    "type": "v",
+    "phonetic": "/siːk/",
+    "meaning": "Tìm kiếm",
+    "example": "We are seeking new candidates.",
+    "exampleMeaning": "Chúng tôi đang tìm kiếm ứng viên mới."
+  },
+  {
+    "id": "480",
+    "word": "additional",
+    "type": "adj",
+    "phonetic": "/əˈdɪʃənl/",
+    "meaning": "Bổ sung, thêm",
+    "example": "We need additional staff.",
+    "exampleMeaning": "Chúng tôi cần thêm nhân viên."
+  },
+  {
+    "id": "481",
+    "word": "compare",
+    "type": "v",
+    "phonetic": "/kəmˈpeə(r)/",
+    "meaning": "So sánh",
+    "example": "Compare the two products.",
+    "exampleMeaning": "Hãy so sánh hai sản phẩm."
+  },
+  {
+    "id": "482",
+    "word": "reference",
+    "type": "n",
+    "phonetic": "/ˈrefrəns/",
+    "meaning": "Tài liệu tham khảo, sự tham chiếu",
+    "example": "Keep this for future reference.",
+    "exampleMeaning": "Hãy giữ cái này để tham khảo sau này."
+  },
+  {
+    "id": "483",
+    "word": "method",
+    "type": "n",
+    "phonetic": "/ˈmeθəd/",
+    "meaning": "Phương pháp",
+    "example": "This method is very effective.",
+    "exampleMeaning": "Phương pháp này rất hiệu quả."
+  },
+  {
+    "id": "484",
+    "word": "temporarily",
+    "type": "adv",
+    "phonetic": "/ˌtemprəˈrerəli/",
+    "meaning": "Tạm thời",
+    "example": "The shop is temporarily closed.",
+    "exampleMeaning": "Cửa hàng đang tạm thời đóng cửa."
+  },
+  {
+    "id": "485",
+    "word": "ensure",
+    "type": "v",
+    "phonetic": "/ɪnˈʃʊə(r)/",
+    "meaning": "Đảm bảo",
+    "example": "Ensure that the door is locked.",
+    "exampleMeaning": "Hãy đảm bảo rằng cửa đã được khóa."
+  },
+  {
+    "id": "486",
+    "word": "income",
+    "type": "n",
+    "phonetic": "/ˈɪnkʌm/",
+    "meaning": "Thu nhập",
+    "example": "He declared his income on the tax form.",
+    "exampleMeaning": "Anh ấy đã khai báo thu nhập trên tờ khai thuế."
+  },
+  {
+    "id": "487",
+    "word": "wheelbarrow",
+    "type": "n",
+    "phonetic": "/ˈwiːlbærəʊ/",
+    "meaning": "Xe rùa, xe cút kít",
+    "example": "The gardener used a wheelbarrow to move soil.",
+    "exampleMeaning": "Người làm vườn dùng xe rùa để chuyển đất."
+  },
+  {
+    "id": "488",
+    "word": "misplace",
+    "type": "v",
+    "phonetic": "/ˌmɪsˈpleɪs/",
+    "meaning": "Để thất lạc, đặt nhầm chỗ",
+    "example": "I misplaced my keys.",
+    "exampleMeaning": "Tôi đã để thất lạc chìa khóa."
+  },
+  {
+    "id": "489",
+    "word": "priority",
+    "type": "n",
+    "phonetic": "/praɪˈɒrəti/",
+    "meaning": "Sự ưu tiên",
+    "example": "Safety is our top priority.",
+    "exampleMeaning": "An toàn là ưu tiên hàng đầu của chúng tôi."
+  },
+  {
+    "id": "490",
+    "word": "initial",
+    "type": "adj",
+    "phonetic": "/ɪˈnɪʃl/",
+    "meaning": "Ban đầu",
+    "example": "My initial reaction was surprise.",
+    "exampleMeaning": "Phản ứng ban đầu của tôi là ngạc nhiên."
+  },
+  {
+    "id": "491",
+    "word": "in person",
+    "type": "idiom",
+    "phonetic": "/ɪn ˈpɜːsn/",
+    "meaning": "Trực tiếp, gặp mặt",
+    "example": "You must apply in person.",
+    "exampleMeaning": "Bạn phải nộp đơn trực tiếp."
+  },
+  {
+    "id": "492",
+    "word": "reward",
+    "type": "n",
+    "phonetic": "/rɪˈwɔːd/",
+    "meaning": "Phần thưởng",
+    "example": "There is a reward for finding the dog.",
+    "exampleMeaning": "Có một phần thưởng cho việc tìm thấy con chó."
+  },
+  {
+    "id": "493",
+    "word": "wrap up",
+    "type": "phr v",
+    "phonetic": "/ræp ʌp/",
+    "meaning": "Kết thúc, hoàn thành",
+    "example": "Let's wrap up the meeting.",
+    "exampleMeaning": "Chúng ta hãy kết thúc cuộc họp."
+  },
+  {
+    "id": "494",
+    "word": "complain",
+    "type": "v",
+    "phonetic": "/kəmˈpleɪn/",
+    "meaning": "Phàn nàn, khiếu nại",
+    "example": "Customers complained about the service.",
+    "exampleMeaning": "Khách hàng đã phàn nàn về dịch vụ."
+  },
+  {
+    "id": "495",
+    "word": "enthusiasm",
+    "type": "n",
+    "phonetic": "/ɪnˈθjuːziæzəm/",
+    "meaning": "Sự nhiệt tình, hăng hái",
+    "example": "He showed great enthusiasm for the project.",
+    "exampleMeaning": "Anh ấy thể hiện sự nhiệt tình lớn đối với dự án."
+  },
+  {
+    "id": "496",
+    "word": "interruption",
+    "type": "n",
+    "phonetic": "/ˌɪntəˈrʌpʃn/",
+    "meaning": "Sự gián đoạn",
+    "example": "Sorry for the interruption.",
+    "exampleMeaning": "Xin lỗi vì sự gián đoạn."
+  },
+  {
+    "id": "497",
+    "word": "connection",
+    "type": "n",
+    "phonetic": "/kəˈnekʃn/",
+    "meaning": "Sự kết nối, mối quan hệ",
+    "example": "The internet connection is slow.",
+    "exampleMeaning": "Kết nối internet bị chậm."
+  },
+  {
+    "id": "498",
+    "word": "take over",
+    "type": "phr v",
+    "phonetic": "/teɪk ˈəʊvə(r)/",
+    "meaning": "Tiếp quản, đảm nhận",
+    "example": "She will take over as manager next month.",
+    "exampleMeaning": "Cô ấy sẽ tiếp quản vị trí quản lý vào tháng tới."
+  },
+  {
+    "id": "499",
+    "word": "retire",
+    "type": "v",
+    "phonetic": "/rɪˈtaɪə(r)/",
+    "meaning": "Nghỉ hưu",
+    "example": "He plans to retire next year.",
+    "exampleMeaning": "Ông ấy dự định nghỉ hưu vào năm tới."
+  },
+  {
+    "id": "500",
+    "word": "incentive",
+    "type": "n",
+    "phonetic": "/ɪnˈsentɪv/",
+    "meaning": "Sự khích lệ, động cơ",
+    "example": "Bonus payments provide an incentive to work harder.",
+    "exampleMeaning": "Các khoản tiền thưởng tạo động lực để làm việc chăm chỉ hơn."
+  },
+  {
+    "id": "501",
+    "word": "transportation",
+    "type": "n",
+    "phonetic": "/ˌtrænspɔːˈteɪʃn/",
+    "meaning": "Giao thông vận tải",
+    "example": "Public transportation is convenient here.",
+    "exampleMeaning": "Giao thông công cộng ở đây rất thuận tiện."
+  },
+  {
+    "id": "502",
+    "word": "promote",
+    "type": "v",
+    "phonetic": "/prəˈməʊt/",
+    "meaning": "Thăng chức, quảng bá",
+    "example": "She was promoted to manager.",
+    "exampleMeaning": "Cô ấy đã được thăng chức làm quản lý."
+  },
+  {
+    "id": "503",
+    "word": "reduce",
+    "type": "v",
+    "phonetic": "/rɪˈdjuːs/",
+    "meaning": "Giảm bớt",
+    "example": "We need to reduce costs.",
+    "exampleMeaning": "Chúng ta cần giảm chi phí."
+  },
+  {
+    "id": "504",
+    "word": "immediately",
+    "type": "adv",
+    "phonetic": "/ɪˈmiːdiətli/",
+    "meaning": "Ngay lập tức",
+    "example": "Please call me immediately.",
+    "exampleMeaning": "Vui lòng gọi cho tôi ngay lập tức."
+  },
+  {
+    "id": "505",
+    "word": "allow",
+    "type": "v",
+    "phonetic": "/əˈlaʊ/",
+    "meaning": "Cho phép",
+    "example": "Smoking is not allowed here.",
+    "exampleMeaning": "Hút thuốc không được phép ở đây."
+  },
+  {
+    "id": "506",
+    "word": "belongings",
+    "type": "n",
+    "phonetic": "/bɪˈlɒŋɪŋz/",
+    "meaning": "Đồ dùng cá nhân",
+    "example": "Take your belongings with you.",
+    "exampleMeaning": "Hãy mang theo đồ dùng cá nhân của bạn."
+  },
+  {
+    "id": "507",
+    "word": "designated",
+    "type": "adj",
+    "phonetic": "/ˈdezɪɡneɪtɪd/",
+    "meaning": "Được chỉ định, dành riêng",
+    "example": "Park in designated areas only.",
+    "exampleMeaning": "Chỉ đậu xe ở những khu vực được chỉ định."
+  },
+  {
+    "id": "508",
+    "word": "financial",
+    "type": "adj",
+    "phonetic": "/faɪˈnænʃl/",
+    "meaning": "Thuộc về tài chính",
+    "example": "The company is facing financial difficulties.",
+    "exampleMeaning": "Công ty đang đối mặt với khó khăn tài chính."
+  },
+  {
+    "id": "509",
+    "word": "paycheck",
+    "type": "n",
+    "phonetic": "/ˈpeɪtʃek/",
+    "meaning": "Tiền lương, séc tiền lương",
+    "example": "I receive my paycheck on Fridays.",
+    "exampleMeaning": "Tôi nhận lương vào các ngày thứ Sáu."
+  },
+  {
+    "id": "510",
+    "word": "accept",
+    "type": "v",
+    "phonetic": "/əkˈsept/",
+    "meaning": "Chấp nhận",
+    "example": "They accepted our offer.",
+    "exampleMeaning": "Họ đã chấp nhận lời đề nghị của chúng tôi."
+  },
+  {
+    "id": "511",
+    "word": "approach",
+    "type": "n",
+    "phonetic": "/əˈprəʊtʃ/",
+    "meaning": "Cách tiếp cận, phương pháp",
+    "example": "We need a new approach to solve this.",
+    "exampleMeaning": "Chúng ta cần một cách tiếp cận mới để giải quyết việc này."
+  },
+  {
+    "id": "512",
+    "word": "affect",
+    "type": "v",
+    "phonetic": "/əˈfekt/",
+    "meaning": "Ảnh hưởng, tác động",
+    "example": "The weather affected our plans.",
+    "exampleMeaning": "Thời tiết đã ảnh hưởng đến kế hoạch của chúng tôi."
+  },
+  {
+    "id": "513",
+    "word": "congestion",
+    "type": "n",
+    "phonetic": "/kənˈdʒestʃən/",
+    "meaning": "Sự tắc nghẽn",
+    "example": "Traffic congestion is bad in the city center.",
+    "exampleMeaning": "Tắc nghẽn giao thông rất tệ ở trung tâm thành phố."
+  }
+]
