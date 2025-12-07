@@ -149,7 +149,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
     const accuracy = Math.round((correctCount / questions.length) * 100);
     
     return (
-      <div className="flex flex-col items-center justify-center min-h-[80vh] w-full animate-in fade-in zoom-in duration-500">
+      <div className="flex flex-col items-center justify-center min-h-[80vh] w-full animate-in fade-in zoom-in duration-500 py-4">
         <div className="bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-2xl text-center max-w-md w-full border-4 border-quizizz-purple">
           <div className="mb-6 inline-flex p-6 bg-yellow-100 rounded-full text-yellow-500">
             <Trophy size={64} />
@@ -179,7 +179,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
               onClick={onBack}
               className="w-full py-4 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-2 border-gray-200 dark:border-gray-600 rounded-xl font-bold hover:bg-gray-50 dark:hover:bg-gray-700 transition flex justify-center items-center gap-2"
             >
-              <Home size={20} /> Back to Dashboard
+              <Home size={20} /> Exit
             </button>
           </div>
         </div>
@@ -193,7 +193,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
     <div className="max-w-4xl mx-auto w-full px-4 py-6 flex flex-col h-screen max-h-[900px]">
       {/* Top Bar */}
       <div className="flex justify-between items-center mb-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm">
-        <button onClick={handleExit} className="flex items-center text-gray-600 dark:text-gray-300 hover:text-quizizz-purple font-semibold transition">
+        <button onClick={handleExit} className="flex items-center text-gray-600 dark:text-gray-300 hover:text-quizizz-purple dark:hover:text-quizizz-purple font-semibold transition">
           <ArrowLeft className="mr-2" size={20} /> Exit
         </button>
         

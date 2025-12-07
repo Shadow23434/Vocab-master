@@ -41,12 +41,27 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
   const [shuffledSets, setShuffledSets] = useState<Set<string>>(new Set());
   const [filterSourceId, setFilterSourceId] = useState<string>('all');
 
+  // Pagination State
+  const [libraryPage, setLibraryPage] = useState(1);
+  const [setupPage, setSetupPage] = useState(1);
+  const ITEMS_PER_PAGE = 50;
+  const SETS_PER_PAGE = 12;
+
   // Auto-open set selector when returning from quiz/flashcard
   React.useEffect(() => {
     if (returnToMode) {
       setSelectionMode(returnToMode);
     }
   }, [returnToMode]);
+
+  // Reset pagination when filters change
+  React.useEffect(() => {
+    setLibraryPage(1);
+  }, [searchTerm]);
+
+  React.useEffect(() => {
+    setSetupPage(1);
+  }, [filterSourceId, chunkSize]);
 
   // Update selected source if dataSources changes
   React.useEffect(() => {
@@ -267,6 +282,10 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
       });
     }
 
+    // Pagination Logic
+    const totalSetPages = Math.ceil(sets.length / SETS_PER_PAGE);
+    const paginatedSets = sets.slice((setupPage - 1) * SETS_PER_PAGE, setupPage * SETS_PER_PAGE);
+
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 animate-in fade-in duration-200">
         {/* Header */}
@@ -332,7 +351,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
                         className={`px-6 py-2 rounded-lg font-bold border-2 transition ${
                           chunkSize === size 
                             ? 'bg-quizizz-purple text-white border-quizizz-purple shadow-md' 
-                            : 'bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-quizizz-purple'
+                            : 'bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-quizizz-purple dark:hover:border-gray-500'
                         }`}
                       >
                         {size === -1 ? 'All Words' : size}
@@ -345,7 +364,9 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
 
           {/* Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {sets.map((set, idx) => {
+            {paginatedSets.map((set, idx) => {
+              // Calculate actual index based on page
+              const actualIdx = (setupPage - 1) * SETS_PER_PAGE + idx;
               const isCompleted = set.progressVal === 100;
               const isInProgress = set.progressVal > 0 && set.progressVal < 100;
               const isShuffled = shuffledSets.has(set.id);
@@ -361,7 +382,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl ${
                       isCompleted ? 'bg-green-100 text-quizizz-green' : (isInProgress ? 'bg-yellow-100 text-yellow-600' : 'bg-blue-100 text-quizizz-blue')
                     }`}>
-                      {idx + 1}
+                      {actualIdx + 1}
                     </div>
                     
                     <div className="flex items-center gap-2">
@@ -392,7 +413,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
                     </div>
                   </div>
                   
-                  <h3 className="font-bold text-gray-800 dark:text-white text-xl mb-1">Set {idx + 1}</h3>
+                  <h3 className="font-bold text-gray-800 dark:text-white text-xl mb-1">Set {actualIdx + 1}</h3>
                   <p className="text-gray-400 dark:text-gray-500 text-sm font-medium mb-4">
                     Words {set.startIndex + 1} - {set.endIndex}
                   </p>
@@ -426,6 +447,29 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
               );
             })}
           </div>
+
+          {/* Pagination Controls */}
+          {totalSetPages > 1 && (
+            <div className="flex justify-center items-center gap-4 mt-12">
+              <button
+                onClick={() => setSetupPage(p => Math.max(1, p - 1))}
+                disabled={setupPage === 1}
+                className="px-4 py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+              >
+                Previous
+              </button>
+              <span className="text-gray-600 dark:text-gray-400 font-bold">
+                Page {setupPage} of {totalSetPages}
+              </span>
+              <button
+                onClick={() => setSetupPage(p => Math.min(totalSetPages, p + 1))}
+                disabled={setupPage === totalSetPages}
+                className="px-4 py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+              >
+                Next
+              </button>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -462,12 +506,15 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
     item.meaning.toLowerCase().includes(searchTerm.toLowerCase())
   ), [data, searchTerm]);
 
+  const totalLibraryPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
+  const paginatedLibraryItems = filteredData.slice((libraryPage - 1) * ITEMS_PER_PAGE, libraryPage * ITEMS_PER_PAGE);
+
   if (selectionMode) {
     return renderSetSelector();
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-10 relative">
+    <div className="max-w-5xl mx-auto px-6 py-8 relative">
       <header className="flex flex-col md:flex-row justify-between items-center mb-12">
         <div className="mb-4 md:mb-0">
             <h1 className="text-4xl font-black text-gray-800 dark:text-white tracking-tight">
@@ -530,7 +577,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
               </div>
               <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-3">Flashcards</h2>
               <p className="text-gray-500 dark:text-gray-400 mb-8">Study efficiently with flip cards. Review meanings, phonetics, and examples.</p>
-              <span className="inline-block px-6 py-3 bg-quizizz-blue text-white rounded-full font-bold">Choose Set</span>
+              <span className="inline-block px-6 py-3 bg-quizizz-blue text-white rounded-full font-bold hover:bg-quizizz-blue/70 hover:text-white/80">Choose Set</span>
             </div>
           </div>
 
@@ -548,7 +595,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
               </div>
               <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-3">Take Quiz</h2>
               <p className="text-gray-500 dark:text-gray-400 mb-8">Test your knowledge with gamified multiple choice questions and earn points.</p>
-              <span className="inline-block px-6 py-3 bg-quizizz-green text-white rounded-full font-bold">Choose Set</span>
+              <span className="inline-block px-6 py-3 bg-quizizz-green text-white rounded-full font-bold hover:bg-quizizz-green/70 hover:text-white/80">Choose Set</span>
             </div>
           </div>
         </div>
@@ -572,8 +619,8 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
           </div>
 
           <div className="grid grid-cols-1 gap-4">
-            {filteredData.length > 0 ? (
-              filteredData.map((item) => (
+            {paginatedLibraryItems.length > 0 ? (
+              paginatedLibraryItems.map((item) => (
                 <div key={item.id} className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-1">
@@ -619,6 +666,29 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
               </div>
             )}
           </div>
+
+          {/* Library Pagination */}
+          {totalLibraryPages > 1 && (
+            <div className="flex justify-center items-center gap-4 mt-8 pb-8">
+              <button
+                onClick={() => setLibraryPage(p => Math.max(1, p - 1))}
+                disabled={libraryPage === 1}
+                className="px-4 py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+              >
+                Previous
+              </button>
+              <span className="text-gray-600 dark:text-gray-400 font-bold">
+                Page {libraryPage} of {totalLibraryPages}
+              </span>
+              <button
+                onClick={() => setLibraryPage(p => Math.min(totalLibraryPages, p + 1))}
+                disabled={libraryPage === totalLibraryPages}
+                className="px-4 py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+              >
+                Next
+              </button>
+            </div>
+          )}
         </div>
         )}
       </div>

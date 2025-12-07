@@ -83,7 +83,7 @@ const FlashcardMode: React.FC<FlashcardModeProps> = ({ data, onBack, onComplete 
       <div className="w-full flex justify-between items-center py-4">
         <button 
           onClick={handleExit}
-          className="flex items-center text-gray-600 dark:text-gray-300 hover:text-quizizz-purple font-semibold transition"
+          className="flex items-center text-gray-600 dark:text-gray-300 hover:text-quizizz-purple dark:hover:text-quizizz-purple font-semibold transition"
         >
           <ArrowLeft className="mr-2" size={20} /> Exit
         </button>
