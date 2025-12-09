@@ -115,6 +115,13 @@ const FlashcardMode: React.FC<FlashcardModeProps> = ({ data, onBack, onComplete 
           <div className="card-front bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700">
             <div className="flex flex-col items-center gap-4 p-8">
               <span className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">Term</span>
+              
+              {currentItem.imageUrl && (
+                  <div className="w-48 h-32 rounded-xl overflow-hidden mb-2 border border-gray-200 dark:border-gray-700 shadow-sm">
+                      <img src={currentItem.imageUrl} alt={currentItem.word} className="w-full h-full object-cover" />
+                  </div>
+              )}
+
               <h2 className="text-5xl font-bold text-quizizz-dark dark:text-white text-center">{currentItem.word}</h2>
               
               <div className="flex items-center gap-2 mt-2">

@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import defaultData from './normalize.json';
+import { loadTopics } from './utils/dataLoader';
 import { VocabItem, AppMode, ProgressState, DataSource } from './types';
 import Dashboard from './components/Dashboard';
 import FlashcardMode from './components/FlashcardMode';
@@ -37,10 +38,19 @@ const App: React.FC = () => {
     // 1. Load Vocab Data
     const savedSources = localStorage.getItem('vocabMasterSources');
     const savedLegacyData = localStorage.getItem('vocabMasterData');
+    
+    // Always load fresh topics from code to ensure we have latest images/thumbnails
+    const freshTopics = loadTopics();
 
     if (savedSources) {
       try {
-        setDataSources(JSON.parse(savedSources));
+        const parsedSources = JSON.parse(savedSources) as DataSource[];
+        
+        // Keep user-created sources (including default), but replace static topics with fresh ones
+        // This ensures thumbnails and new content in topics.json are always reflected
+        const userSources = parsedSources.filter(s => !s.id.startsWith('topic-'));
+        
+        setDataSources([...userSources, ...freshTopics]);
       } catch (e) {
         console.error("Failed to parse saved sources", e);
         // Fallback to default
@@ -49,7 +59,7 @@ const App: React.FC = () => {
           name: 'Default Vocabulary',
           items: defaultData as VocabItem[],
           createdAt: Date.now()
-        }]);
+        }, ...freshTopics]);
       }
     } else if (savedLegacyData) {
       // Migrate legacy data
@@ -60,7 +70,7 @@ const App: React.FC = () => {
           name: 'Imported Data',
           items: legacyItems,
           createdAt: Date.now()
-        }]);
+        }, ...freshTopics]);
         // Clear legacy key
         localStorage.removeItem('vocabMasterData');
       } catch (e) {
@@ -70,7 +80,7 @@ const App: React.FC = () => {
           name: 'Default Vocabulary',
           items: defaultData as VocabItem[],
           createdAt: Date.now()
-        }]);
+        }, ...freshTopics]);
       }
     } else {
       // First time load
@@ -79,7 +89,7 @@ const App: React.FC = () => {
         name: 'Default Vocabulary',
         items: defaultData as VocabItem[],
         createdAt: Date.now()
-      }]);
+      }, ...freshTopics]);
     }
 
     // 2. Load Progress

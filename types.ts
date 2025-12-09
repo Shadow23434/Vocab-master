@@ -8,6 +8,9 @@ export interface VocabItem {
   meaning: string;
   example: string;
   exampleMeaning: string;
+  imageUrl?: string;
+  topic?: string;
+  topicThumbnail?: string;
 }
 
 export interface DataSource {
@@ -15,6 +18,7 @@ export interface DataSource {
   name: string;
   items: VocabItem[];
   createdAt: number;
+  thumbnail?: string;
 }
 
 export enum AppMode {

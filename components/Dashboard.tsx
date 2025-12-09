@@ -40,6 +40,7 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
   const [chunkSize, setChunkSize] = useState<number>(10);
   const [shuffledSets, setShuffledSets] = useState<Set<string>>(new Set());
   const [filterSourceId, setFilterSourceId] = useState<string>('all');
+  const [showSourcesGrid, setShowSourcesGrid] = useState(true);
 
   // Pagination State
   const [libraryPage, setLibraryPage] = useState(1);
@@ -121,9 +122,17 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
       if (importFormat === 'csv') {
         parsed = parseCSV(importText);
       } else if (importFormat === 'json') {
-        parsed = JSON.parse(importText);
+        const rawParsed = JSON.parse(importText);
         // Basic validation
-        if (!Array.isArray(parsed)) throw new Error("JSON must be an array");
+        if (!Array.isArray(rawParsed)) throw new Error("JSON must be an array");
+
+        // Check if it's a list of topics (like topics.json) or a flat list of words
+        if (rawParsed.length > 0 && 'words' in rawParsed[0] && Array.isArray(rawParsed[0].words)) {
+            // Flatten topics into a single list of words
+            parsed = rawParsed.flatMap((topic: any) => topic.words);
+        } else {
+            parsed = rawParsed;
+        }
       } else if (importFormat === 'txt') {
         // Simple TXT parser: assumes blocks separated by empty lines
         // Format: Word: ... \n Phonetic: ... etc.
@@ -164,10 +173,12 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
         return;
       }
       
-      // Assign unique IDs if missing or collision avoidance
+      // Assign unique IDs to avoid collisions
+      const timestamp = Date.now();
       const newItems: VocabItem[] = parsed.map((item, idx) => ({
         ...item,
-        id: item.id || `imported-${Date.now()}-${idx}`
+        // Always generate a new ID for imported items to prevent collisions with existing data
+        id: `imported-${timestamp}-${idx}`
       }));
       
       onImport(selectedSourceId, newItems, newSourceName);
@@ -251,35 +262,95 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
   const renderSetSelector = () => {
     if (!selectionMode) return null;
 
-    const filteredDataForSets = filterSourceId === 'all' 
-        ? data 
-        : dataSources.find(s => s.id === filterSourceId)?.items || [];
+    // Group sources
+    const topicSources = dataSources.filter(s => s.id.startsWith('topic-'));
+    const otherSources = dataSources.filter(s => !s.id.startsWith('topic-'));
 
-    const totalItems = filteredDataForSets.length;
-    const sets = [];
-    const size = chunkSize === -1 ? totalItems : chunkSize;
+    // Determine sets based on filter
+    let sets: { startIndex: number; endIndex: number; id: string; progressVal: number; title?: string; itemCount?: number; sourceId?: string; imageUrl?: string }[] = [];
+    
+    if (filterSourceId === 'topics') {
+        const toeicSource = topicSources.find(s => s.id === 'topic-toeic-600');
+        
+        if (toeicSource) {
+            const groups: Record<string, { items: VocabItem[], thumbnail?: string }> = {};
+            
+            toeicSource.items.forEach(item => {
+                const t = item.topic || 'Unknown';
+                if (!groups[t]) {
+                    groups[t] = { items: [], thumbnail: item.topicThumbnail || item.imageUrl };
+                }
+                groups[t].items.push(item);
+            });
 
-    for (let i = 0; i < totalItems; i += size) {
-      const end = Math.min(i + size, totalItems);
-      // Use first vocab ID in the set to create stable setId
-      // This ensures progress is not lost when new data is imported
-      const firstVocabId = filteredDataForSets[i]?.id || String(i);
-      const setId = `set-${firstVocabId}-${size}`;
-      
-      let progressVal = 0;
+            sets = Object.entries(groups).map(([topicName, group]) => {
+                const setId = `topic-set-${topicName.replace(/\s+/g, '-').toLowerCase()}`;
+                let progressVal = 0;
+                if (selectionMode === AppMode.QUIZ) {
+                    progressVal = progress.quiz[setId] || 0;
+                } else {
+                    progressVal = progress.flashcard[setId] || 0;
+                }
+                
+                return {
+                    startIndex: 0,
+                    endIndex: group.items.length,
+                    id: setId,
+                    progressVal,
+                    title: topicName,
+                    itemCount: group.items.length,
+                    sourceId: toeicSource.id,
+                    imageUrl: group.thumbnail
+                };
+            });
+        } else {
+            sets = topicSources.map(topic => {
+                let progressVal = 0;
+                if (selectionMode === AppMode.QUIZ) {
+                    progressVal = progress.quiz[topic.id] || 0;
+                } else {
+                    progressVal = progress.flashcard[topic.id] || 0;
+                }
+                return {
+                    startIndex: 0,
+                    endIndex: topic.items.length,
+                    id: topic.id,
+                    progressVal,
+                    title: topic.name,
+                    itemCount: topic.items.length,
+                    sourceId: topic.id,
+                    imageUrl: topic.thumbnail
+                };
+            });
+        }
+    } else {
+        const filteredDataForSets = filterSourceId === 'all' 
+            ? data 
+            : dataSources.find(s => s.id === filterSourceId)?.items || [];
 
-      if (selectionMode === AppMode.QUIZ) {
-        progressVal = progress.quiz[setId] || 0;
-      } else {
-        progressVal = progress.flashcard[setId] || 0;
-      }
-      
-      sets.push({
-        startIndex: i,
-        endIndex: end,
-        id: setId,
-        progressVal
-      });
+        const totalItems = filteredDataForSets.length;
+        const size = chunkSize === -1 ? totalItems : chunkSize;
+
+        for (let i = 0; i < totalItems; i += size) {
+            const end = Math.min(i + size, totalItems);
+            const firstVocabId = filteredDataForSets[i]?.id || String(i);
+            const setId = `set-${firstVocabId}-${size}`;
+            
+            let progressVal = 0;
+            if (selectionMode === AppMode.QUIZ) {
+                progressVal = progress.quiz[setId] || 0;
+            } else {
+                progressVal = progress.flashcard[setId] || 0;
+            }
+            
+            sets.push({
+                startIndex: i,
+                endIndex: end,
+                id: setId,
+                progressVal,
+                itemCount: end - i
+            });
+        }
     }
 
     // Pagination Logic
@@ -298,155 +369,180 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
               <p className="text-gray-500 dark:text-gray-400 text-sm font-bold mt-1">Select a question set to begin</p>
             </div>
             <button 
-              onClick={() => setSelectionMode(null)}
+              onClick={() => {
+                  setSelectionMode(null);
+              }}
               className="px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 font-bold transition flex items-center gap-2"
             >
-              <ArrowLeft size={18} /> Back to Dashboard
+              <ArrowLeft size={18} /> Back
             </button>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 py-8">
-          {/* Controls */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 mb-8">
-            <div className="flex flex-col md:flex-row gap-8">
-              {/* Source Filter */}
-              <div className="flex-1">
-                  <label className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 block">Source</label>
-                  <div className="flex gap-2 flex-wrap">
-                      <button
-                          onClick={() => setFilterSourceId('all')}
-                          className={`px-4 py-2 rounded-lg font-bold text-sm border-2 transition ${
-                              filterSourceId === 'all'
-                              ? 'bg-quizizz-purple text-white border-quizizz-purple'
-                              : 'bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
-                          }`}
-                      >
-                          All Sources
-                      </button>
-                      {dataSources.map(source => (
-                          <button
-                              key={source.id}
-                              onClick={() => setFilterSourceId(source.id)}
-                              className={`px-4 py-2 rounded-lg font-bold text-sm border-2 transition ${
-                                  filterSourceId === source.id
-                                  ? 'bg-quizizz-purple text-white border-quizizz-purple'
-                                  : 'bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
-                              }`}
-                          >
-                              {source.name}
-                          </button>
-                      ))}
-                  </div>
-              </div>
+        <div className="max-w-7xl mx-auto px-6 py-4">
+            {/* Controls */}
+            <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-lg mb-8">
+                <div className="flex flex-col md:flex-row gap-8 justify-between items-start md:items-center">
+                    {/* Source Selection */}
+                    <div className="flex-1">
+                        <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">Source</label>
+                        <div className="flex gap-2 flex-wrap">
+                            <button
+                                onClick={() => setFilterSourceId('all')}
+                                className={`px-4 py-2 rounded-lg font-bold text-sm transition ${
+                                    filterSourceId === 'all' 
+                                    ? 'bg-quizizz-purple text-white shadow-lg' 
+                                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                                }`}
+                            >
+                                All Sources
+                            </button>
+                            
+                            {topicSources.length > 0 && (
+                                <button
+                                    onClick={() => setFilterSourceId('topics')}
+                                    className={`px-4 py-2 rounded-lg font-bold text-sm transition ${
+                                        filterSourceId === 'topics' 
+                                        ? 'bg-quizizz-purple text-white shadow-lg' 
+                                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                                    }`}
+                                >
+                                    Topics
+                                </button>
+                            )}
 
-              {/* Chunk Size */}
-              <div>
-                  <label className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 block">Questions per Set</label>
-                  <div className="flex gap-3 flex-wrap">
-                    {[10, 20, -1].map((size) => (
-                      <button
-                        key={size}
-                        onClick={() => setChunkSize(size)}
-                        className={`px-6 py-2 rounded-lg font-bold border-2 transition ${
-                          chunkSize === size 
-                            ? 'bg-quizizz-purple text-white border-quizizz-purple shadow-md' 
-                            : 'bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-quizizz-purple dark:hover:border-gray-500'
-                        }`}
-                      >
-                        {size === -1 ? 'All Words' : size}
-                      </button>
-                    ))}
-                  </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {paginatedSets.map((set, idx) => {
-              // Calculate actual index based on page
-              const actualIdx = (setupPage - 1) * SETS_PER_PAGE + idx;
-              const isCompleted = set.progressVal === 100;
-              const isInProgress = set.progressVal > 0 && set.progressVal < 100;
-              const isShuffled = shuffledSets.has(set.id);
-              
-              return (
-                <div
-                  key={set.id}
-                  className={`relative group bg-white dark:bg-gray-800 p-6 rounded-2xl border-2 text-left transition-all hover:-translate-y-1 hover:shadow-xl ${
-                    isCompleted ? 'border-quizizz-green' : (isInProgress ? 'border-quizizz-yellow' : 'border-gray-200 dark:border-gray-700 hover:border-quizizz-blue')
-                  }`}
-                >
-                  <div className="flex justify-between items-start mb-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl ${
-                      isCompleted ? 'bg-green-100 text-quizizz-green' : (isInProgress ? 'bg-yellow-100 text-yellow-600' : 'bg-blue-100 text-quizizz-blue')
-                    }`}>
-                      {actualIdx + 1}
-                    </div>
-                    
-                    <div className="flex items-center gap-2">
-                      {/* Shuffle Button */}
-                      <button
-                        onClick={(e) => toggleShuffle(set.id, e)}
-                        className={`p-2 rounded-lg transition-all ${isShuffled ? 'bg-quizizz-purple text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-gray-600 dark:hover:text-gray-300'}`}
-                        title={isShuffled ? 'Shuffle enabled' : 'Shuffle question order'}
-                      >
-                        <Shuffle size={18} />
-                      </button>
-                      
-                      {set.progressVal > 0 && (
-                        <div className={`flex items-center gap-1 font-bold ${isCompleted ? 'text-quizizz-green' : 'text-yellow-600'}`}>
-                          {selectionMode === AppMode.QUIZ ? (
-                              <>
-                                  <Star fill={isCompleted ? "#00b894" : "#fdcb6e"} className={isCompleted ? "text-quizizz-green" : "text-yellow-500"} size={16} />
-                                  <span>{set.progressVal}%</span>
-                              </>
-                          ) : (
-                              <>
-                                  {isCompleted ? <CheckCircle size={16} /> : <BookOpen size={16} />}
-                                  <span>{isCompleted ? 'Done' : `${set.progressVal}%`}</span>
-                              </>
-                          )}
+                            {otherSources.map(source => (
+                                <button
+                                    key={source.id}
+                                    onClick={() => setFilterSourceId(source.id)}
+                                    className={`px-4 py-2 rounded-lg font-bold text-sm transition ${
+                                        filterSourceId === source.id 
+                                        ? 'bg-quizizz-purple text-white shadow-lg' 
+                                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                                    }`}
+                                >
+                                    {source.name}
+                                </button>
+                            ))}
                         </div>
-                      )}
                     </div>
-                  </div>
-                  
-                  <h3 className="font-bold text-gray-800 dark:text-white text-xl mb-1">Set {actualIdx + 1}</h3>
-                  <p className="text-gray-400 dark:text-gray-500 text-sm font-medium mb-4">
-                    Words {set.startIndex + 1} - {set.endIndex}
-                  </p>
-                  {isShuffled && (
-                    <p className="text-quizizz-purple text-xs font-bold mb-3 flex items-center gap-1">
-                      <Shuffle size={12} /> Shuffled
-                    </p>
-                  )}
 
-                  <div className="w-full h-2.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden mb-5">
-                    <div 
-                      className={`h-full ${isCompleted ? 'bg-quizizz-green' : 'bg-quizizz-yellow'}`} 
-                      style={{ width: `${set.progressVal}%` }}
-                    ></div>
-                  </div>
-                  
-                  {/* Play Button */}
-                  <button
-                    onClick={() => {
-                      const filteredDataForSets = filterSourceId === 'all' 
-                          ? data 
-                          : dataSources.find(s => s.id === filterSourceId)?.items || [];
-                      const subset = filteredDataForSets.slice(set.startIndex, set.endIndex);
-                      onStartSession(subset, selectionMode!, set.id, isShuffled);
-                    }}
-                    className="w-full py-3 bg-quizizz-purple text-white rounded-xl font-bold hover:bg-purple-700 transition flex items-center justify-center gap-2 shadow-lg shadow-purple-200 dark:shadow-none"
-                  >
-                    <Play size={18} /> Start
-                  </button>
+                    {/* Questions Per Set Selection */}
+                    {filterSourceId !== 'topics' && (
+                        <div>
+                            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">Questions per Set</label>
+                            <div className="flex gap-2">
+                                {[10, 20, -1].map((size) => (
+                                <button
+                                    key={size}
+                                    onClick={() => setChunkSize(size)}
+                                    className={`px-4 py-2 rounded-lg font-bold text-sm transition ${
+                                    chunkSize === size 
+                                        ? 'bg-quizizz-purple text-white shadow-lg' 
+                                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                                    }`}
+                                >
+                                    {size === -1 ? 'All Words' : size}
+                                </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
-              );
-            })}
-          </div>
+            </div>
+
+            {/* Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {paginatedSets.map((set, idx) => {
+                const actualIdx = (setupPage - 1) * SETS_PER_PAGE + idx;
+                const isCompleted = set.progressVal === 100;
+                const isInProgress = set.progressVal > 0 && set.progressVal < 100;
+                const isShuffled = shuffledSets.has(set.id);
+                
+                return (
+                    <div
+                    key={set.id}
+                    className={`relative group bg-white dark:bg-gray-800 p-0 rounded-2xl border-2 text-left transition-all hover:-translate-y-1 hover:shadow-xl overflow-hidden flex flex-col ${
+                        isCompleted ? 'border-quizizz-green' : (isInProgress ? 'border-quizizz-yellow' : 'border-gray-200 dark:border-gray-700 hover:border-quizizz-blue')
+                    }`}
+                    >
+                    {set.imageUrl && (
+                        <div className="h-36 w-full overflow-hidden bg-gray-100 dark:bg-gray-900 relative shrink-0">
+                            <img src={set.imageUrl} alt={set.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-40"></div>
+                        </div>
+                    )}
+                    
+                    <div className="p-5 flex flex-col flex-1">
+                        <div className="flex justify-between items-start mb-4">
+                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-black text-lg shadow-sm ${
+                            isCompleted ? 'bg-green-100 text-quizizz-green' : (isInProgress ? 'bg-yellow-100 text-yellow-600' : 'bg-white dark:bg-gray-700 text-quizizz-blue dark:text-white border border-gray-100 dark:border-gray-600')
+                            }`}>
+                            {actualIdx + 1}
+                            </div>
+                            
+                            <div className="flex items-center gap-2">
+                            {set.progressVal > 0 && (
+                                <div className={`flex items-center gap-1 font-bold text-xs ${isCompleted ? 'text-quizizz-green' : 'text-yellow-600'}`}>
+                                    <span>{set.progressVal}%</span>
+                                </div>
+                            )}
+                            <button
+                                onClick={(e) => toggleShuffle(set.id, e)}
+                                className={`p-2 rounded-lg transition-all ${isShuffled ? 'bg-quizizz-purple text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-gray-600 dark:hover:text-gray-300'}`}
+                                title={isShuffled ? 'Shuffle enabled' : 'Shuffle question order'}
+                            >
+                                <Shuffle size={18} />
+                            </button>
+                            </div>
+                        </div>
+                        
+                        <div className="mb-4">
+                            <h3 className="font-bold text-gray-800 dark:text-white text-lg mb-1 line-clamp-1" title={set.title || `Set ${actualIdx + 1}`}>
+                                {set.title || `Set ${actualIdx + 1}`}
+                            </h3>
+                            <p className="text-gray-400 dark:text-gray-500 text-xs font-bold uppercase tracking-wide">
+                                {set.itemCount} words
+                            </p>
+                        </div>
+
+                        <div className="w-full h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden mb-5 mt-auto">
+                            <div 
+                            className={`h-full ${isCompleted ? 'bg-quizizz-green' : 'bg-quizizz-yellow'}`} 
+                            style={{ width: `${set.progressVal}%` }}
+                            ></div>
+                        </div>
+                        
+                        <button
+                            onClick={() => {
+                                let subset: VocabItem[] = [];
+                                if (filterSourceId === 'topics') {
+                                    if (set.id.startsWith('topic-set-')) {
+                                        const topicSource = dataSources.find(s => s.id === 'topic-toeic-600');
+                                        if (topicSource) {
+                                            subset = topicSource.items.filter(item => item.topic === set.title);
+                                        }
+                                    } else {
+                                        const topicSource = dataSources.find(s => s.id === set.id);
+                                        subset = topicSource ? topicSource.items : [];
+                                    }
+                                } else {
+                                    const filteredDataForSets = filterSourceId === 'all' 
+                                        ? data 
+                                        : dataSources.find(s => s.id === filterSourceId)?.items || [];
+                                    subset = filteredDataForSets.slice(set.startIndex, set.endIndex);
+                                }
+                                onStartSession(subset, selectionMode!, set.id, isShuffled);
+                            }}
+                            className="w-full py-3 bg-quizizz-purple text-white rounded-xl font-bold hover:bg-purple-700 transition flex items-center justify-center gap-2 shadow-lg shadow-purple-200 dark:shadow-none"
+                        >
+                            <Play size={18} /> Start
+                        </button>
+                    </div>
+                    </div>
+                );
+                })}
+            </div>
 
           {/* Pagination Controls */}
           {totalSetPages > 1 && (

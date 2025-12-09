@@ -190,9 +190,9 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
   const currentQ = questions[currentQIndex];
 
   return (
-    <div className="max-w-4xl mx-auto w-full px-4 py-6 flex flex-col h-screen max-h-[900px]">
+    <div className="max-w-4xl mx-auto w-full px-4 py-2 flex flex-col h-screen max-h-[900px]">
       {/* Top Bar */}
-      <div className="flex justify-between items-center mb-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm">
+      <div className="flex justify-between items-center mb-2 bg-white dark:bg-gray-800 p-2 rounded-xl shadow-sm">
         <button onClick={handleExit} className="flex items-center text-gray-600 dark:text-gray-300 hover:text-quizizz-purple dark:hover:text-quizizz-purple font-semibold transition">
           <ArrowLeft className="mr-2" size={20} /> Exit
         </button>
@@ -221,27 +221,33 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
       </div>
 
       {/* Question Area */}
-      <div className="flex-1 flex flex-col justify-center items-center mb-8">
-        <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 w-full text-center relative overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center items-center mb-4 min-h-0">
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 w-full text-center relative overflow-hidden flex flex-col justify-center h-full max-h-[400px]">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-quizizz-purple to-quizizz-blue"></div>
-            <p className="text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest text-sm mb-4">Select the correct meaning</p>
+            <p className="text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest text-sm mb-2">Select the correct meaning</p>
             
+            {currentQ.target.imageUrl && (
+                <div className="h-32 w-auto mx-auto rounded-xl overflow-hidden mb-2 border border-gray-200 dark:border-gray-700 shadow-sm inline-block">
+                    <img src={currentQ.target.imageUrl} alt={currentQ.target.word} className="h-full w-auto object-contain" />
+                </div>
+            )}
+
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-2">
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white">{currentQ.target.word}</h1>
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">{currentQ.target.word}</h1>
                 <div className="flex gap-2">
                   <button 
                     onClick={() => speak(currentQ.target.word)}
-                    className="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-quizizz-purple transition hover:scale-110 active:scale-90"
+                    className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-quizizz-purple transition hover:scale-110 active:scale-90"
                     title="Listen"
                   >
-                    <Volume2 size={28} />
+                    <Volume2 size={24} />
                   </button>
                   <button 
                     onClick={() => window.open(`/?search=${encodeURIComponent(currentQ.target.word)}`, '_blank')}
-                    className="p-3 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-blue-500 transition hover:scale-110 active:scale-90"
+                    className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-blue-500 transition hover:scale-110 active:scale-90"
                     title="Find in Library (New Tab)"
                   >
-                    <Search size={28} />
+                    <Search size={24} />
                   </button>
                 </div>
             </div>
@@ -258,7 +264,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
       </div>
 
       {/* Options Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-2">
         {currentQ.options.map((option, idx) => {
           let stateStyles = COLORS[idx % COLORS.length]; // Default state
           let icon = null;
@@ -286,7 +292,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
               key={option.id}
               onClick={() => handleOptionClick(option)}
               disabled={isAnswered}
-              className={`relative p-8 rounded-2xl text-xl font-bold shadow-md text-left transition-all h-32 flex items-center ${stateStyles}`}
+              className={`relative p-4 rounded-2xl text-lg font-bold shadow-md text-left transition-all min-h-[5rem] flex items-center ${stateStyles}`}
             >
               <span className="pr-8">{option.meaning}</span>
               {icon}
