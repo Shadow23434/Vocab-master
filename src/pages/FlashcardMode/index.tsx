@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { VocabItem } from '../types';
+import { VocabItem } from '../../types';
 import { ArrowLeft, ArrowRight, RotateCcw, Volume2, CheckCircle } from 'lucide-react';
-import { getTypeStyle } from '../utils/styleUtils';
+import { getTypeStyle } from '../../utils/styleUtils';
 
 interface FlashcardModeProps {
   data: VocabItem[];

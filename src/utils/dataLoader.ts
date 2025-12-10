@@ -1,4 +1,4 @@
-import topicsData from '../topics.json';
+import topicsData from '../data/topics.json';
 import { DataSource } from '../types';
 
 interface RawTopicWord {

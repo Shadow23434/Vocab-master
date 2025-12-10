@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
-import defaultData from './normalize.json';
+import defaultData from './data/normalize.json';
 import { loadTopics } from './utils/dataLoader';
 import { VocabItem, AppMode, ProgressState, DataSource } from './types';
-import Dashboard from './components/Dashboard';
-import FlashcardMode from './components/FlashcardMode';
-import QuizMode from './components/QuizMode';
+import Dashboard from './pages/Dashboard';
+import FlashcardMode from './pages/FlashcardMode';
+import QuizMode from './pages/QuizMode';
 import { useDarkMode } from './hooks/useDarkMode';
 
 const App: React.FC = () => {

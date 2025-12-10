@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { VocabItem } from '../types';
-import { shuffleArray, seededShuffleArray } from '../utils/csvParser';
+import { VocabItem } from '../../types';
+import { shuffleArray, seededShuffleArray } from '../../utils/csvParser';
 import confetti from 'canvas-confetti';
 import { Check, X, Trophy, RefreshCw, Home, Volume2, Search, ArrowLeft } from 'lucide-react';
-import { getTypeStyle } from '../utils/styleUtils';
+import { getTypeStyle } from '../../utils/styleUtils';
 
 interface QuizModeProps {
   data: VocabItem[];
