@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { VocabItem, AppMode, ProgressState, DataSource } from '../../types';
 import { DashboardHeader } from './components/DashboardHeader';
 import { TabNavigation } from './components/TabNavigation';
 import { PlayMode } from './components/PlayMode';
 import { LibraryMode } from './components/LibraryMode';
 import { DataMode } from './components/DataMode';
-import { SetSelector } from './components/SetSelector';
 
 interface DashboardProps {
   data: VocabItem[];
@@ -22,29 +22,31 @@ interface DashboardProps {
 }
 
 const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onStartSession, onImport, onClearData, onRenameSource, returnToMode, isDarkMode, toggleDarkMode, initialSearchTerm }) => {
-  const [activeTab, setActiveTab] = useState<'play' | 'library' | 'import'>(initialSearchTerm ? 'library' : 'play');
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  
+  const tabParam = searchParams.get('tab');
+  const activeTab = (tabParam === 'play' || tabParam === 'library' || tabParam === 'data') 
+    ? tabParam 
+    : (initialSearchTerm ? 'library' : 'play');
+
+  const setActiveTab = (tab: 'play' | 'library' | 'data') => {
+    setSearchParams(prev => {
+      const newParams = new URLSearchParams(prev);
+      newParams.set('tab', tab);
+      return newParams;
+    });
+  };
+
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm || '');
-  const [selectionMode, setSelectionMode] = useState<AppMode | null>(returnToMode || null);
 
   // Auto-open set selector when returning from quiz/flashcard
   React.useEffect(() => {
     if (returnToMode) {
-      setSelectionMode(returnToMode);
+      if (returnToMode === AppMode.QUIZ) navigate('/setup/quiz');
+      if (returnToMode === AppMode.FLASHCARD) navigate('/setup/flashcard');
     }
-  }, [returnToMode]);
-
-  if (selectionMode) {
-    return (
-      <SetSelector 
-        data={data}
-        dataSources={dataSources}
-        progress={progress}
-        selectionMode={selectionMode}
-        setSelectionMode={setSelectionMode}
-        onStartSession={onStartSession}
-      />
-    );
-  }
+  }, [returnToMode, navigate]);
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-8 relative">
@@ -59,8 +61,11 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
       <div className={activeTab === 'play' ? 'block' : 'hidden'}>
         <PlayMode 
           dataLength={data.length} 
-          setSelectionMode={setSelectionMode}
-          onNavigateToImport={() => setActiveTab('import')}
+          setSelectionMode={(mode) => {
+             if (mode === AppMode.QUIZ) navigate('/setup/quiz');
+             if (mode === AppMode.FLASHCARD) navigate('/setup/flashcard');
+          }}
+          onNavigateToImport={() => setActiveTab('data')}
           onClearData={() => onClearData()}
         />
       </div>
@@ -70,12 +75,12 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
           data={data} 
           searchTerm={searchTerm} 
           setSearchTerm={setSearchTerm}
-          onNavigateToImport={() => setActiveTab('import')}
+          onNavigateToImport={() => setActiveTab('data')}
           onClearData={() => onClearData()}
         />
       </div>
 
-      <div className={activeTab === 'import' ? 'block' : 'hidden'}>
+      <div className={activeTab === 'data' ? 'block' : 'hidden'}>
         <DataMode 
           data={data}
           dataSources={dataSources}

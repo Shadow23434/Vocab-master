@@ -1,16 +1,18 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import defaultData from './data/normalize.json';
 import { loadTopics } from './utils/dataLoader';
 import { VocabItem, AppMode, ProgressState, DataSource } from './types';
 import Dashboard from './pages/Dashboard';
 import FlashcardMode from './pages/FlashcardMode';
 import QuizMode from './pages/QuizMode';
+import SetupPage from './pages/Setup';
 import { useDarkMode } from './hooks/useDarkMode';
 
 const App: React.FC = () => {
+  const navigate = useNavigate();
   const [dataSources, setDataSources] = useState<DataSource[]>([]);
-  const [mode, setMode] = useState<AppMode>(AppMode.HOME);
   const [isLoading, setIsLoading] = useState(true);
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   
@@ -210,7 +212,16 @@ const App: React.FC = () => {
     setActiveSetId(setId);
     setActiveShuffle(shuffle);
     setReturnToMode(null); // Clear return mode when starting new session
-    setMode(targetMode);
+    
+    const routeId = setId || 'custom';
+
+    if (targetMode === AppMode.FLASHCARD) {
+      navigate(`/flashcards/${routeId}`);
+    } else if (targetMode === AppMode.QUIZ) {
+      navigate(`/quiz/${routeId}`);
+    } else {
+      navigate('/');
+    }
   };
 
   const handleQuizComplete = (score: number) => {
@@ -237,55 +248,31 @@ const App: React.FC = () => {
     }
   };
 
-  const renderContent = () => {
-    if (isLoading) {
-      return (
-        <div className="flex flex-col h-screen items-center justify-center bg-[#f2f2f2] dark:bg-gray-900 transition-colors duration-500">
-          <div className="mb-8 relative">
-             <div className="absolute inset-0 bg-quizizz-purple blur-2xl opacity-20 rounded-full animate-pulse"></div>
-             <h1 className="relative text-5xl font-black text-gray-800 dark:text-white tracking-tight">
-              Vocab<span className="text-quizizz-purple">Master</span>
-            </h1>
-          </div>
-          
-          <div className="flex items-center gap-3">
-            <div className="w-4 h-4 bg-quizizz-red rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-            <div className="w-4 h-4 bg-quizizz-blue rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-            <div className="w-4 h-4 bg-quizizz-green rounded-full animate-bounce"></div>
-          </div>
-          
-          <p className="mt-6 text-gray-500 dark:text-gray-400 font-medium animate-pulse">Preparing your learning space...</p>
+  if (isLoading) {
+    return (
+      <div className="flex flex-col h-screen items-center justify-center bg-[#f2f2f2] dark:bg-gray-900 transition-colors duration-500">
+        <div className="mb-8 relative">
+            <div className="absolute inset-0 bg-quizizz-purple blur-2xl opacity-20 rounded-full animate-pulse"></div>
+            <h1 className="relative text-5xl font-black text-gray-800 dark:text-white tracking-tight">
+            Vocab<span className="text-quizizz-purple">Master</span>
+          </h1>
         </div>
-      );
-    }
+        
+        <div className="flex items-center gap-3">
+          <div className="w-4 h-4 bg-quizizz-red rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+          <div className="w-4 h-4 bg-quizizz-blue rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+          <div className="w-4 h-4 bg-quizizz-green rounded-full animate-bounce"></div>
+        </div>
+        
+        <p className="mt-6 text-gray-500 dark:text-gray-400 font-medium animate-pulse">Preparing your learning space...</p>
+      </div>
+    );
+  }
 
-    switch (mode) {
-      case AppMode.FLASHCARD:
-        return (
-          <FlashcardMode 
-            data={activeData} 
-            onBack={() => {
-              setReturnToMode(AppMode.FLASHCARD);
-              setMode(AppMode.HOME);
-            }} 
-            onComplete={handleFlashcardComplete}
-          />
-        );
-      case AppMode.QUIZ:
-        return (
-          <QuizMode 
-            data={activeData} 
-            onBack={() => {
-              setReturnToMode(AppMode.QUIZ);
-              setMode(AppMode.HOME);
-            }}
-            onComplete={handleQuizComplete}
-            initialShuffle={activeShuffle}
-          />
-        );
-      case AppMode.HOME:
-      default:
-        return (
+  return (
+    <div className="min-h-screen bg-[#f2f2f2] dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-sans selection:bg-quizizz-purple selection:text-white">
+      <Routes>
+        <Route path="/" element={
           <Dashboard 
             data={allVocab}
             dataSources={dataSources}
@@ -299,13 +286,46 @@ const App: React.FC = () => {
             toggleDarkMode={toggleDarkMode}
             initialSearchTerm={initialSearchTerm}
           />
-        );
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-[#f2f2f2] dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-sans selection:bg-quizizz-purple selection:text-white">
-      {renderContent()}
+        } />
+        <Route path="/setup/:mode" element={
+          <SetupPage 
+            data={allVocab}
+            dataSources={dataSources}
+            progress={progress}
+            onStartSession={handleStartSession}
+            onCancel={() => setReturnToMode(null)}
+          />
+        } />
+        <Route path="/flashcards/:setId" element={
+           activeData.length > 0 ? (
+            <FlashcardMode 
+                data={activeData} 
+                onBack={() => {
+                  setReturnToMode(AppMode.FLASHCARD);
+                  navigate('/setup/flashcard');
+                }} 
+                onComplete={handleFlashcardComplete}
+            />
+           ) : <Navigate to="/" replace />
+        } />
+        <Route path="/flashcards" element={<Navigate to="/setup/flashcard" replace />} />
+        
+        <Route path="/quiz/:setId" element={
+           activeData.length > 0 ? (
+            <QuizMode 
+                data={activeData} 
+                onBack={() => {
+                  setReturnToMode(AppMode.QUIZ);
+                  navigate('/setup/quiz');
+                }}
+                onComplete={handleQuizComplete}
+                initialShuffle={activeShuffle}
+            />
+           ) : <Navigate to="/" replace />
+        } />
+        <Route path="/quiz" element={<Navigate to="/setup/quiz" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </div>
   );
 };

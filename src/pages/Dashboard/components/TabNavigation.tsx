@@ -2,8 +2,8 @@ import React from 'react';
 import { BookOpen, Database } from 'lucide-react';
 
 interface TabNavigationProps {
-  activeTab: 'play' | 'library' | 'import';
-  setActiveTab: (tab: 'play' | 'library' | 'import') => void;
+  activeTab: 'play' | 'library' | 'data';
+  setActiveTab: (tab: 'play' | 'library' | 'data') => void;
 }
 
 export const TabNavigation: React.FC<TabNavigationProps> = ({ activeTab, setActiveTab }) => {
@@ -23,8 +23,8 @@ export const TabNavigation: React.FC<TabNavigationProps> = ({ activeTab, setActi
            <BookOpen size={16} /> Library
          </button>
          <button 
-           onClick={() => setActiveTab('import')}
-           className={`px-6 py-2 rounded-lg font-bold transition flex items-center gap-2 ${activeTab === 'import' ? 'bg-quizizz-purple text-white shadow-md' : 'text-gray-500 hover:bg-gray-50'}`}
+           onClick={() => setActiveTab('data')}
+           className={`px-6 py-2 rounded-lg font-bold transition flex items-center gap-2 ${activeTab === 'data' ? 'bg-quizizz-purple text-white shadow-md' : 'text-gray-500 hover:bg-gray-50'}`}
          >
            <Database size={16} /> Data
          </button>
