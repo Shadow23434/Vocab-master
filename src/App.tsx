@@ -9,6 +9,8 @@ import FlashcardMode from './pages/FlashcardMode';
 import QuizMode from './pages/QuizMode';
 import SetupPage from './pages/Setup';
 import { useDarkMode } from './hooks/useDarkMode';
+import { SessionGuard } from './components/SessionGuard';
+import NotFound from './pages/NotFound';
 
 const App: React.FC = () => {
   const navigate = useNavigate();
@@ -25,6 +27,19 @@ const App: React.FC = () => {
   
   // Progress State
   const [progress, setProgress] = useState<ProgressState>({ quiz: {}, flashcard: {} });
+
+  // Setup State (Lifted from SetSelector to persist across navigation)
+  const [setupState, setSetupState] = useState<{
+    chunkSize: number;
+    shuffledSets: Set<string>;
+    filterSourceId: string;
+    setupPage: number;
+  }>({
+    chunkSize: 10,
+    shuffledSets: new Set(),
+    filterSourceId: 'all',
+    setupPage: 1
+  });
 
   // Check for URL params on mount
   useEffect(() => {
@@ -224,25 +239,27 @@ const App: React.FC = () => {
     }
   };
 
-  const handleQuizComplete = (score: number) => {
-    if (activeSetId) {
+  const handleQuizComplete = (score: number, setId?: string) => {
+    const targetSetId = setId || activeSetId;
+    if (targetSetId) {
       setProgress(prev => ({
         ...prev,
         quiz: {
             ...prev.quiz,
-            [activeSetId]: Math.max(score, prev.quiz[activeSetId] || 0)
+            [targetSetId]: Math.max(score, prev.quiz[targetSetId] || 0)
         }
       }));
     }
   };
 
-  const handleFlashcardComplete = (completionPercentage: number) => {
-    if (activeSetId) {
+  const handleFlashcardComplete = (completionPercentage: number, setId?: string) => {
+    const targetSetId = setId || activeSetId;
+    if (targetSetId) {
         setProgress(prev => ({
             ...prev,
             flashcard: {
                 ...prev.flashcard,
-                [activeSetId]: Math.max(completionPercentage, prev.flashcard[activeSetId] || 0)
+                [targetSetId]: Math.max(completionPercentage, prev.flashcard[targetSetId] || 0)
             }
         }));
     }
@@ -294,37 +311,43 @@ const App: React.FC = () => {
             progress={progress}
             onStartSession={handleStartSession}
             onCancel={() => setReturnToMode(null)}
+            setupState={setupState}
+            setSetupState={setSetupState}
           />
         } />
         <Route path="/flashcards/:setId" element={
-           activeData.length > 0 ? (
-            <FlashcardMode 
-                data={activeData} 
-                onBack={() => {
-                  setReturnToMode(AppMode.FLASHCARD);
-                  navigate('/setup/flashcard');
-                }} 
-                onComplete={handleFlashcardComplete}
-            />
-           ) : <Navigate to="/" replace />
+           <SessionGuard dataSources={dataSources} allVocab={allVocab}>
+              {(data, setId) => (
+                <FlashcardMode 
+                    data={data} 
+                    onBack={() => {
+                      setReturnToMode(AppMode.FLASHCARD);
+                      navigate('/setup/flashcard');
+                    }} 
+                    onComplete={(progress) => handleFlashcardComplete(progress, setId)}
+                />
+              )}
+           </SessionGuard>
         } />
         <Route path="/flashcards" element={<Navigate to="/setup/flashcard" replace />} />
         
         <Route path="/quiz/:setId" element={
-           activeData.length > 0 ? (
-            <QuizMode 
-                data={activeData} 
-                onBack={() => {
-                  setReturnToMode(AppMode.QUIZ);
-                  navigate('/setup/quiz');
-                }}
-                onComplete={handleQuizComplete}
-                initialShuffle={activeShuffle}
-            />
-           ) : <Navigate to="/" replace />
+           <SessionGuard dataSources={dataSources} allVocab={allVocab}>
+              {(data, setId) => (
+                <QuizMode 
+                    data={data} 
+                    onBack={() => {
+                      setReturnToMode(AppMode.QUIZ);
+                      navigate('/setup/quiz');
+                    }}
+                    onComplete={(score) => handleQuizComplete(score, setId)}
+                    initialShuffle={activeShuffle}
+                />
+              )}
+           </SessionGuard>
         } />
         <Route path="/quiz" element={<Navigate to="/setup/quiz" replace />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

@@ -9,9 +9,21 @@ interface SetupPageProps {
   progress: ProgressState;
   onStartSession: (items: VocabItem[], mode: AppMode, setId: string | null, shuffle?: boolean) => void;
   onCancel: () => void;
+  setupState: {
+    chunkSize: number;
+    shuffledSets: Set<string>;
+    filterSourceId: string;
+    setupPage: number;
+  };
+  setSetupState: React.Dispatch<React.SetStateAction<{
+    chunkSize: number;
+    shuffledSets: Set<string>;
+    filterSourceId: string;
+    setupPage: number;
+  }>>;
 }
 
-const SetupPage: React.FC<SetupPageProps> = ({ data, dataSources, progress, onStartSession, onCancel }) => {
+const SetupPage: React.FC<SetupPageProps> = ({ data, dataSources, progress, onStartSession, onCancel, setupState, setSetupState }) => {
   const { mode } = useParams<{ mode: string }>();
   const navigate = useNavigate();
 
@@ -41,6 +53,8 @@ const SetupPage: React.FC<SetupPageProps> = ({ data, dataSources, progress, onSt
       selectionMode={appMode}
       setSelectionMode={handleSetSelectionMode}
       onStartSession={onStartSession}
+      setupState={setupState}
+      setSetupState={setSetupState}
     />
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { VocabItem, DataSource, ProgressState, AppMode } from '../../../types';
 import { ArrowLeft, Shuffle, Play } from 'lucide-react';
 
@@ -9,29 +9,43 @@ interface SetSelectorProps {
   selectionMode: AppMode;
   setSelectionMode: (mode: AppMode | null) => void;
   onStartSession: (items: VocabItem[], mode: AppMode, setId: string | null, shuffle?: boolean) => void;
+  setupState: {
+    chunkSize: number;
+    shuffledSets: Set<string>;
+    filterSourceId: string;
+    setupPage: number;
+  };
+  setSetupState: React.Dispatch<React.SetStateAction<{
+    chunkSize: number;
+    shuffledSets: Set<string>;
+    filterSourceId: string;
+    setupPage: number;
+  }>>;
 }
 
-export const SetSelector: React.FC<SetSelectorProps> = ({ data, dataSources, progress, selectionMode, setSelectionMode, onStartSession }) => {
-  const [chunkSize, setChunkSize] = useState<number>(10);
-  const [shuffledSets, setShuffledSets] = useState<Set<string>>(new Set());
-  const [filterSourceId, setFilterSourceId] = useState<string>('all');
-  const [setupPage, setSetupPage] = useState(1);
+export const SetSelector: React.FC<SetSelectorProps> = ({ data, dataSources, progress, selectionMode, setSelectionMode, onStartSession, setupState, setSetupState }) => {
+  const { chunkSize, shuffledSets, filterSourceId, setupPage } = setupState;
   const SETS_PER_PAGE = 12;
 
-  useEffect(() => {
-    setSetupPage(1);
-  }, [filterSourceId, chunkSize]);
+  const setChunkSize = (size: number) => setSetupState(prev => ({ ...prev, chunkSize: size, setupPage: 1 }));
+  const setFilterSourceId = (id: string) => setSetupState(prev => ({ ...prev, filterSourceId: id, setupPage: 1 }));
+  const setSetupPage = (page: number | ((prev: number) => number)) => {
+      setSetupState(prev => {
+          const newPage = typeof page === 'function' ? page(prev.setupPage) : page;
+          return { ...prev, setupPage: newPage };
+      });
+  };
 
   const toggleShuffle = (setId: string, e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent click from bubbling to set card
-    setShuffledSets(prev => {
-      const newSet = new Set(prev);
+    setSetupState(prev => {
+      const newSet = new Set(prev.shuffledSets);
       if (newSet.has(setId)) {
         newSet.delete(setId);
       } else {
         newSet.add(setId);
       }
-      return newSet;
+      return { ...prev, shuffledSets: newSet };
     });
   };
 
@@ -154,7 +168,7 @@ export const SetSelector: React.FC<SetSelectorProps> = ({ data, dataSources, pro
 
       <div className="max-w-7xl mx-auto px-6 py-4">
           {/* Controls */}
-          <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-lg mb-8">
+          <div className="bg-white/80 dark:bg-gray-800 text-white rounded-2xl p-6 shadow-lg mb-8">
               <div className="flex flex-col md:flex-row gap-8 justify-between items-start md:items-center">
                   {/* Source Selection */}
                   <div className="flex-1">
@@ -165,7 +179,7 @@ export const SetSelector: React.FC<SetSelectorProps> = ({ data, dataSources, pro
                               className={`px-4 py-2 rounded-lg font-bold text-sm transition ${
                                   filterSourceId === 'all' 
                                   ? 'bg-quizizz-purple text-white shadow-lg' 
-                                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                                  : 'bg-gray-100 dark:bg-gray-700 text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
                               }`}
                           >
                               All Sources
@@ -177,7 +191,7 @@ export const SetSelector: React.FC<SetSelectorProps> = ({ data, dataSources, pro
                                   className={`px-4 py-2 rounded-lg font-bold text-sm transition ${
                                       filterSourceId === 'topics' 
                                       ? 'bg-quizizz-purple text-white shadow-lg' 
-                                      : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                                      : 'bg-gray-100 dark:bg-gray-700 text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
                                   }`}
                               >
                                   Topics
@@ -191,7 +205,7 @@ export const SetSelector: React.FC<SetSelectorProps> = ({ data, dataSources, pro
                                   className={`px-4 py-2 rounded-lg font-bold text-sm transition ${
                                       filterSourceId === source.id 
                                       ? 'bg-quizizz-purple text-white shadow-lg' 
-                                      : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                                      : 'bg-gray-100 dark:bg-gray-700 text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
                                   }`}
                               >
                                   {source.name}
@@ -212,7 +226,7 @@ export const SetSelector: React.FC<SetSelectorProps> = ({ data, dataSources, pro
                                   className={`px-4 py-2 rounded-lg font-bold text-sm transition ${
                                   chunkSize === size 
                                       ? 'bg-quizizz-purple text-white shadow-lg' 
-                                      : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                                      : 'bg-gray-100 dark:bg-gray-700 text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
                                   }`}
                               >
                                   {size === -1 ? 'All Words' : size}
