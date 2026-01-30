@@ -102,7 +102,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
         particleCount: 50,
         spread: 60,
         origin: { y: 0.8 },
-        colors: ['#00b894', '#fdcb6e']
+        colors: ['#00b894', '##E0A435']
       });
     } else {
       setStreak(0);
@@ -121,7 +121,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
 
   const fireFinaleConfetti = () => {
     const end = Date.now() + 1000;
-    const colors = ['#eb2f06', '#0984e3', '#fdcb6e', '#00b894'];
+    const colors = ['#eb2f06', '#0984e3', '##E0A435', '#00b894'];
     (function frame() {
       confetti({
         particleCount: 3,
