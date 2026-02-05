@@ -15,7 +15,7 @@ interface QuizModeProps {
 const COLORS = [
   'bg-quizizz-red border-b-[6px] border-b-[#b32405]',
   'bg-quizizz-blue border-b-[6px] border-b-[#066dbd]',
-  'bg-quizizz-yellow border-b-[6px] border-b-[#dcb160]',
+  'bg-quizizz-yellow border-b-[6px] border-b-[#e0a435]',
   'bg-quizizz-green border-b-[6px] border-b-[#009476]'
 ];
 
@@ -102,7 +102,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
         particleCount: 50,
         spread: 60,
         origin: { y: 0.8 },
-        colors: ['#00b894', '#E0A435']
+        colors: ['#00b894', '#e0a435']
       });
     } else {
       setStreak(0);
@@ -121,7 +121,7 @@ const QuizMode: React.FC<QuizModeProps> = ({ data, onBack, onComplete, initialSh
 
   const fireFinaleConfetti = () => {
     const end = Date.now() + 1000;
-    const colors = ['#eb2f06', '#0984e3', '#E0A435', '#00b894'];
+    const colors = ['#eb2f06', '#0984e3', '#e0a435', '#00b894'];
     (function frame() {
       confetti({
         particleCount: 3,
