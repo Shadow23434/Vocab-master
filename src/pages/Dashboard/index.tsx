@@ -15,13 +15,14 @@ interface DashboardProps {
   onImport: (sourceId: string, items: VocabItem[], newSourceName?: string) => void;
   onClearData: (sourceId?: string) => void;
   onRenameSource: (sourceId: string, newName: string) => void;
+  onProgressImport: (progress: ProgressState, mode: 'merge' | 'replace') => void;
   returnToMode?: AppMode | null;
   isDarkMode: boolean;
   toggleDarkMode: () => void;
   initialSearchTerm?: string;
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onStartSession, onImport, onClearData, onRenameSource, returnToMode, isDarkMode, toggleDarkMode, initialSearchTerm }) => {
+const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onStartSession, onImport, onClearData, onRenameSource, onProgressImport, returnToMode, isDarkMode, toggleDarkMode, initialSearchTerm }) => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   
@@ -87,6 +88,8 @@ const Dashboard: React.FC<DashboardProps> = ({ data, dataSources, progress, onSt
           onImport={onImport}
           onClearData={onClearData}
           onRenameSource={onRenameSource}
+          progress={progress}
+          onProgressImport={onProgressImport}
           onImportSuccess={() => setActiveTab('play')}
         />
       </div>

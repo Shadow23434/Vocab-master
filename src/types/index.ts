@@ -47,3 +47,10 @@ export interface ProgressState {
   quiz: Record<string, number>;      // setId -> score (0-100)
   flashcard: Record<string, number>; // setId -> completion % (0-100)
 }
+
+export interface ProgressExport {
+  version: string;
+  exportedAt: string;
+  app?: string;
+  progress: ProgressState;
+}

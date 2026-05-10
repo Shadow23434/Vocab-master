@@ -239,6 +239,26 @@ const App: React.FC = () => {
     }
   };
 
+  const mergeProgressRecords = (current: Record<string, number>, imported: Record<string, number>) => {
+    const merged = { ...current };
+    Object.entries(imported).forEach(([setId, value]) => {
+      merged[setId] = Math.max(value, merged[setId] || 0);
+    });
+    return merged;
+  };
+
+  const handleProgressImport = (importedProgress: ProgressState, mode: 'merge' | 'replace') => {
+    if (mode === 'replace') {
+      setProgress(importedProgress);
+      return;
+    }
+
+    setProgress(prev => ({
+      quiz: mergeProgressRecords(prev.quiz, importedProgress.quiz),
+      flashcard: mergeProgressRecords(prev.flashcard, importedProgress.flashcard)
+    }));
+  };
+
   const handleQuizComplete = (score: number, setId?: string) => {
     const targetSetId = setId || activeSetId;
     if (targetSetId) {
@@ -298,6 +318,7 @@ const App: React.FC = () => {
             onImport={handleImport}
             onClearData={handleClearData}
             onRenameSource={handleRenameSource}
+            onProgressImport={handleProgressImport}
             returnToMode={returnToMode}
             isDarkMode={isDarkMode}
             toggleDarkMode={toggleDarkMode}
